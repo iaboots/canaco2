@@ -1,0 +1,30 @@
+ h4 { color: #0664B8 ; }
+
+.single-blog > img {width:100% ;}
+.navbar-brand>img {
+   width: auto;
+   margin: 0 auto;
+
+   /* probably not needed anymore, but doesn't hurt */
+   -o-object-fit: contain;
+   object-fit: contain; 
+}
+.carousel-inner { text-align: center; }
+.carousel .item > img { display: inline-block; }
+
+@media only screen and (min-width: 59.6875em) {
+    /* tablets and desktop */
+    .navbar-brand>img {
+	   		max-height: 230%;
+	   		height: 240%;
+	   }
+	   .navbar-brand { margin-top: -10px;}
+}
+
+@media only screen and (max-width: 59.6875em) {
+	   .navbar-brand>img {
+	   		max-height: 120%;
+	   		height: 120%;
+	   }
+	   .navbar-brand { margin-top: 5px;}
+}

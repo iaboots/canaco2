@@ -1,0 +1,6 @@
+<?php
+	
+	$sitio = "Ofi-Opción";
+	
+
+?>

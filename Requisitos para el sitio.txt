@@ -1,0 +1,11 @@
+
+Relación de aspecto de las imágenes
+
+Imágenes del slider 
+Ancho: 3200 píxeles
+Alto:  1356 píxeles
+
+Imagenes de la página inicial para los eventos
+Ancho: 700 píxeles
+Alto:  460 píxeles
+

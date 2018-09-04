@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="92a1f801-8d37-4d0d-947f-0753757fb18a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventos/01.rallycoahuila.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventos/01.rallycoahuila.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventos/02.comidadeamistad.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventos/02.comidadeamistad.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventos/03.exporegresoacasa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/historia.html" beforeDir="false" afterPath="$PROJECT_DIR$/historia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/1111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/about-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/about-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/client.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/eventos/Comida_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/eventos/coahuila-1000-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/eventos/expo-regreso-clases-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/feature.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/featured-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/featured-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/footer-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/historia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo-canacoto-200x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/project.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/protfolio8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/afiliacioncanaco.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/bolsa-de-trabajo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/image-financial-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/image-legal-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/image-pase-turistico.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/nuevos_negocios.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/registro-siem.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/salas-de-capacitacion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/tramite_estatal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/tramite_federal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/servicios/tramite_municipal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/testimonials-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/01.tramitesmunicipales.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/01.tramitesmunicipales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/02.tramitesestatales.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/02.tramitesestatales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/03.tramitesfederales.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/03.tramitesfederales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/04.nuevosnegocios.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/04.nuevosnegocios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/05.capacitacionysalas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/06.bolsadetrabajo.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/06.bolsadetrabajo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/07.afiliacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/07.afiliacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/08.siem.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/08.siem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/09.asesorialegal.html" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/09.asesorialegal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/10.becasmipes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/11.paseturistico.html" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Hover Data Table</find>
+      <find>cargarContenido</find>
+      <find>example1</find>
+      <find>neral Form Elem</find>
+      <find>user2</find>
+      <find>recent</find>
+      <find>search</find>
+      <find>noticias</find>
+      <find>login</find>
+      <find>$user_password</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/admin/login.html" />
+        <option value="$PROJECT_DIR$/admin/socios.html" />
+        <option value="$PROJECT_DIR$/admin/user.html" />
+        <option value="$PROJECT_DIR$/admin/noticias.html" />
+        <option value="$PROJECT_DIR$/admin/popus.html" />
+        <option value="$PROJECT_DIR$/admin/dashboard.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/admin/login.php" />
+        <option value="$PROJECT_DIR$/sendbyemail.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/admin/bower_components/Flot/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/bootstrap-datepicker/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/bootstrap-daterangepicker/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/chart.js/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/ckeditor/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/eve-raphael/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/ion.rangeSlider/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/jquery-knob/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/jquery-slimscroll/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/jquery-ui/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/morris.js/package.json" />
+      <path value="$PROJECT_DIR$/admin/bower_components/select2/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="188" />
+    <option name="y" value="2" />
+    <option name="width" value="1400" />
+    <option name="height" value="820" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="canacodemo2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="canacodemo2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="canacodemo2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="canacodemo2" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92a1f801-8d37-4d0d-947f-0753757fb18a" name="Default" comment="" />
+      <created>1531838840761</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531838840761</updated>
+      <workItem from="1531838842105" duration="10907000" />
+      <workItem from="1531928417096" duration="792000" />
+      <workItem from="1531948312812" duration="293000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11992000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25642672" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14652">
+          <caret line="814" column="56" lean-forward="true" selection-start-line="814" selection-start-column="56" selection-end-line="814" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendbyemail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14652">
+          <caret line="814" column="64" selection-start-line="814" selection-start-column="64" selection-end-line="814" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inicio.html" />
+    <entry file="file://$PROJECT_DIR$/admin/pages/tables/data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/popus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="389" column="8" selection-start-line="389" selection-start-column="8" selection-end-line="389" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/dashboard.html" />
+    <entry file="file://$PROJECT_DIR$/admin/noticias.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/socios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.html" />
+    <entry file="file://$PROJECT_DIR$/sendbyemail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="814" column="56" selection-start-line="814" selection-start-column="56" selection-end-line="814" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
