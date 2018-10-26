@@ -20,21 +20,21 @@
   <title>CANACO 2 | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="static/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="static/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="static/dist/css/skins/skin-blue.min.css">
 
   <link rel="stylesheet" href="../css/toastr.min.css">
   <link rel="stylesheet" href="../css/animate.css">
@@ -93,7 +93,7 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/logo-canacoto-200xbbb.png" class="user-image" alt="User Image">
+              <img src="static/dist/img/logo-canacoto-200xbbb.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">
                 <?php  echo $usuario; ?>
@@ -102,7 +102,7 @@
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/logo-canacoto-200xbbb.png" class="img-circle" alt="User Image">
+                <img src="static/dist/img/logo-canacoto-200xbbb.png" class="img-circle" alt="User Image">
                 <p>
                   <?php  echo $usuario; ?>
                 </p>
@@ -132,7 +132,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="text-center image" style="height: 80px;">
-          <img src="dist/img/logo-canacoto-200xbbb.png" class="img-circle" alt="User Image" style="max-width: 6em;">
+          <img src="static/dist/img/logo-canacoto-200xbbb.png" class="img-circle" alt="User Image" style="max-width: 6em;">
         </div>
         <!--
         <div class="pull-left info">
@@ -243,24 +243,24 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="static/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
-<script src="dist/js/adminlte.min.js"></script>
+<script src="static/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="static/dist/js/adminlte.min.js"></script>
 
 <!-- CK Editor -->
-<script src="bower_components/ckeditor/ckeditor.js"></script>
+<script src="static/bower_components/ckeditor/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 <script src="../js/toastr.min.js"></script>
-<script src="dist/js/demo.js"></script>
+<script src="static/dist/js/demo.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
@@ -268,15 +268,13 @@
 
 <script language="JavaScript">
    
-    $(document).ready(function () {
+  $(document).ready(function () {
 
-        
-     function cargarContenido(pagina)
-      {
-          // cargamos la pagina pagina.html en el div contenido
-          $("#contenido").load(pagina, function () {
-              
-              $('#example1').DataTable({
+    function cargarContenido(pagina){
+        // cargamos la pagina pagina.html en el div contenido
+      $("#contenido").load(pagina, function () {
+
+        $('#example1').DataTable({
                   'paging'      : true,
                   'lengthChange': false,
                   'searching'   : false,
@@ -284,50 +282,54 @@
                   'info'        : true,
                   'autoWidth'   : false
               });
-              if (pagina == "noticias.html") {
-                  CKEDITOR.replace('editor1');
-                  //bootstrap WYSIHTML5 - text editor
-                  $('.textarea').wysihtml5();
-              }
-          });
-              
-          switch (pagina) {
+        
+          
+        if (pagina == "noticias.html") {
+            CKEDITOR.replace('editor1');
+            //bootstrap WYSIHTML5 - text editor
+            $('.textarea').wysihtml5();
+        }
+        switch (pagina) {
             case "<?php echo $page_config ?>":
               $('#titulo_header').html('Configuración');
               break;
             case "<?php echo $page_user ?>":
               $('#titulo_header').html('Nominados');
               break;
+            case "<?php echo $page_noti ?>":
+              $('#titulo_header').html('Noticias');
+              break;
+            case "<?php echo $page_result ?>":
+              $('#titulo_header').html('Resultados');
+              break;
           
             default:
               break;
           }
-
-          
-      }
-
-
-        $('#liCargarConfig').on('click', function(e){
-          var pagina = "<?php  echo $page_config; ?>";
-          cargarContenido(pagina);
-        });
-
-        $('#liCargarNominados').on('click', function(){
-          var pagina = "<?php echo $page_user; ?>";
-          cargarContenido(pagina);
-        });
-
-        $('#liCargarNoticias').on('click', function(){
-          var pagina = "<?php echo $page_noti;  ?>";
-          cargarContenido(pagina);
-        });
-
-        $('#liCargarResultados').on('click', function(){
-          var pagina = "<?php echo $page_result;  ?>";
-          cargarContenido(pagina);
-        })
-
+      });
+    };
+      
+    $('#liCargarConfig').on('click', function(){
+      var pagina = "<?php  echo $page_config; ?>";
+      cargarContenido(pagina);
     });
+
+    $('#liCargarNominados').on('click', function(){
+      var pagina = "<?php echo $page_user; ?>";
+      cargarContenido(pagina);
+    });
+
+    $('#liCargarNoticias').on('click', function(){
+      var pagina = "<?php echo $page_noti;  ?>";
+      cargarContenido(pagina);
+    });
+
+    $('#liCargarResultados').on('click', function(){
+      var pagina = "<?php echo $page_result;  ?>";
+      cargarContenido(pagina);
+    })
+
+  });
 </script>
 
 </body>

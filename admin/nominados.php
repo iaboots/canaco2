@@ -124,8 +124,8 @@
         <div class="text-left" style="display: none;">
           <hr>
           <label>Datos de Control:</label><br>
-          <label>Creación: {Fecha-Hora} por {usuario}</label><br>
-          <label>Última Modif: {Fecha-Hora} por {usuario}</label>
+          <label>Creación: <label id="modal-created"></label> por {usuario}</label><br>
+          <label>Última Modif: <label id="modal-modified"></label> por {usuario}</label>
         </div>
       </div>
     </div>
@@ -190,12 +190,16 @@
         var editable_email = table.row('.selected').data()[4];
         var editable_rfc = table.row('.selected').data()[5];
         var editable_estatus = table.row('.selected').data()[6];
+        var date_created = table.row('.selected').data()[7];
+        var date_modified = table.row('.selected').data()[8];
 
         modal.find('.modal-body #recipient-name').val(editable_nombre);
         modal.find('.modal-body #recipient-categoria').val(editable_categoria);
         modal.find('.modal-body #recipient-email').val(editable_email);
         modal.find('.modal-body #recipient-rfc').val(editable_rfc);
         modal.find('.modal-body #recipient-status').val(editable_estatus);
+        modal.find('.modal-footer #modal-created').text(date_created);
+        modal.find('.modal-footer #modal-modified').text(date_modified);
         
         modal.modal('show');
     });
@@ -207,22 +211,24 @@
             desactivar_botones_edicion();
 
             var id = table.row('.selected').data()[0];
-
             var url = 'eliminar_socio.php';
-            data = {'id': id}
 
-            $.post(url, data, function(data){
+            var data = {
+              'id': id
+            };
 
-              if (data == 'ok'){
-                alert('Eliminado')
-              } else {
-                alert('error al eliminar');
-              }
+            $.post(url, data, function(resp){
+                if (resp == 'ok'){
+                   table.row('.selected').remove().draw( false );
+                   toastr.success('<strong>Eliminado:</strong> Se ha eliminado este socio.');
+                   console.log(resp);
+                } else {
+                   toastr.warning('<strong>No se pudo:</strong> No se ha eliminado este socio.');
+                   console.log(resp);
+                }
 
             })
-
-            table.row('.selected').remove().draw( false );
-            toastr.success('<strong>Eliminado:</strong> Se ha eliminado este socio.');
+           
       } 
     });
 
@@ -236,7 +242,7 @@
       $.post(url, data, function(data){
         if (data == "ok"){
            toastr.success('<strong>Creado:</strong> Hemos creado un nuevo socio.');
-          
+            $('#liCargarNominados').click();
         } else {
            toastr.error('<strong>Error:</strong> Un error ha impedido crear un nuevo socio.');
         }

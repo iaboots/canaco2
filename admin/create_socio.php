@@ -11,7 +11,7 @@
 		// hacer algo
 		include_once('control.php');
 
-		if ($controller->create($nombre, $categoria, $email, $rfc, $status)){
+		if ($controller->create_socio($nombre, $categoria, $email, $rfc, $status)){
 			echo "ok";
 		} else {
 			echo "error";

@@ -7,9 +7,9 @@
  */
 
 //Constantes de configuracion de conexion a bd produccion
-define('SERVER', 'mybdtest.c50oeiuxsfoc.us-east-2.rds.amazonaws.com'); //HARDCODED SERVER
-define('USER',   'iabots');    //HARDCODED USER
-define('PASSW',  'irgojbam1'); //HARDCODED PASSWORD
+define('SERVER', 'localhost'); //HARDCODED SERVER
+define('USER',   'root');    //HARDCODED USER
+define('PASSW',  'root'); //HARDCODED PASSWORD
 define('BDNAME', 'canacodb');    //HARDCODED BD
 
 ?>

@@ -72,8 +72,13 @@ final class Nominados extends OTabla {
 
 	function create($nombre="Name", $categoria="Cat", $email="Sample Mail", $rfc="rfc mail", $status="Status"){
 		$intro =  "INSERT INTO $this->table_name ( $this->nombre, $this->categoria, $this->email, $this->rfc, $this->status, $this->creado, $this->modificado)";
-		$value = " VALUES ('$nombre', '$categoria', '$email', '$rfc', '$status', NOW(), NOW()";
+		$value = " VALUES ('$nombre', '$categoria', '$email', '$rfc', '$status', NOW(), NOW());";
 		return $intro.' '.$value;
+	}
+
+	function delete($id=0){
+		$query = "DELETE FROM $this->table_name WHERE $this->id=$id;";
+		return $query;
 	}
 
 }
@@ -121,6 +126,12 @@ class Bd {
 		return $rows[] = $array_query->fetch_array();
 	}
 
+	private function procesar_query_simple($query){
+		$con = $this->obtener_conexion();
+		mysqli_query($con, $query);
+		return mysqli_affected_rows($con);
+	}
+
 	// para obtener un array de una sola fila pasar el argumento $conv_array a false
 	private function procesar_query($query, $conv_array=true){ 
 		$result = mysqli_query($this->obtener_conexion(), $query);
@@ -150,7 +161,7 @@ class Bd {
 
 	function comprobar_login($user, $pass){
 		$query = $this->table_usuarios->existe_user_passw($user, $pass);
-		$result = $this->procesar_query($query, false);
+		$result = $this->procesar_query($query, $conv_array=false);
 		return $result;
 	}
 
@@ -160,9 +171,15 @@ class Bd {
 		return $result;
 	}
 
-	function create($nombre, $categoria, $email, $rfc, $status){
-		$query = $this->table_nominados->e($nombre, $categoria, $email, $rfc, $status);
+	function create_socio($nombre, $categoria, $email, $rfc, $status){
+		$query = $this->table_nominados->create($nombre, $categoria, $email, $rfc, $status);
 		return $this->insertar_datos($query);
+	}
+
+	function delete_socio($id){
+		$query = $this->table_nominados->delete($id);
+		$result = $this->procesar_query_simple($query);
+		return $result;
 	}
 
 }
@@ -187,8 +204,12 @@ class Controller {
 		return $this->bd->all_nominados();
 	}
 
-	function create($nombre, $categoria, $email, $rfc, $status){
-		return $this->bd->create($nombre, $categoria, $email, $rfc, $status);
+	function create_socio($nombre, $categoria, $email, $rfc, $status){
+		return $this->bd->create_socio($nombre, $categoria, $email, $rfc, $status);
+	}
+
+	function delete_socio($id){
+		return $this->bd->delete_socio($id);
 	}
 
 }
