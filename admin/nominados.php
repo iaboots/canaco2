@@ -12,11 +12,11 @@
             <div class="box-body">
             
               <div class="form-group">
-                <div class="col-xs-3">
+                <div class="col-md-3 col-sm-12" style="margin-bottom: 20px;">
                   <label for="inputNombre">Nombre:</label>
                   <input class="form-control" type="text" id="inputNombre" placeholder="Nombre">
                 </div>
-                <div class="col-xs-4 pull-right">
+                <div class="col-md-4 col-sm-12 pull-right">
                   <button class="btn btn-success" id="btnNuevoSocio" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
                   <button class="btn btn-warning" disabled id="btnEditarSocio">Editar</button> 
                   <button class="btn btn-danger" id="btnEliminarSocio">Eliminar</button> 
