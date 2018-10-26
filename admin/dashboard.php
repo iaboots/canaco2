@@ -38,6 +38,7 @@
 
   <link rel="stylesheet" href="../css/toastr.min.css">
   <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="static/loader.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,16 +51,23 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
-  <style>
+  <style type="text/css">
+    #loader{z-index:4; }
     .span-title {
       padding: 15px;
       font-weight: bold;
       color: white; 
     }
-}
+    .vcenter {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+    }
+    
   </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini"><div id="loader"></div>
+<div class="body-cargador" id="bodyid">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -181,8 +189,8 @@
         </small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li class="active" id="titulo_li">Inicio</li>
       </ol>
     </section>
 
@@ -239,7 +247,7 @@
 
 </div>
 <!-- ./wrapper -->
-
+  </div><!-- body cargador -->
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
@@ -270,44 +278,58 @@
    
   $(document).ready(function () {
 
-    function cargarContenido(pagina){
+    function cargarContenido(pagina) {
+      // Ocultamos la carga de a pagina
+      hide_windows()
         // cargamos la pagina pagina.html en el div contenido
       $("#contenido").load(pagina, function () {
 
-        $('#example1').DataTable({
-                  'paging'      : true,
-                  'lengthChange': false,
-                  'searching'   : false,
-                  'ordering'    : true,
-                  'info'        : true,
-                  'autoWidth'   : false
-              });
+        if (pagina == "<?php echo $page_user; ?>"){
+          $('#example1').DataTable({
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false
+          });
+        }
         
           
-        if (pagina == "noticias.html") {
+        if (pagina == "<?php echo $page_noti;  ?>l") {
             CKEDITOR.replace('editor1');
             //bootstrap WYSIHTML5 - text editor
             $('.textarea').wysihtml5();
         }
+        
+        var page_name = 'Inicio';
+
         switch (pagina) {
             case "<?php echo $page_config ?>":
-              $('#titulo_header').html('Configuración');
+              page_name = 'Configuración';
               break;
             case "<?php echo $page_user ?>":
-              $('#titulo_header').html('Nominados');
+              page_name = 'Nominados';
               break;
             case "<?php echo $page_noti ?>":
-              $('#titulo_header').html('Noticias');
+              page_name = 'Noticias'              
               break;
             case "<?php echo $page_result ?>":
-              $('#titulo_header').html('Resultados');
+              page_name = 'Resultados';
               break;
           
             default:
               break;
-          }
+        }
+        
+        $('#titulo_header').html(page_name);
+        $('#titulo_li').html(page_name);
+
+        show_window();
+
       });
-    };
+    } // fin de la función cargar contenido
+ 
       
     $('#liCargarConfig').on('click', function(){
       var pagina = "<?php  echo $page_config; ?>";
@@ -329,7 +351,33 @@
       cargarContenido(pagina);
     })
 
+    function show_window(){
+        setTimeout(() => {
+        $('#loader').fadeOut("fast");
+        $(".body-cargador").css('visibility', 'visible');
+      }, 50);
+    }
+
+    function hide_windows(){
+      $('#loader').fadeIn("fast");
+      $(".body-cargador").css('visibility', 'hidden');
+    }
+
+    show_window();
+
   });
+
+   $(document).ready(function() {
+     
+   
+    //$(".container").addClass("animated fadeIn");
+   // $("#title-section").addClass("animated fadeInLeft");
+   // $("#logoimg").addClass("animated fadeInRight");
+   // $(".footer").addClass("animated slideInUp");
+
+  });
+
+ 
 </script>
 
 </body>

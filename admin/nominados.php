@@ -87,7 +87,7 @@
     <!-- /.content -->
   </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-role="default">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -132,11 +132,17 @@
   </div>
 </div>
 
-<!-- jQuery 3 -->
-
+<!-- jQuery 3 syntact -->
 <script type="text/javascript">
   $(document).ready(function(){
-   var table = $('#example2').DataTable({
+
+    const role_default       = 'default';
+    const role_new_nominado  = 'new_nominado';
+    const role_edit_nominado = 'edit_nominado';
+
+    $("#exampleModal").data("role", role_default);
+
+    var table = $('#example2').DataTable({
     "columnDefs": [
             {
                 "targets": [ 0 ],
@@ -144,115 +150,128 @@
                 "searchable": false
             },
         ]
-   });
+    });
 
-   function desactivar_botones_edicion(){
+    function desactivar_botones_edicion(){
       $('#btnEditarSocio').prop('disabled', true);
       $('#btnCambiarStatusSocio').prop('disabled', true);
       $('#btnEliminarSocio').prop('disabled', true);
-   }
+    }
 
-   $('#exampleModal').on('hide.bs.modal', function (event) {
-      var modal = $('#exampleModal');
-      modal.find('.modal-body #recipient-name').val('');
-      modal.find('.modal-body #recipient-categoria').val('');
-      modal.find('.modal-body #recipient-email').val('');
+    function crear_nominado(){
+      let form = $('#formNuevoSocio');
+      let url = 'create_socio.php';
+      let data = form.serialize();
+
+      $.post(url, data, function(data){
+        if (data == "ok"){
+          toastr.success('<strong>Creado:</strong> Has creado un nuevo nominado.');
+            $('#liCargarNominados').click();
+        } else {
+          toastr.error('<strong>Error:</strong> Un error ha impedido crear un nuevo socio.');
+        }
+      }).fail(function(){
+        alert('error');
+      });
+    }
+
+    $('#exampleModal').on('hide.bs.modal', function (event) {
+      let modal = $('#exampleModal');
       modal.find('.modal-body #recipient-rfc').val('');
+      modal.find('.modal-body #recipient-name').val('');
+      modal.find('.modal-body #recipient-email').val('');
       modal.find('.modal-body #recipient-status').val('');
+      modal.find('.modal-body #recipient-categoria').val('');
       modal.find('.modal-footer .text-left').css('display', 'none')
-   });
+    });
 
-     $('#example2 tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-            desactivar_botones_edicion();
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-            $('#btnEditarSocio').prop('disabled', false);
-            $('#btnCambiarStatusSocio').prop('disabled', false);
-            $('#btnEliminarSocio').prop('disabled', false);
-        }
-       } );
+    $('#example2 tbody').on( 'click', 'tr', function () {
+      if ( $( this ).hasClass( 'selected' ) ) {
+        $( this ).removeClass( 'selected' );
+        desactivar_botones_edicion();
+      } else {
+        table.$( 'tr.selected' ).removeClass( 'selected' );
+        $( this ).addClass( 'selected' );
+        $( '#btnEditarSocio' ).prop( 'disabled', false );
+        $( '#btnEliminarSocio' ).prop( 'disabled', false );
+        $( '#btnCambiarStatusSocio' ).prop( 'disabled', false );
+      }
+    });
 
 
-    $('button#btnNuevoSocio').on('click', function(e){
-       // alert('asdas');
+    $( 'button#btnNuevoSocio' ).on( 'click', function(e){
+      $( "#exampleModal" ).data("role", role_new_nominado);
     });
 
     $('button#btnEditarSocio').on('click', function(e){
-        var modal = $('#exampleModal');
-        modal.find('.modal-footer .text-left').css('display', 'inline')
+      var modal = $('#exampleModal');
+      modal.data('role', role_edit_nominado); 
 
-        var editable_nombre = table.row('.selected').data()[2];
-        var editable_categoria = table.row('.selected').data()[3];
-        var editable_email = table.row('.selected').data()[4];
-        var editable_rfc = table.row('.selected').data()[5];
-        var editable_estatus = table.row('.selected').data()[6];
-        var date_created = table.row('.selected').data()[7];
-        var date_modified = table.row('.selected').data()[8];
+      modal.find('.modal-footer .text-left').css('display', 'inline')
 
-        modal.find('.modal-body #recipient-name').val(editable_nombre);
-        modal.find('.modal-body #recipient-categoria').val(editable_categoria);
-        modal.find('.modal-body #recipient-email').val(editable_email);
-        modal.find('.modal-body #recipient-rfc').val(editable_rfc);
-        modal.find('.modal-body #recipient-status').val(editable_estatus);
-        modal.find('.modal-footer #modal-created').text(date_created);
-        modal.find('.modal-footer #modal-modified').text(date_modified);
-        
-        modal.modal('show');
+      var editable_nombre = table.row('.selected').data()[2];
+      var editable_categoria = table.row('.selected').data()[3];
+      var editable_email = table.row('.selected').data()[4];
+      var editable_rfc = table.row('.selected').data()[5];
+      var editable_estatus = table.row('.selected').data()[6];
+      var date_created = table.row('.selected').data()[7];
+      var date_modified = table.row('.selected').data()[8];
+
+      modal.find('.modal-body #recipient-name').val(editable_nombre);
+      modal.find('.modal-body #recipient-categoria').val(editable_categoria);
+      modal.find('.modal-body #recipient-email').val(editable_email);
+      modal.find('.modal-body #recipient-rfc').val(editable_rfc);
+      modal.find('.modal-body #recipient-status').val(editable_estatus);
+      modal.find('.modal-footer #modal-created').text(date_created);
+      modal.find('.modal-footer #modal-modified').text(date_modified);
+      
+      modal.modal('show');
     });
 
     $('button#btnEliminarSocio').on('click', function(e){
       var r = confirm("Confirmar para eliminar");
       if (r == true) {
         // rutina ajax para eliminar al socio
-            desactivar_botones_edicion();
+        desactivar_botones_edicion();
 
-            var id = table.row('.selected').data()[0];
-            var url = 'eliminar_socio.php';
+        var id = table.row('.selected').data()[0];
+        var url = 'eliminar_socio.php';
 
-            var data = {
-              'id': id
-            };
+        var data = {
+          'id': id
+        };
 
-            $.post(url, data, function(resp){
-                if (resp == 'ok'){
-                   table.row('.selected').remove().draw( false );
-                   toastr.success('<strong>Eliminado:</strong> Se ha eliminado este socio.');
-                   console.log(resp);
-                } else {
-                   toastr.warning('<strong>No se pudo:</strong> No se ha eliminado este socio.');
-                   console.log(resp);
-                }
+        $.post(url, data, function(resp){
+            if (resp == 'ok'){
+                table.row('.selected').remove().draw( false );
+                toastr.success('<strong>Eliminado:</strong> Se ha eliminado este socio.');
+                console.log(resp);
+            } else {
+                toastr.warning('<strong>No se pudo:</strong> No se ha eliminado este socio.');
+                console.log(resp);
+            }
 
-            })
-           
+        })
+        
       } 
     });
 
     $('button#btnGuardarSocio').on('click', function(e){
-      var form = $('#formNuevoSocio');
+      let modal = $('#exampleModal');
+      let modal_role = modal.data("role");
+   
+      if (modal_role == role_new_nominado){
+        crear_nominado();
+      } else if (modal_role == role_edit_nominado){
+        alert('rol editar ' + modal_role)
+      } else {
+        alert('el rol no se encuentra ' + modal_role);
+      }
 
-      url = 'create_socio.php';
-
-      var data = form.serialize();
-
-      $.post(url, data, function(data){
-        if (data == "ok"){
-           toastr.success('<strong>Creado:</strong> Hemos creado un nuevo socio.');
-            $('#liCargarNominados').click();
-        } else {
-           toastr.error('<strong>Error:</strong> Un error ha impedido crear un nuevo socio.');
-        }
-      }).fail(function(){
-        alert('error');
-      });
-
+      modal.data("role", role_default);
       $('div#exampleModal').modal('hide');
+      
     })
-
 
   })
 </script>
