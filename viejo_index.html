@@ -213,6 +213,12 @@
 		<section id="bienvenidos" class="site-padding">
 			<div class="container">
 				<div class="row">
+				<?php
+								include 'admin/core/control.php';
+								$all_images = $controller->get_image_for_splash();
+								var_dump($all_images) ;
+							
+							?>
 					<div class="about-text text-center wow fadeInUp">
 							<h3>Bienvenidos a Canaco Torreón</h3>
 							<p>La Cámara Nacional de Comercio, Servicios y Turismo de Torreón, tiene como misión principal representar, defender y ofrecer a sus socios el apoyo que requiere para resolver los problemas y fomentar la unión y el crecimiento de las empresas de nuestro sector; y para cumplir con nuestra misión, hemos creado una gran variedad de servicios diseñados especialmente para usted.</p>

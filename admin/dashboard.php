@@ -9,6 +9,7 @@
   $page_config = 'configuracion.php';
   $page_user   = 'nominados.php';
   $page_noti   = 'noticias.php';
+  $page_noti_new   = 'noticias_new.php';
   $page_result = 'resultados.php';
 
 ?>
@@ -39,6 +40,8 @@
   <link rel="stylesheet" href="../css/toastr.min.css">
   <link rel="stylesheet" href="../css/animate.css">
   <link rel="stylesheet" href="static/loader.css">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -258,6 +261,7 @@
 <script src="static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- FastClick -->
 <script src="static/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="static/dist/js/adminlte.min.js"></script>
@@ -296,10 +300,10 @@
         }
         
           
-        if (pagina == "<?php echo $page_noti;  ?>l") {
-            CKEDITOR.replace('editor1');
+        if (pagina == "<?php echo $page_noti;  ?>") {
+           // CKEDITOR.replace('editor1');
             //bootstrap WYSIHTML5 - text editor
-            $('.textarea').wysihtml5();
+           // $('.textarea').wysihtml5();
         }
         
         var page_name = 'Inicio';
@@ -349,7 +353,7 @@
     $('#liCargarResultados').on('click', function(){
       var pagina = "<?php echo $page_result;  ?>";
       cargarContenido(pagina);
-    })
+    });
 
     function show_window(){
         setTimeout(() => {

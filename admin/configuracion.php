@@ -2,61 +2,76 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><strong>+GENERAL</strong> (Imagen inicial de página web canaco)</h3>
+              <h3 class="box-title"><strong>Imagen inicial</strong></h3>
             </div>
             <!-- /.box-header -->
+            <div class="box-body">
             <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-xs-6 text-right">
-                      <span>Imagen</span>
-                    </div>
-                    <div class="col-xs-6">
-                      <input type="file" id="exampleInputFile">
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-xs-6 text-right">
-                      <span>Fecha límite de visualización</span>
-                    </div>
-                    <div class="col-xs-2">
-                      <input class="form-control" type="text" id="exampleInputFile" placeholder="dd/mm/yyyyy">
-                    </div>
-                    <div class="col-xs-4"></div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-xs-6 text-right">
-                      <span>Liga:</span>
-                    </div>
-                    <div class="col-xs-6">
-                      <input class="form-control" type="text" id="exampleInputFile">
-                    </div>
-                  </div>
-                </div>
                 
-
-               
-              </div>
-              <!-- /.box-body -->
+                <!-- lista -->
+                <div class="col-xs-12">
+                <div class="col-md-4 col-sm-12 pull-right">
+                  <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
+                  <button class="btn btn-warning" disabled id="btnEditarImagen">Editar</button> 
+                  <button id="btnEliminarImagen" class="btn btn-danger" disabled>Eliminar</button> 
+                </div>
+                <h3>Listado de Imagenes</h3>
+                <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>No</th>
+                  <th>Titulo</th>
+                  <th>Enlace</th>
+                  <th>Fecha Límite</th>
+                </tr>
+                </thead>
+                <tbody>
+              <?php
+                include_once('core/control.php');
+                $all_images = $controller->get_all_images();
+                if (!empty($all_images)) {
+                  $cont = 1;
+                  foreach ($all_images as $key => $nom) { ?>
+                    <tr>
+                      <td><?php echo $nom['id']; ?></td>
+                      <td><?php echo $cont++; ?></td>
+                      <td><?php echo $nom['titulo']; ?></td>
+                      <td><?php echo $nom['liga']; ?></td>
+                      <td><?php echo $nom['fecha_limite']; ?></td>
+                    </tr>
+                 <?php }
+                  # code...
+                }
+                ?>
+                </tfoot>
+              </table>
+                </div>
+                <!-- fin de la lista -->
 
               <div class="box-footer">
-               <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                
               </div>
-            </form>
+            </div>
           </div>
-          <!-- /.box -->
+          <!-- /.col -->
 
+      </div>
+      <!-- /.row -->
+
+
+
+
+      <div class="row">
+
+<!-- left column -->
+<div class="col-md-12">
           <!-- Form Element sizes -->
           <div class="box box-success">
             <div class="box-header with-border">
@@ -121,7 +136,7 @@
                       <span>Fecha Inicio de Votaciones</span>
                     </div>
                     <div class="col-xs-4">
-                      <input class="form-control" type="text" id="exampleInputFile" placeholder="dd/mm/yyyy">
+                      <input class="form-control" type="text" id="inputDateIni" name="inputDateIni" placeholder="dd/mm/yyyy">
                     </div>
                     <div class="col-xs-2">
                     </div>
@@ -133,7 +148,7 @@
                       <span>Fecha Fin de las Votaciones</span>
                     </div>
                     <div class="col-xs-4">
-                      <input class="form-control" type="text" id="exampleInputFile" placeholder="dd/mm/yyyy">
+                      <input class="form-control" type="text" id="inputDateFin" name="inputDateFin" placeholder="dd/mm/yyyy">
                     </div>
                     <div class="col-xs-2">
                     </div>
@@ -217,4 +232,195 @@
       </div>
       <!-- /.row -->
     </section>
+  
+<!-- inicio del modal de imagenes -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-role="default">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Agregar Imagen Inicio</h4>
+      </div>
+      <div class="modal-body">
+        <form id="formNuevaImagen"  enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="recipientTitulo" class="control-label">Título:</label>
+            <input type="text" class="form-control" id="recipientTitulo" name="recipientTitulo">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="recipientImage" >Imagen:</label>
+            <input type="file" id="recipientImage" name="recipientImage" class="form-control">
+          </div><!-- end col -->
+          <div class="form-group">
+            <label for="recipientFecha" class="control-label">Fecha Límite de Visualización:</label>
+            <input type="text" class="form-control" id="recipientFecha" name="recipientFecha">
+          </div>
+          <div class="form-group">
+            <label for="recipientLiga" class="control-label">Liga:</label>
+            <input type="text" class="form-control" id="recipientLiga" name="recipientLiga">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardarImagen">Guardar</button>
+        <div class="text-left" style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin del modal de imagenes -->
+
+
+<!-- jQuery 3 syntact -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      let date_config = {
+        closeText: 'Cerrar',
+        prevText: '<Ant',
+        nextText: 'Sig>',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+      };
     
+      $( "#recipientFecha" ).datepicker(date_config);
+      $( "#inputDateIni" ).datepicker(date_config);
+      $( "#inputDateFin" ).datepicker(date_config);
+
+      var table = $('#example2').DataTable({
+      "columnDefs": [
+          {
+              "targets": [ 0 ],
+              "visible": false,
+              "searchable": false
+          },
+        ]
+      });
+      // desactivar datos del modal
+      $('#exampleModal').on('hide.bs.modal', function (event) {
+        let modal = $('#exampleModal');
+        modal.find('.modal-body #recipientTitulo').val('');
+        modal.find('.modal-body #recipientImage').val('');
+        modal.find('.modal-body #recipientFecha').val('');
+        modal.find('.modal-body #recipientLiga').val('');
+      });
+
+    
+
+    function desactivar_botones_edicion(){
+      $('#btnEditarImagen').prop('disabled', true);
+      $('#btnEliminarImagen').prop('disabled', true);
+    }
+
+    function crear_imagen(){
+
+      let url = 'core/create_imagen.php';
+ 
+      let file = $('#recipientImage')[0].files[0];
+      let titulo = $('#recipientTitulo').val();
+      let fecha = $('#recipientFecha').val();
+      let liga = $('#recipientLiga').val();
+
+     let data = new FormData();
+     data.append('image', file);
+     data.append('titulo', titulo);
+     data.append('fecha', fecha);
+     data.append('liga', liga);
+    // console.log(formSer);
+      $.ajax({
+            url: url,
+            type: 'post',
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function(response){
+              if (response == "ok"){
+                toastr.success('<strong>Creado:</strong> Has creado un nueva imagen.');
+                 $('#liCargarConfig').click(); // mando a refrescar la pagina
+              } else if (response == "img_ext_error"){
+                toastr.warning('<strong>Error:</strong> Al perecer no has subido una imagen válida.');
+              } else if ( response == "img_serv_error"){
+                toastr.warning('<strong>Error:</strong> Un error impidió subir la imagen.');
+              }
+              else {
+                toastr.warning('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
+              }
+            },
+            fail: function(){
+              toastr.error('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
+            }, 
+        });
+    }
+
+    $("#btnGuardarImagen").on("click", (e)=>{
+      e.preventDefault();
+      crear_imagen();
+    });
+
+    $('button#btnEliminarImagen').on('click', function(e){
+      let r = confirm("Confirmar para eliminar");
+      if (r == true) {
+        // rutina ajax para eliminar al socio
+        desactivar_botones_edicion();
+
+        var id = table.row('.selected').data()[0];
+        var url = 'core/eliminar_imagen.php';
+
+        var data = {
+          'id': id,
+        };
+
+        $.post(url, data, function(resp){
+            if (resp == 'ok'){
+                table.row('.selected').remove().draw( false );
+                toastr.success('<strong>Eliminado:</strong> Se ha eliminado esta imagen.');
+                console.log(resp);
+            } else {
+                toastr.warning('<strong>No se pudo:</strong> No se ha eliminado esta imagen.');
+                console.log(resp);
+            }
+
+        })
+        
+      } 
+    });
+
+    $('#example2 tbody').on( 'click', 'tr', function () {
+      if ( $( this ).hasClass( 'selected' ) ) {
+        // Desactivar fila
+        $( this ).removeClass( 'selected' );
+        desactivar_botones_edicion();
+      } else {
+        // Activar fila
+        table.$( 'tr.selected' ).removeClass( 'selected' );
+        $( this ).addClass( 'selected' );
+        $( '#btnEditarImagen' ).prop( 'disabled', false );
+        $( '#btnEliminarImagen' ).prop( 'disabled', false );
+
+        let cell_status = table.row('.selected').data()[6]
+        //$( '#btnCambiarStatusSocio' ).prop( 'disabled', false );
+        //cambiar_estado_btn_activar(cell_status);
+      }
+    });
+
+    $('button#btnGuardarImagen').on('click', function(e){
+      let modal = $('#exampleModal');
+      $('div#exampleModal').modal('hide');
+    });
+
+  })
+</script>

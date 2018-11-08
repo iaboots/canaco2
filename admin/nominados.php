@@ -10,7 +10,6 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            
               <div class="form-group">
                 <div class="col-md-3 col-sm-12" style="margin-bottom: 20px;">
                   <label for="inputNombre">Nombre:</label>
@@ -19,8 +18,8 @@
                 <div class="col-md-4 col-sm-12 pull-right">
                   <button class="btn btn-success" id="btnNuevoSocio" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
                   <button class="btn btn-warning" disabled id="btnEditarSocio">Editar</button> 
-                  <button class="btn btn-danger" id="btnEliminarSocio">Eliminar</button> 
-                  <button class="btn btn-success" id="btnCambiarStatusSocio" disabled>Activar</button> 
+                  <button id="btnEliminarSocio" class="btn btn-danger" disabled>Eliminar</button> 
+                  <button id="btnCambiarStatusSocio" class="btn btn-success" disabled data-activate-accion="activar">Activar</button> 
                 </div>
               </div>
             </div>
@@ -51,7 +50,7 @@
                 </thead>
                 <tbody>
               <?php
-                include_once('control.php');
+                include_once('core/control.php');
                 $all_nominados = $controller->get_all_nominados();
                 if (!empty($all_nominados)) {
                   $cont = 1;
@@ -63,7 +62,7 @@
                       <td><?php echo $nom['categoria']; ?></td>
                       <td><?php echo $nom['email']; ?></td>
                       <td><?php echo $nom['rfc']; ?></td>
-                      <td><?php echo $nom['status']; ?></td>
+                      <td class="text-center fila-status"><?php echo $nom['status']; ?></td>
                       <td><?php echo $nom['creado']; ?></td>
                       <td><?php echo $nom['modificado']; ?></td>
                     </tr>
@@ -160,19 +159,29 @@
 
     function crear_nominado(){
       let form = $('#formNuevoSocio');
-      let url = 'create_socio.php';
+      let url = 'core/create_socio.php';
       let data = form.serialize();
 
-      $.post(url, data, function(data){
-        if (data == "ok"){
+      $.post(url, data, function(response){
+        if (response == "ok"){
           toastr.success('<strong>Creado:</strong> Has creado un nuevo nominado.');
-            $('#liCargarNominados').click();
+          $('#liCargarNominados').click();
         } else {
-          toastr.error('<strong>Error:</strong> Un error ha impedido crear un nuevo socio.');
+          toastr.error('<strong>Error:</strong> Un error ha impedido crear un nuevo socio.' + response);
         }
       }).fail(function(){
         alert('error');
       });
+    }
+
+    function cambiar_estado_btn_activar(cell_status){
+      if (cell_status == '0'){
+          $( '#btnCambiarStatusSocio' ).html("Activar");
+          $( '#btnCambiarStatusSocio' ).data("activate-accion", 'activar');
+        } else {
+          $( '#btnCambiarStatusSocio' ).html("Desactivar");
+          $( '#btnCambiarStatusSocio' ).data("activate-accion", 'desactivar');
+        }
     }
 
     $('#exampleModal').on('hide.bs.modal', function (event) {
@@ -187,35 +196,83 @@
 
     $('#example2 tbody').on( 'click', 'tr', function () {
       if ( $( this ).hasClass( 'selected' ) ) {
+        // Desactivar fila
         $( this ).removeClass( 'selected' );
         desactivar_botones_edicion();
       } else {
+        // Activar fila
         table.$( 'tr.selected' ).removeClass( 'selected' );
         $( this ).addClass( 'selected' );
         $( '#btnEditarSocio' ).prop( 'disabled', false );
         $( '#btnEliminarSocio' ).prop( 'disabled', false );
+
+        let cell_status = table.row('.selected').data()[6]
         $( '#btnCambiarStatusSocio' ).prop( 'disabled', false );
+        cambiar_estado_btn_activar(cell_status);
       }
     });
-
 
     $( 'button#btnNuevoSocio' ).on( 'click', function(e){
       $( "#exampleModal" ).data("role", role_new_nominado);
     });
 
+    $('#btnCambiarStatusSocio').on( 'click', function( e ){
+      let id = table.row('.selected').data()[0];
+      let url = 'core/activar_socio.php';
+      let accion =  $( '#btnCambiarStatusSocio' ).data("activate-accion");
+      let response_accion = '';
+      if (accion == 'activar'){
+        response_accion = 'activado';
+      } else {
+        response_accion = 'desactivado';
+      }
+
+      let data = {
+        'user_id': id,
+        'accion': accion
+      }
+      
+      //table.row('.selected').data()[6]  = "ahahahah";
+      //let cell_status = table.row('.selected').data()[6] ; // .draw( false );
+      //alert(cell_status);
+      //table.row('.selected').draw('true');
+
+      $.post( url, data, function(response){
+        if (response.resp == 'ok'){
+          toastr.success('Se ha ' + response_accion + ' el usuario');
+          let value = table.row('.selected').data();
+          
+          if (response_accion == 'activado'){
+            value[6] = 1;
+            table.row('.selected').data(value);
+            cambiar_estado_btn_activar('1');
+          } else {
+            value[6] = 0
+            table.row('.selected').data(value);
+            cambiar_estado_btn_activar('0');
+          }
+        } else {
+          toastr.warning('No se activado el socio por el siguiente error ' + response.msj);
+        }
+
+      }).fail( function(){
+        toastr.error( "Ha ocurrido un error no se puede activar el socio" );
+      })
+    });
+
     $('button#btnEditarSocio').on('click', function(e){
-      var modal = $('#exampleModal');
+      let modal = $('#exampleModal');
       modal.data('role', role_edit_nominado); 
 
       modal.find('.modal-footer .text-left').css('display', 'inline')
 
-      var editable_nombre = table.row('.selected').data()[2];
-      var editable_categoria = table.row('.selected').data()[3];
-      var editable_email = table.row('.selected').data()[4];
-      var editable_rfc = table.row('.selected').data()[5];
-      var editable_estatus = table.row('.selected').data()[6];
-      var date_created = table.row('.selected').data()[7];
-      var date_modified = table.row('.selected').data()[8];
+      let editable_nombre = table.row('.selected').data()[2];
+      let editable_categoria = table.row('.selected').data()[3];
+      let editable_email = table.row('.selected').data()[4];
+      let editable_rfc = table.row('.selected').data()[5];
+      let editable_estatus = table.row('.selected').data()[6];
+      let date_created = table.row('.selected').data()[7];
+      let date_modified = table.row('.selected').data()[8];
 
       modal.find('.modal-body #recipient-name').val(editable_nombre);
       modal.find('.modal-body #recipient-categoria').val(editable_categoria);
@@ -229,16 +286,16 @@
     });
 
     $('button#btnEliminarSocio').on('click', function(e){
-      var r = confirm("Confirmar para eliminar");
+      let r = confirm("Confirmar para eliminar");
       if (r == true) {
         // rutina ajax para eliminar al socio
         desactivar_botones_edicion();
 
         var id = table.row('.selected').data()[0];
-        var url = 'eliminar_socio.php';
+        var url = 'core/eliminar_socio.php';
 
         var data = {
-          'id': id
+          'id': id,
         };
 
         $.post(url, data, function(resp){

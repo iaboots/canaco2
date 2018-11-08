@@ -67,12 +67,6 @@
       </div>
     </form>
 
-    <!-- /.social-auth-links -->
-    <!--
-    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
-  -->
-
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -96,7 +90,6 @@
 
       // serizalizar form
       url = "access_check.php";
-      console.log($('#formLogin').serialize());
       
       $.post(url, $('#formLogin').serialize(), function(res){
             console.log(res);
@@ -119,8 +112,6 @@
 
       // enviar por post de jquery
     
-
-
       // Configurar para caso de error
       $("input[type='password']").val('');
       $('#btn-entrar').prop("disabled", true);

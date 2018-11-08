@@ -81,7 +81,97 @@ final class Nominados extends OTabla {
 		return $query;
 	}
 
+	function activate($id){
+		$query = "UPDATE $this->table_name SET $this->status='1' WHERE $this->id=$id;";
+		return $query;
+	}
+
+	function deactivate($id){
+		$query = "UPDATE $this->table_name SET $this->status='0' WHERE $this->id=$id;";
+		return $query;
+	}
+
 }
+
+final class Noticias extends OTabla {
+	protected $id = "not_num_ctrl";
+	protected $titulo = "not_titulo";
+	protected $noticia = "not_detalle";
+	protected $fuente = "not_fuente";
+	protected $imagen = "not_imagen";
+	protected $creado = "not_fechacreacion";
+	protected $modificado = "not_fechamodif";
+	protected $table_name = "noticias";
+
+	function create($titulo, $noticia, $fuente){
+		$query = "INSERT INTO $this->table_name ( $this->titulo, $this->noticia, $this->fuente )";
+		$values = " VALUES ( '$titulo', '$noticia', '$fuente')";
+		return $query.' '.$values;
+	}
+
+	function get_all(){
+		$id = "$this->id as id";
+		$titulo = "$this->titulo as titulo";
+		$creado = "$this->creado as creado";
+		$modificado = "$this->modificado as modificado";
+		return "SELECT $id, $titulo, $creado, $modificado FROM $this->table_name";
+	}
+
+	function get_one($id){
+		$idin = "$this->id as id";
+		$noticia = "$this->noticia as noticia";
+		$titulo = "$this->titulo as titulo";
+		$fuente = "$this->fuente as fuente";
+		return "SELECT $idin, $titulo, $noticia, $fuente FROM $this->table_name WHERE $this->id='$id' LIMIT 1;";
+	}
+
+	function delete($id=0){
+		$query = "DELETE FROM $this->table_name WHERE $this->id=$id;";
+		return $query;
+	}
+
+	function update($id, $titulo, $fuente, $noticia){
+		$query = "UPDATE $this->table_name SET $this->titulo='$titulo', $this->noticia='$noticia', $this->fuente='$fuente' WHERE $this->id='$id';";
+		return $query;
+	}
+}
+
+
+final class SplashImagenes extends OTabla {
+	protected $id = "img_num_ctrl";
+	protected $titulo = "img_titulo";
+	protected $ruta = "img_ruta";
+	protected $fecha_limite = "img_fecha_limite";
+	protected $liga = "img_liga";
+	protected $table_name = "images";
+
+	function get_all(){
+		$id = "$this->id as id";
+		$titulo = "$this->titulo as titulo";
+		$fecha_limite = "$this->fecha_limite as fecha_limite";
+		$liga = "$this->liga as liga";
+		return "SELECT $id, $titulo, $fecha_limite, $liga FROM $this->table_name";
+	}
+
+	function get_for_splash(){
+		$titulo = "$this->titulo as titulo";
+		$liga = "$this->liga as liga";
+		$ruta = "$this->ruta as ruta";
+		return "SELECT $titulo, $liga, $ruta FROM $this->table_name WHERE $this->fecha_limite > CURDATE();";
+	}
+
+	function create($titulo, $imagen, $fecha_limite, $liga){
+		$query = "INSERT INTO $this->table_name ( $this->titulo, $this->ruta, $this->fecha_limite, $this->liga )";
+		$values = " VALUES ( '$titulo', '$imagen', '$fecha_limite', '$liga')";
+		return $query.' '.$values;
+	}
+
+	function delete($id=0){
+		$query = "DELETE FROM $this->table_name WHERE $this->id=$id;";
+		return $query;
+	}
+}
+
 
 // La clase Bd implementa las tablas de la bd
 class Bd {
@@ -92,10 +182,14 @@ class Bd {
 
 	private $table_usuarios;
 	private $table_nominados;
+	private $table_noticias;
+	private $table_images;
 	
 	function __construct(){
 		$this->table_usuarios  = new Usuarios();
 		$this->table_nominados = new Nominados();
+		$this->table_noticias = new Noticias();
+		$this->table_images = new SplashImagenes();
 	}
 	// funciones privadas
 
@@ -126,9 +220,10 @@ class Bd {
 		return $rows[] = $array_query->fetch_array();
 	}
 
-	private function procesar_query_simple($query){
+	private function query_execute_affected_rows($query){
 		$con = $this->obtener_conexion();
 		mysqli_query($con, $query);
+		//echo "Error: ".mysqli_error($con);
 		return mysqli_affected_rows($con);
 	}
 
@@ -178,9 +273,79 @@ class Bd {
 
 	function delete_socio($id){
 		$query = $this->table_nominados->delete($id);
-		$result = $this->procesar_query_simple($query);
+		$result = $this->query_execute_affected_rows($query);
 		return $result;
 	}
+
+	function activate_socio($id){
+		$query = $this->table_nominados->activate($id);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function deactivate_socio($id){
+		$query = $this->table_nominados->deactivate($id);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function create_noticia($titulo, $noticia, $fuente){
+		$query = $this->table_noticias->create($titulo, $noticia, $fuente);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function all_noticias(){
+		$query = $this->table_noticias->get_all();
+		$result = $this->procesar_query($query);
+		return $result;
+	}
+
+	function one_noticia( $id ){
+		$query = $this->table_noticias->get_one($id);
+		$result = $this->procesar_query($query, $conv_array=false);
+		return $result;
+	}
+
+	function delete_noticia($id){
+		$query = $this->table_noticias->delete($id);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function update_noticia($id, $titulo, $fuente, $text){
+		$query = $this->table_noticias->update($id, $titulo, $fuente, $text);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	// imagenes splash
+	function all_images(){
+		$query = $this->table_images->get_all();
+		$result = $this->procesar_query($query);
+		return $result;
+	}
+
+	function create_imagen($titulo, $ruta, $fecha_limite, $liga){
+		$query = $this->table_images->create($titulo, $ruta, $fecha_limite, $liga);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function delete_imagen($id){
+		$query = $this->table_images->delete($id);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	function get_image_for_splash(){
+		$query = $this->table_images->get_for_splash();
+		$result = $this->procesar_query($query);
+		return $result;
+	}
+
+
+	// fin de las imagenes splash
 
 }
 
@@ -211,6 +376,53 @@ class Controller {
 	function delete_socio($id){
 		return $this->bd->delete_socio($id);
 	}
+
+	function activate_socio($id){
+		return $this->bd->activate_socio($id);
+	}
+
+	function deactivate_socio($id){
+		return $this->bd->deactivate_socio($id);
+	}
+
+	function create_noticia($titulo, $noticia, $fuente){
+		return $this->bd->create_noticia($titulo, $noticia, $fuente);
+	}
+
+	function get_all_noticias(){
+		return $this->bd->all_noticias();
+	}
+
+	function get_one_noticia($id){
+		return $this->bd->one_noticia($id);
+	}
+
+	function update_noticia($id, $titulo, $fuente, $text){
+		return $this->bd->update_noticia($id, $titulo, $fuente, $text);
+	}
+
+	function delete_noticia($id){
+		return $this->bd->delete_noticia($id);
+	}
+
+	// Gestion de imagenes splash
+	function get_all_images(){
+		return $this->bd->all_images();
+	}
+
+	function create_images($titulo, $imagen, $fecha_limite, $liga){
+		return $this->bd->create_imagen($titulo, $imagen, $fecha_limite, $liga);
+	}
+
+	function delete_imagen($id){
+		return $this->bd->delete_imagen($id);
+	}
+
+	function get_image_for_splash(){
+		return $this->bd->get_image_for_splash();
+	}
+	// fin de la gestion de las imagenes splash
+
 
 }
 

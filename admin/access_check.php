@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once('control.php');
+    include_once('core/control.php');
 
     if (isset($_POST['inputUsuario']) && isset($_POST['inputPassw'])){
         $inputUsuario = $_POST['inputUsuario'];
