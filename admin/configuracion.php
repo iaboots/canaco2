@@ -234,15 +234,15 @@
   
 <!-- inicio del modal agregar imagenes -->
 
-<div class="modal fade" id="crearImagenModal" tabindex="-1" role="dialog" aria-labelledby="crearImagenModalLabel">
+<div class="modal fade" id="crearImagenModal" tabindex="-1" role="dialog" aria-labelledby="crearImagenModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="crearImagenModalLabel">Agregar Imagen Inicio</h4>
+        <h4 class="modal-title" id="crearImagenModal">Agregar Imagen Inicio</h4>
       </div>
       <div class="modal-body">
-        <form id="formNuevaImagen"  enctype="multipart/form-data">
+        <form id="formNuevaImagen"  name="formNuevaImagen" enctype="multipart/form-data">
           <div class="form-group">
             <label for="recipientTitulo" class="control-label">Título:</label>
             <input type="text" class="form-control" id="recipientTitulo" name="recipientTitulo">
@@ -275,30 +275,30 @@
 
 <!-- inicio del modal editar imagenes -->
 
-<div class="modal fade" id="editarImagenModal" tabindex="-1" role="dialog" aria-labelledby="crearImagenModalLabel">
+<div class="modal fade" id="editarImagenModal" tabindex="-1" role="dialog" aria-labelledby="editarImagenModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="crearImagenModalLabel">Modificar Imagen Inicio</h4>
+        <h4 class="modal-title" id="editarImagenModal">Modificar Imagen Inicio</h4>
       </div>
       <div class="modal-body">
-        <form id="formNuevaImagen"  enctype="multipart/form-data">
+        <form id="formEditarImagen"  enctype="multipart/form-data">
           <div class="form-group">
-            <label for="recipientTitulo" class="control-label">Título:</label>
-            <input type="text" class="form-control" id="recipientTitulo" name="recipientTitulo">
+            <label for="editableTitulo" class="control-label">Título:</label>
+            <input type="text" class="form-control" id="editableTitulo" name="editableTitulo">
           </div>
           <div class="form-group">
-            <label class="control-label" for="recipientImage" >Imagen:</label>
-            <input type="file" id="recipientImage" name="recipientImage" class="form-control">
+            <label class="control-label" for="editableImage" >Imagen:</label>
+            <input type="file" id="editableImage" name="editableImage" class="form-control">
           </div><!-- end col -->
           <div class="form-group">
-            <label for="recipientFecha" class="control-label">Fecha Límite de Visualización:</label>
-            <input type="text" class="form-control" id="recipientFecha" name="recipientFecha">
+            <label for="editableFecha" class="control-label">Fecha Límite de Visualización:</label>
+            <input type="text" class="form-control" id="editableFecha" name="editableFecha">
           </div>
           <div class="form-group">
-            <label for="recipientLiga" class="control-label">Liga:</label>
-            <input type="text" class="form-control" id="recipientLiga" name="recipientLiga">
+            <label for="editableLiga" class="control-label">Liga:</label>
+            <input type="text" class="form-control" id="editableLiga" name="editableLiga">
           </div>
         </form>
       </div>
@@ -337,11 +337,12 @@
         yearSuffix: ''
       };
     
-      $( "#recipientFecha" ).datepicker(date_config);
-      $( "#inputDateIni" ).datepicker(date_config);
-      $( "#inputDateFin" ).datepicker(date_config);
+      $( "#recipientFecha" ).datepicker( date_config );
+      $( "#editableFecha" ).datepicker( date_config );
+      $( "#inputDateIni" ).datepicker( date_config );
+      $( "#inputDateFin" ).datepicker( date_config );
 
-      var table = $('#example2').DataTable({
+      var table = $( '#example2' ).DataTable({
       "columnDefs": [
           {
               "targets": [ 0 ],
@@ -351,12 +352,11 @@
         ]
       });
       // desactivar datos de los dos modal
-      $('#crearImagenModal, #editarImagenModal').on('hide.bs.modal', function (event) {
-        let modal = $(this);  
-        modal.find('.modal-body #recipientTitulo').val('');
-        modal.find('.modal-body #recipientImage').val('');
-        modal.find('.modal-body #recipientFecha').val('');
-        modal.find('.modal-body #recipientLiga').val('');
+      $( '#crearImagenModal' ).on( 'hide.bs.modal', function ( event ) {
+        document.getElementById("formNuevaImagen").reset();
+      });
+      $( '#editarImagenModal' ).on( 'hide.bs.modal', function ( event ) {
+        document.getElementById("formEditarImagen").reset();
       });
       // fin de desactivar datos
     
@@ -414,7 +414,7 @@
     $('button#btnEliminarImagen').on('click', function(e){
       let r = confirm("Confirmar para eliminar");
       if (r == true) {
-        // rutina ajax para eliminar al socio
+        // eliminamos la imagen
         desactivar_botones_edicion();
 
         var id = table.row('.selected').data()[0];
@@ -441,7 +441,17 @@
 
     $("#btnEditarImagen").on("click", ()=>{
       let modal = $("#editarImagenModal");
-      modal.modal();
+
+      let titulo = table.row('.selected').data()[2];
+      let liga = table.row('.selected').data()[3];
+      let fecha_limite = table.row('.selected').data()[4];
+
+      modal.find('.modal-body #recipientTitulo').val(titulo);
+      //modal.find('.modal-body #recipientImage').val('');
+      modal.find('.modal-body #recipientFecha').val(fecha_limite);
+      modal.find('.modal-body #recipientLiga').val(liga);
+      
+      modal.modal('show');
     })
 
     $('#example2 tbody').on( 'click', 'tr', function () {
