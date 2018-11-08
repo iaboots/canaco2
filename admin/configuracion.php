@@ -406,16 +406,18 @@
         });
     }
 
-    $("#btnGuardarImagen").on("click", ( e ) => {
+    $("#btnGuardarImagen").on("click", function( e ) {
       e.preventDefault();
       crear_imagen();
     });
 
-    $('button#btnEliminarImagen').on('click', ( e ) => {
+    $('button#btnEliminarImagen').on('click', function( e ) {
       let r = confirm("Confirmar para eliminar");
       if (r == true) {
         // eliminamos la imagen
         desactivar_botones_edicion();
+
+        console.log("La tabla es: " + table);
 
         var id = table.row('.selected').data()[0];
         var url = 'core/eliminar_imagen.php';
@@ -424,7 +426,7 @@
           'id': id,
         };
 
-        $.post(url, data, (resp) => {
+        $.post(url, data, function(resp) {
             if (resp == 'ok'){
                 table.row('.selected').remove().draw( false );
                 toastr.success('<strong>Eliminado:</strong> Se ha eliminado esta imagen.');
@@ -434,12 +436,12 @@
                 console.log(resp);
             }
 
-        })
+        });
         
-      } 
+      } // fin del if r == true
     });
 
-    $("#btnEditarImagen").on("click", ()=>{
+    $("#btnEditarImagen").on("click", function( ) {
       let modal = $("#editarImagenModal");
 
       let titulo = table.row('.selected').data()[2];
@@ -452,9 +454,9 @@
       modal.find('.modal-body #editableLiga').val(liga);
       
       modal.modal('show');
-    })
+    });
 
-    $('#example2 tbody').on( 'click', 'tr', () => {
+    $('#example2 tbody').on( 'click', 'tr', function() {
       if ( $( this ).hasClass( 'selected' ) ) {
         // Desactivar fila
         $( this ).removeClass( 'selected' );
@@ -468,14 +470,14 @@
       }
     });
 
-    $('button#btnGuardarImagen').on('click', (e) => {
+    $('button#btnGuardarImagen').on('click', function(e) {
       let modal = $('#crearImagenModal');
       $('div#crearImagenModal').modal('hide');
     });
     
-    $('button#btnUpdateImagen').on('click', (e) => {
-      let modal = $('#crearImagenModal');
-      $('div#crearImagenModal').modal('hide');
+    $('button#btnUpdateImagen').on('click', function(e) {
+      let modal = $('#editarImagenModal');
+      modal.modal('hide');
     });
 
   })

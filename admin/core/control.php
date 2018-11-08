@@ -166,6 +166,11 @@ final class SplashImagenes extends OTabla {
 		return $query.' '.$values;
 	}
 
+	function update($id, $titulo, $fecha_limite, $liga){
+		$query = "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga' WHERE $this->id='$id';";
+		return $query;
+	}
+
 	function delete($id=0){
 		$query = "DELETE FROM $this->table_name WHERE $this->id=$id;";
 		return $query;
@@ -260,6 +265,8 @@ class Bd {
 		return $result;
 	}
 
+	// Principio de los socios
+
 	function all_nominados(){
 		$query = $this->table_nominados->get_all();
 		$result = $this->procesar_query($query);
@@ -288,6 +295,10 @@ class Bd {
 		$result = $this->query_execute_affected_rows($query);
 		return $result;
 	}
+
+	// fin de los socios
+
+	// Inicio de las noticias
 
 	function create_noticia($titulo, $noticia, $fuente){
 		$query = $this->table_noticias->create($titulo, $noticia, $fuente);
@@ -319,6 +330,8 @@ class Bd {
 		return $result;
 	}
 
+	// fin de las noticias
+
 	// imagenes splash
 	function all_images(){
 		$query = $this->table_images->get_all();
@@ -343,8 +356,6 @@ class Bd {
 		$result = $this->procesar_query($query);
 		return $result;
 	}
-
-
 	// fin de las imagenes splash
 
 }
