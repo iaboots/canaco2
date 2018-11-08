@@ -150,7 +150,8 @@ final class SplashImagenes extends OTabla {
 		$titulo = "$this->titulo as titulo";
 		$fecha_limite = "$this->fecha_limite as fecha_limite";
 		$liga = "$this->liga as liga";
-		return "SELECT $id, $titulo, $fecha_limite, $liga FROM $this->table_name";
+		$ruta = "$this->ruta as ruta";
+		return "SELECT $id, $titulo, $fecha_limite, $liga, $ruta FROM $this->table_name";
 	}
 
 	function get_for_splash(){
@@ -166,8 +167,8 @@ final class SplashImagenes extends OTabla {
 		return $query.' '.$values;
 	}
 
-	function update($id, $titulo, $fecha_limite, $liga){
-		$query = "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga' WHERE $this->id='$id';";
+	function update($id, $titulo, $fecha_limite, $liga, $ruta_file){
+		$query = "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga', $this->ruta='$ruta_file' WHERE $this->id='$id';";
 		return $query;
 	}
 
@@ -357,8 +358,8 @@ class Bd {
 		return $result;
 	}
 
-	function update_image($id, $titulo, $fecha_limite, $liga){
-		$query = $this->table_images->update($id, $titulo, $fecha_limite, $liga);
+	function update_image($id, $titulo, $fecha_limite, $liga, $ruta_file){
+		$query = $this->table_images->update($id, $titulo, $fecha_limite, $liga, $ruta_file);
 		$result = $this->query_execute_affected_rows($query);
 		return $result;
 	}
@@ -440,8 +441,8 @@ class Controller {
 		return $this->bd->get_image_for_splash();
 	}
 
-	function update_image($id, $titulo, $fecha_limite, $liga){
-		return $this->bd->update_image($id, $titulo, $fecha_limite, $liga);
+	function update_image($id, $titulo, $fecha_limite, $liga, $ruta_file){
+		return $this->bd->update_image($id, $titulo, $fecha_limite, $liga, $ruta_file);
 	}
 	// fin de la gestion de las imagenes splash
 

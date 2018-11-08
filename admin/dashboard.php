@@ -66,7 +66,6 @@
       vertical-align: middle;
       float: none;
     }
-    
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini"><div id="loader"></div>

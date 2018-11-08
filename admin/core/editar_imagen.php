@@ -2,14 +2,15 @@
 	// editar imagen
 	session_start(); 
 	
-	//$form = $_POST["formNoticia"];
-	//$params = array();
-	//parse_str($form, $params);
-	
-	$imageID = $_POST['id'];
+	$imageID = $_POST['imageID'];
 	$titulo = $_POST['titulo'];
-	$fecha = $_POST['fecha_limite'];
+	$fecha = $_POST['fecha'];
 	$liga = $_POST["liga"];
+
+	$filename = $_FILES['image']['name'];
+	$prefix = "../../";
+	$postfix = "upload/".$filename;
+	$location = $prefix.$postfix;
 
 	$newDate = DateTime::createFromFormat('d/m/Y', $fecha);
 	$newDateString = $newDate->format('Y-m-d');	
@@ -17,11 +18,15 @@
 	include_once('control.php');
 
 	$image_updated = $controller->update_image( 
-		$imageID, $titulo, $newDateString, $liga 
+		$imageID, $titulo, $newDateString, $liga, $postfix
 	);
 
 	if ($image_updated != -1){
-		echo "ok";
+		if(move_uploaded_file($_FILES['image']['tmp_name'], $location)){
+			echo "ok";
+		 }else{
+			echo "img_serv_error";
+		 }
 	} else {
 		echo "error";
 	}

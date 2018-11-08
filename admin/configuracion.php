@@ -30,6 +30,7 @@
                   <th>Titulo</th>
                   <th>Enlace</th>
                   <th>Fecha Límite</th>
+                  <th>Ruta</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,7 +45,13 @@
                       <td><?php echo $cont++; ?></td>
                       <td><?php echo $nom['titulo']; ?></td>
                       <td><?php echo $nom['liga']; ?></td>
-                      <td><?php echo $nom['fecha_limite']; ?></td>
+                      <td><?php 
+                                $fecha = $nom['fecha_limite'];
+                                $newDate = DateTime::createFromFormat('Y-m-d', $fecha);
+                                $newDateString = $newDate->format('d/m/Y');	
+                                echo $newDateString; 
+                          ?></td>
+                      <td><?php echo $nom['ruta']; ?></td>
                     </tr>
                  <?php }
                   # code...
@@ -290,7 +297,16 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="editableImage" >Imagen:</label>
-            <input type="file" id="editableImage" name="editableImage" class="form-control">
+            <div class="text-center">
+              <br>
+              <br>
+              <img src="../img/loading.gif" data-src="../img/loading.gif" id="editImagenShow" class="post-carga"  alt="Smiley face" height="60%" width="60%">
+              <br>
+              <br>
+            </div>
+            <input type="file" id="editableImage" name="editableImage" 
+                  accept="image/png, image/jpeg, image/jpg" 
+                  class="form-control" ><!--  -->
           </div><!-- end col -->
           <div class="form-group">
             <label for="editableFecha" class="control-label">Fecha Límite de Visualización:</label>
@@ -345,7 +361,7 @@
       var table = $( '#example2' ).DataTable({
       "columnDefs": [
           {
-              "targets": [ 0 ],
+              "targets": [ 0, 5 ],
               "visible": false,
               "searchable": false
           },
@@ -357,6 +373,7 @@
       });
       $( '#editarImagenModal' ).on( 'hide.bs.modal', function ( event ) {
         document.getElementById("formEditarImagen").reset();
+        $("#editImagenShow").attr("src", "../img/loading.gif");
       });
       // fin de desactivar datos
     
@@ -410,47 +427,72 @@
       let url = "core/editar_imagen.php";
       let id = table.row('.selected').data()[0];
       let titulo = modal.find('.modal-body #editableTitulo').val();
-      //modal.find('.modal-body #recipientImage').val('');
+      let file = $('#editableImage')[0].files[0];
       let fecha_limite = modal.find('.modal-body #editableFecha').val();
       let liga = modal.find('.modal-body #editableLiga').val();      
-
-      let data = {
-        "id": id,
-        "titulo": titulo,
-        "fecha_limite": fecha_limite,
-        "liga": liga,
-      }
-
-      $.post(url, data, function(r){
-        if ( r == "ok"){
-          toastr.success('<strong>Actualizado:</strong> Has actualizado la imagen.');
-          $('#liCargarConfig').click(); // mando a refrescar la pagina
-        } else {
-          toastr.warning('<strong>Error:</strong> Un error impidió subir la imagen.');
-        }
-        console.log("Resultado: " + r);
-      }).fail(function(){
-        console.log("Fallo el post");
-      })
+      
+      let data = new FormData();
+      data.append('imageID', id);
+      data.append('image', file);
+      data.append('titulo', titulo);
+      data.append('fecha', fecha_limite);
+      data.append('liga', liga);    
+    
+      // console.log(formSer);
+      $.ajax({
+            url: url,
+            type: 'post',
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function(response){
+              if (response == "ok"){
+                toastr.success('<strong>Creado:</strong> Has creado un nueva imagen.');
+                  $('#liCargarConfig').click(); // mando a refrescar la pagina
+              } else if (response == "img_ext_error"){
+                toastr.warning('<strong>Error:</strong> Al perecer no has subido una imagen válida.');
+              } else if ( response == "img_serv_error"){
+                toastr.warning('<strong>Error:</strong> Un error impidió subir la imagen.');
+              }
+              else {
+                toastr.warning('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
+              }
+            },
+            fail: function(){
+              toastr.error('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
+            }, 
+        });
 
     }
 
-    // fin de las funciones comunes
+     function recargar_imagen(){
+      $(".post-carga").each(function(){
+          $(this).attr('src', $(this).data('src')).on("load", function(){
+              $(this).fadeIn();
+          });
+        }) 
+    }
 
+
+    // fin de las funciones comunes
+    
+    // btn en el modal para iniciar el crear imagen
     $("#btnGuardarImagen").on("click", function( e ) {
       e.preventDefault();
       crear_imagen();
       let modal = $('#crearImagenModal');
       modal.modal('hide');
     })
-
+    
+    // btn en el modal para update la imagen
     $('button#btnUpdateImagen').on('click', function(e) {
       e.preventDefault();
       let modal = $('#editarImagenModal');
       update_imagen(modal);
       modal.modal('hide');
     })
-
+    
+    // boton sobre el listado de imagenes
     $('button#btnEliminarImagen').on('click', function( e ) {
       let r = confirm("Confirmar para eliminar");
       if (r == true) {
@@ -478,22 +520,32 @@
         
       } // fin del if r == true
     });
-
+    
+    // boton sobre el listado de imagenes
     $("#btnEditarImagen").on("click", function( ) {
       let modal = $("#editarImagenModal");
 
       let titulo = table.row('.selected').data()[2];
       let liga = table.row('.selected').data()[3];
       let fecha_limite = table.row('.selected').data()[4];
+      let imagen_src = table.row('.selected').data()[5];
+
+      //$("#editImagenShow").attr("src", "https://dummyimage.com/300");
+      $("#editImagenShow").data("src", "/" + imagen_src);
 
       modal.find('.modal-body #editableTitulo').val(titulo);
-      //modal.find('.modal-body #recipientImage').val('');
+      //modal.find('.modal-body #editableImage').files(imagen_src);
       modal.find('.modal-body #editableFecha').val(fecha_limite);
       modal.find('.modal-body #editableLiga').val(liga);
       
       modal.modal('show');
+      
+      setTimeout(() => {
+        recargar_imagen(); 
+      }, 500);
     })
-
+    
+    // clic sobre una celda de la tabla
     $('#example2 tbody').on( 'click', 'tr', function() {
       if ( $( this ).hasClass( 'selected' ) ) {
         // Desactivar fila
@@ -507,6 +559,22 @@
         $( '#btnEliminarImagen' ).prop( 'disabled', false );
       }
     })
+
+    $("#editableImage").on("change", function(){
+      
+      let images = $( this ).prop('files');
+      let image = images[0];
+
+      $("#editImagenShow").data("src", "../img/loading.gif");
+      recargar_imagen();
+
+      $("#editImagenShow").data("src", window.URL.createObjectURL(image));
+      setTimeout(() => {
+        recargar_imagen();
+      }, 500);
+        
+    })
+
 
   })
 </script>
