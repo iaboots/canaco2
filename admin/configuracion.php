@@ -304,7 +304,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="btnGuardarImagen">Guardar</button>
+        <button type="button" class="btn btn-primary" id="btnUpdateImagen">Actualizar</button>
         <div class="text-left" style="display: none;">
         </div>
       </div>
@@ -406,12 +406,12 @@
         });
     }
 
-    $("#btnGuardarImagen").on("click", (e)=>{
+    $("#btnGuardarImagen").on("click", ( e ) => {
       e.preventDefault();
       crear_imagen();
     });
 
-    $('button#btnEliminarImagen').on('click', function(e){
+    $('button#btnEliminarImagen').on('click', ( e ) => {
       let r = confirm("Confirmar para eliminar");
       if (r == true) {
         // eliminamos la imagen
@@ -424,7 +424,7 @@
           'id': id,
         };
 
-        $.post(url, data, function(resp){
+        $.post(url, data, (resp) => {
             if (resp == 'ok'){
                 table.row('.selected').remove().draw( false );
                 toastr.success('<strong>Eliminado:</strong> Se ha eliminado esta imagen.');
@@ -446,15 +446,15 @@
       let liga = table.row('.selected').data()[3];
       let fecha_limite = table.row('.selected').data()[4];
 
-      modal.find('.modal-body #recipientTitulo').val(titulo);
+      modal.find('.modal-body #editableTitulo').val(titulo);
       //modal.find('.modal-body #recipientImage').val('');
-      modal.find('.modal-body #recipientFecha').val(fecha_limite);
-      modal.find('.modal-body #recipientLiga').val(liga);
+      modal.find('.modal-body #editableFecha').val(fecha_limite);
+      modal.find('.modal-body #editableLiga').val(liga);
       
       modal.modal('show');
     })
 
-    $('#example2 tbody').on( 'click', 'tr', function () {
+    $('#example2 tbody').on( 'click', 'tr', () => {
       if ( $( this ).hasClass( 'selected' ) ) {
         // Desactivar fila
         $( this ).removeClass( 'selected' );
@@ -465,14 +465,15 @@
         $( this ).addClass( 'selected' );
         $( '#btnEditarImagen' ).prop( 'disabled', false );
         $( '#btnEliminarImagen' ).prop( 'disabled', false );
-
-        let cell_status = table.row('.selected').data()[6]
-        //$( '#btnCambiarStatusSocio' ).prop( 'disabled', false );
-        //cambiar_estado_btn_activar(cell_status);
       }
     });
 
-    $('button#btnGuardarImagen').on('click', function(e){
+    $('button#btnGuardarImagen').on('click', (e) => {
+      let modal = $('#crearImagenModal');
+      $('div#crearImagenModal').modal('hide');
+    });
+    
+    $('button#btnUpdateImagen').on('click', (e) => {
       let modal = $('#crearImagenModal');
       $('div#crearImagenModal').modal('hide');
     });
