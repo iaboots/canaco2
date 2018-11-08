@@ -17,7 +17,7 @@
                 <!-- lista -->
                 <div class="col-xs-12">
                 <div class="col-md-4 col-sm-12 pull-right">
-                  <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
+                  <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#crearImagenModal">Nuevo</button> 
                   <button class="btn btn-warning" disabled id="btnEditarImagen">Editar</button> 
                   <button id="btnEliminarImagen" class="btn btn-danger" disabled>Eliminar</button> 
                 </div>
@@ -221,7 +221,6 @@
                     </div>
                   </div>
                 </div>
-
               </form>
             </div>
             <!-- /.box-body -->
@@ -233,14 +232,55 @@
       <!-- /.row -->
     </section>
   
-<!-- inicio del modal de imagenes -->
+<!-- inicio del modal agregar imagenes -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-role="default">
+<div class="modal fade" id="crearImagenModal" tabindex="-1" role="dialog" aria-labelledby="crearImagenModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Agregar Imagen Inicio</h4>
+        <h4 class="modal-title" id="crearImagenModalLabel">Agregar Imagen Inicio</h4>
+      </div>
+      <div class="modal-body">
+        <form id="formNuevaImagen"  enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="recipientTitulo" class="control-label">Título:</label>
+            <input type="text" class="form-control" id="recipientTitulo" name="recipientTitulo">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="recipientImage" >Imagen:</label>
+            <input type="file" id="recipientImage" name="recipientImage" class="form-control">
+          </div><!-- end col -->
+          <div class="form-group">
+            <label for="recipientFecha" class="control-label">Fecha Límite de Visualización:</label>
+            <input type="text" class="form-control" id="recipientFecha" name="recipientFecha">
+          </div>
+          <div class="form-group">
+            <label for="recipientLiga" class="control-label">Liga:</label>
+            <input type="text" class="form-control" id="recipientLiga" name="recipientLiga">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardarImagen">Guardar</button>
+        <div class="text-left" style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin del modal de imagenes -->
+
+
+<!-- inicio del modal editar imagenes -->
+
+<div class="modal fade" id="editarImagenModal" tabindex="-1" role="dialog" aria-labelledby="crearImagenModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="crearImagenModalLabel">Modificar Imagen Inicio</h4>
       </div>
       <div class="modal-body">
         <form id="formNuevaImagen"  enctype="multipart/form-data">
@@ -310,15 +350,15 @@
           },
         ]
       });
-      // desactivar datos del modal
-      $('#exampleModal').on('hide.bs.modal', function (event) {
-        let modal = $('#exampleModal');
+      // desactivar datos de los dos modal
+      $('#crearImagenModal, #editarImagenModal').on('hide.bs.modal', function (event) {
+        let modal = $(this);  
         modal.find('.modal-body #recipientTitulo').val('');
         modal.find('.modal-body #recipientImage').val('');
         modal.find('.modal-body #recipientFecha').val('');
         modal.find('.modal-body #recipientLiga').val('');
       });
-
+      // fin de desactivar datos
     
 
     function desactivar_botones_edicion(){
@@ -399,6 +439,11 @@
       } 
     });
 
+    $("#btnEditarImagen").on("click", ()=>{
+      let modal = $("#editarImagenModal");
+      modal.modal();
+    })
+
     $('#example2 tbody').on( 'click', 'tr', function () {
       if ( $( this ).hasClass( 'selected' ) ) {
         // Desactivar fila
@@ -418,8 +463,8 @@
     });
 
     $('button#btnGuardarImagen').on('click', function(e){
-      let modal = $('#exampleModal');
-      $('div#exampleModal').modal('hide');
+      let modal = $('#crearImagenModal');
+      $('div#crearImagenModal').modal('hide');
     });
 
   })
