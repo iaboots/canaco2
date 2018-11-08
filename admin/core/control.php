@@ -356,6 +356,13 @@ class Bd {
 		$result = $this->procesar_query($query);
 		return $result;
 	}
+
+	function update_image($id, $titulo, $fecha_limite, $liga){
+		$query = $this->table_images->update($id, $titulo, $fecha_limite, $liga);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
 	// fin de las imagenes splash
 
 }
@@ -431,6 +438,10 @@ class Controller {
 
 	function get_image_for_splash(){
 		return $this->bd->get_image_for_splash();
+	}
+
+	function update_image($id, $titulo, $fecha_limite, $liga){
+		return $this->bd->update_image($id, $titulo, $fecha_limite, $liga);
 	}
 	// fin de la gestion de las imagenes splash
 
