@@ -822,7 +822,7 @@
 									<li><a href="#blog">Eventos</a></li>
 									<li><a href="#about">Historia</a></li>
 									<li><a href="#contact-us">Contacto</a></li>
-									<li><a href="admin/login.php">Admin</a></li>
+									<li><a href="admin/login.php">Mi cuenta</a></li>
 								</ul>
 							</div>
 						</div>

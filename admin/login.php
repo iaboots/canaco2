@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Canaco 2 | Login</title>
+  <title>Canaco</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -36,21 +36,20 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b>CANACO</b>Admin</a>
+  <img src="../img/canaco_logo.png" class="img-circle" alt="User Image" style="max-width: 6em;">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Necesita loguearse para entrar</p>
-
+    <br>
     <form id="formLogin" action="#" method="post">
       <div class="form-group has-feedback">
         <label for="inputUsuario">Usuario:</label>
-        <input id="inputUsuario" name="inputUsuario" type="text" class="form-control" placeholder="Usuario">
+        <input id="inputUsuario" name="inputUsuario" type="text" class="form-control" placeholder="Canaco">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <label for="inputPassw">Contraseña:</label>
-        <input id="inputPassw" name="inputPassw" type="password" class="form-control" placeholder="Contraseña">
+        <input id="inputPassw" name="inputPassw" type="password" class="form-control" placeholder="*****">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -61,7 +60,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button id="btn-entrar" type="submit" class="btn btn-primary btn-block btn-flat" disabled>Entrar</button>
+          <button id="btn-entrar" type="submit" class="btn btn-primary btn-block btn-flat" disabled>Acceder</button>
         </div>
         <!-- /.col -->
       </div>
