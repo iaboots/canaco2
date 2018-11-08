@@ -404,20 +404,58 @@
               toastr.error('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
             }, 
         });
+    }; // fin de la función crear imagen
+    
+    function update_imagen(modal){
+      let url = "core/editar_imagen.php";
+      let id = table.row('.selected').data()[0];
+      let titulo = modal.find('.modal-body #editableTitulo').val();
+      //modal.find('.modal-body #recipientImage').val('');
+      let fecha_limite = modal.find('.modal-body #editableFecha').val();
+      let liga = modal.find('.modal-body #editableLiga').val();      
+
+      let data = {
+        "id": id,
+        "titulo": titulo,
+        "fecha_limite": fecha_limite,
+        "liga": liga,
+      }
+
+      $.post(url, data, function(r){
+        if ( r == "ok"){
+          toastr.success('<strong>Actualizado:</strong> Has actualizado la imagen.');
+          $('#liCargarConfig').click(); // mando a refrescar la pagina
+        } else {
+          toastr.warning('<strong>Error:</strong> Un error impidió subir la imagen.');
+        }
+        console.log("Resultado: " + r);
+      }).fail(function(){
+        console.log("Fallo el post");
+      })
+
     }
+
+    // fin de las funciones comunes
 
     $("#btnGuardarImagen").on("click", function( e ) {
       e.preventDefault();
       crear_imagen();
-    });
+      let modal = $('#crearImagenModal');
+      modal.modal('hide');
+    })
+
+    $('button#btnUpdateImagen').on('click', function(e) {
+      e.preventDefault();
+      let modal = $('#editarImagenModal');
+      update_imagen(modal);
+      modal.modal('hide');
+    })
 
     $('button#btnEliminarImagen').on('click', function( e ) {
       let r = confirm("Confirmar para eliminar");
       if (r == true) {
         // eliminamos la imagen
         desactivar_botones_edicion();
-
-        console.log("La tabla es: " + table);
 
         var id = table.row('.selected').data()[0];
         var url = 'core/eliminar_imagen.php';
@@ -454,7 +492,7 @@
       modal.find('.modal-body #editableLiga').val(liga);
       
       modal.modal('show');
-    });
+    })
 
     $('#example2 tbody').on( 'click', 'tr', function() {
       if ( $( this ).hasClass( 'selected' ) ) {
@@ -468,17 +506,7 @@
         $( '#btnEditarImagen' ).prop( 'disabled', false );
         $( '#btnEliminarImagen' ).prop( 'disabled', false );
       }
-    });
-
-    $('button#btnGuardarImagen').on('click', function(e) {
-      let modal = $('#crearImagenModal');
-      $('div#crearImagenModal').modal('hide');
-    });
-    
-    $('button#btnUpdateImagen').on('click', function(e) {
-      let modal = $('#editarImagenModal');
-      modal.modal('hide');
-    });
+    })
 
   })
 </script>
