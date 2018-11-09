@@ -168,8 +168,11 @@ final class SplashImagenes extends OTabla {
 	}
 
 	function update($id, $titulo, $fecha_limite, $liga, $ruta_file){
-		$query = "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga', $this->ruta='$ruta_file' WHERE $this->id='$id';";
-		return $query;
+		if ( $ruta_file == null ){
+			return "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga' WHERE $this->id='$id';";
+		} else {
+			return "UPDATE $this->table_name SET $this->titulo='$titulo', $this->fecha_limite='$fecha_limite', $this->liga='$liga', $this->ruta='$ruta_file' WHERE $this->id='$id';";
+		}		
 	}
 
 	function delete($id=0){

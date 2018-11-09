@@ -11,15 +11,11 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <div class="col-md-3 col-sm-12" style="margin-bottom: 20px;">
-                  <label for="inputNombre">Nombre:</label>
-                  <input class="form-control" type="text" id="inputNombre" placeholder="Nombre">
-                </div>
                 <div class="col-md-4 col-sm-12 pull-right">
                   <button class="btn btn-success" id="btnNuevoSocio" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
-                  <button class="btn btn-warning" disabled id="btnEditarSocio">Editar</button> 
+                  <button class="btn btn-info" disabled id="btnEditarSocio">Editar</button> 
                   <button id="btnEliminarSocio" class="btn btn-danger" disabled>Eliminar</button> 
-                  <button id="btnCambiarStatusSocio" class="btn btn-success" disabled data-activate-accion="activar">Activar</button> 
+                  <button id="btnCambiarStatusSocio" class="btn btn-warning" disabled data-activate-accion="activar">Activar</button> 
                 </div>
               </div>
             </div>
@@ -62,7 +58,15 @@
                       <td><?php echo $nom['categoria']; ?></td>
                       <td><?php echo $nom['email']; ?></td>
                       <td><?php echo $nom['rfc']; ?></td>
-                      <td class="text-center fila-status"><?php echo $nom['status']; ?></td>
+                      <td class="text-center fila-status">
+                        <?php 
+                            if ($nom['status'] == 1){
+                              echo 'Activado';
+                            } else {
+                              echo 'Desactivado';
+                            }
+                        ?>
+                      </td>
                       <td><?php echo $nom['creado']; ?></td>
                       <td><?php echo $nom['modificado']; ?></td>
                     </tr>
@@ -175,7 +179,7 @@
     }
 
     function cambiar_estado_btn_activar(cell_status){
-      if (cell_status == '0'){
+      if (cell_status == 'Desactivado'){
           $( '#btnCambiarStatusSocio' ).html("Activar");
           $( '#btnCambiarStatusSocio' ).data("activate-accion", 'activar');
         } else {
@@ -243,13 +247,13 @@
           let value = table.row('.selected').data();
           
           if (response_accion == 'activado'){
-            value[6] = 1;
+            value[6] = 'Activado';
             table.row('.selected').data(value);
-            cambiar_estado_btn_activar('1');
+            cambiar_estado_btn_activar('Activado');
           } else {
-            value[6] = 0
+            value[6] = 'Desactivado';
             table.row('.selected').data(value);
-            cambiar_estado_btn_activar('0');
+            cambiar_estado_btn_activar('Desactivado');
           }
         } else {
           toastr.warning('No se activado el socio por el siguiente error ' + response.msj);

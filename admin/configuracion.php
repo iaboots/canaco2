@@ -15,12 +15,11 @@
             <!-- form start -->
                 
                 <!-- lista -->
-                <div class="col-xs-12">
-                <div class="col-md-4 col-sm-12 pull-right">
-                  <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#crearImagenModal">Nuevo</button> 
-                  <button class="btn btn-warning" disabled id="btnEditarImagen">Editar</button> 
-                  <button id="btnEliminarImagen" class="btn btn-danger" disabled>Eliminar</button> 
-                </div>
+                  <div class="col-md-4 col-sm-12 pull-right">
+                    <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#crearImagenModal">Nuevo</button> 
+                    <button class="btn btn-warning" disabled id="btnEditarImagen">Editar</button> 
+                    <button id="btnEliminarImagen" class="btn btn-danger" disabled>Eliminar</button> 
+                  </div>
                 <h3>Listado de Imagenes</h3>
                 <table id="example2" class="table table-bordered table-hover">
                 <thead>
@@ -256,7 +255,17 @@
           </div>
           <div class="form-group">
             <label class="control-label" for="recipientImage" >Imagen:</label>
-            <input type="file" id="recipientImage" name="recipientImage" class="form-control">
+            <div class="text-center" id="contenedorNewImage" style="display: none;">
+              <br>
+              <br>
+              <img src="../img/loading.gif" data-src="../img/loading.gif" id="newImagenShow" class="post-carga-nueva"  alt="Imagen a mostrar" height="60%" width="60%">
+              <br>
+              <br>
+            </div>
+            <input type="file" id="recipientImage" 
+                    name="recipientImage" 
+                    accept="image/png, image/jpeg, image/jpg"
+                    class="form-control">
           </div><!-- end col -->
           <div class="form-group">
             <label for="recipientFecha" class="control-label">Fecha Límite de Visualización:</label>
@@ -370,6 +379,9 @@
       // desactivar datos de los dos modal
       $( '#crearImagenModal' ).on( 'hide.bs.modal', function ( event ) {
         document.getElementById("formNuevaImagen").reset();
+        $("#newImagenShow").data("src", "../img/loading.gif");
+        recargar_imagen_nueva();
+        $("#contenedorNewImage").css("display", "none");
       });
       $( '#editarImagenModal' ).on( 'hide.bs.modal', function ( event ) {
         document.getElementById("formEditarImagen").reset();
@@ -430,10 +442,16 @@
       let file = $('#editableImage')[0].files[0];
       let fecha_limite = modal.find('.modal-body #editableFecha').val();
       let liga = modal.find('.modal-body #editableLiga').val();      
-      
+    
       let data = new FormData();
+      console.log(file);
       data.append('imageID', id);
-      data.append('image', file);
+      if (file == null){
+        data.append('image', 'none');
+      } else {
+        data.append('image', file);
+      } 
+      
       data.append('titulo', titulo);
       data.append('fecha', fecha_limite);
       data.append('liga', liga);    
@@ -447,12 +465,12 @@
             processData: false,
             success: function(response){
               if (response == "ok"){
-                toastr.success('<strong>Creado:</strong> Has creado un nueva imagen.');
+                toastr.success('<strong>Creado:</strong> Has actualizado la información.');
                   $('#liCargarConfig').click(); // mando a refrescar la pagina
               } else if (response == "img_ext_error"){
                 toastr.warning('<strong>Error:</strong> Al perecer no has subido una imagen válida.');
               } else if ( response == "img_serv_error"){
-                toastr.warning('<strong>Error:</strong> Un error impidió subir la imagen.');
+                toastr.warning('<strong>Error:</strong> Un error impidió actualizar la información.');
               }
               else {
                 toastr.warning('<strong>Error:</strong> Un error ha impedido crear una nueva imagen.' + response);
@@ -465,8 +483,16 @@
 
     }
 
-     function recargar_imagen(){
+    function recargar_imagen(){
       $(".post-carga").each(function(){
+          $(this).attr('src', $(this).data('src')).on("load", function(){
+              $(this).fadeIn();
+          });
+        }) 
+    }
+
+    function recargar_imagen_nueva(){
+      $(".post-carga-nueva").each(function(){
           $(this).attr('src', $(this).data('src')).on("load", function(){
               $(this).fadeIn();
           });
@@ -534,7 +560,6 @@
       $("#editImagenShow").data("src", "/" + imagen_src);
 
       modal.find('.modal-body #editableTitulo').val(titulo);
-      //modal.find('.modal-body #editableImage').files(imagen_src);
       modal.find('.modal-body #editableFecha').val(fecha_limite);
       modal.find('.modal-body #editableLiga').val(liga);
       
@@ -573,6 +598,29 @@
         recargar_imagen();
       }, 500);
         
+    })
+
+    $("#recipientImage").on("change", function(){
+      let images = $( this ).prop('files');
+      let image = images[0];
+      if (image == null){
+        // no hay imagen 
+        
+        $("#contenedorNewImage").hide(500, function(){
+          $("#newImagenShow").data("src", "../img/loading.gif");
+          recargar_imagen_nueva();
+        });
+      } else {
+        // si hay imagen 
+        $("#contenedorNewImage").show(500, function(){
+          $("#newImagenShow").data("src", window.URL.createObjectURL(image));
+          setTimeout(() => {
+            recargar_imagen_nueva();
+          }, 500);
+        });
+        
+      }
+      
     })
 
 

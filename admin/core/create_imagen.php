@@ -1,14 +1,6 @@
 <?php 
 	session_start(); 
 
-	//echo var_dump($_POST['recipientTitulo']);
-	//return;
-	
-
-	//$form = $_POST['formNuevaImagen'];
-	//$params = array();
-	//parse_str($form, $params);
-
 	$filename = $_FILES['image']['name'];
 	$prefix = "../../";
 	$postfix = "upload/".$filename;
