@@ -75,6 +75,11 @@ final class Nominados extends OTabla {
 		$value = " VALUES ('$nombre', '$categoria', '$email', '$rfc', '$status', NOW(), NOW());";
 		return $intro.' '.$value;
 	}
+	
+	function update($id, $nombre, $categoria, $email, $rfc, $status){
+		$query =  "UPDATE $this->table_name SET $this->nombre='$nombre', $this->categoria='$categoria', $this->email='$email', $this->rfc='$rfc', $this->status='$status' WHERE $this->id='$id';";
+		return $query;
+	}
 
 	function delete($id=0){
 		$query = "DELETE FROM $this->table_name WHERE $this->id=$id;";
@@ -161,6 +166,14 @@ final class SplashImagenes extends OTabla {
 		return "SELECT $titulo, $liga, $ruta FROM $this->table_name WHERE $this->fecha_limite > CURDATE();";
 	}
 
+	function get_one_random_splash(){
+		$id = "$this->id as id";
+		$titulo = "$this->titulo as titulo";
+		$ruta = "$this->ruta as ruta";
+		$liga = "$this->liga as liga";
+		return "SELECT $id, $ruta, $titulo, $liga FROM $this->table_name WHERE $this->fecha_limite > CURDATE() ORDER BY RAND() LIMIT 1";
+	}
+
 	function create($titulo, $imagen, $fecha_limite, $liga){
 		$query = "INSERT INTO $this->table_name ( $this->titulo, $this->ruta, $this->fecha_limite, $this->liga )";
 		$values = " VALUES ( '$titulo', '$imagen', '$fecha_limite', '$liga')";
@@ -181,6 +194,30 @@ final class SplashImagenes extends OTabla {
 	}
 }
 
+final class Votacion extends OTabla {
+	protected $id = "vot_num_ctrl";
+	protected $year = "vot_anio";
+	protected $date_ini = "vot_fecha_inicio";
+	protected $date_fin = "vot_fecha_fin";
+	protected $ver_page_nomin = "actv_nominados";
+	protected $ver_page_result = "actv_resultados";
+	protected $table_name = "votacion";
+
+	function get(){
+		$year = "$this->year as year";
+		$date_ini = "$this->date_ini as date_ini";
+		$date_fin = "$this->date_fin as date_fin";
+		$ver_page_nomin = "$this->ver_page_nomin as ver_page_nomin";
+		$ver_page_result = "$this->ver_page_result as ver_page_result";
+		return "SELECT $year, $date_ini, $date_fin, $ver_page_nomin, $ver_page_result FROM $this->table_name";
+	}
+
+	function update($year, $date_ini, $date_fin){
+		return "UPDATE $this->table_name SET $this->year='$year', $this->date_ini='$date_ini', $this->date_fin='$date_fin';";
+	}
+
+}
+
 
 // La clase Bd implementa las tablas de la bd
 class Bd {
@@ -193,12 +230,14 @@ class Bd {
 	private $table_nominados;
 	private $table_noticias;
 	private $table_images;
+	private $table_votacion;
 	
 	function __construct(){
 		$this->table_usuarios  = new Usuarios();
 		$this->table_nominados = new Nominados();
 		$this->table_noticias = new Noticias();
 		$this->table_images = new SplashImagenes();
+		$this->table_votacion = new Votacion();
 	}
 	// funciones privadas
 
@@ -232,7 +271,7 @@ class Bd {
 	private function query_execute_affected_rows($query){
 		$con = $this->obtener_conexion();
 		mysqli_query($con, $query);
-		//echo "Error: ".mysqli_error($con);
+		//echo "Error: ".mysqli_error($con);  // descomentar para ver errores de bd  ********************************************
 		return mysqli_affected_rows($con);
 	}
 
@@ -280,6 +319,11 @@ class Bd {
 	function create_socio($nombre, $categoria, $email, $rfc, $status){
 		$query = $this->table_nominados->create($nombre, $categoria, $email, $rfc, $status);
 		return $this->insertar_datos($query);
+	}
+	
+	function update_socio($id, $nombre, $categoria, $email, $rfc, $status){
+		$query = $this->table_nominados->update($id, $nombre, $categoria, $email, $rfc, $status);
+		return $this->query_execute_affected_rows($query);
 	}
 
 	function delete_socio($id){
@@ -367,7 +411,29 @@ class Bd {
 		return $result;
 	}
 
+	function get_one_random_splash(){
+		$query = $this->table_images->get_one_random_splash();
+		$result = $this->procesar_query($query, $conv_array=false);
+		return $result;
+	}
+
 	// fin de las imagenes splash
+
+	// Inicio de las votacione
+
+	function get_votacion(){
+		$query = $this->table_votacion->get();
+		$result = $this->procesar_query($query, $conv_array=false);
+		return $result;
+	}
+
+	function update_votacion($year, $date_ini, $date_fin){
+		$query = $this->table_votacion->update($year, $date_ini, $date_fin);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
+	// Fin de las votaciones
 
 }
 
@@ -393,6 +459,10 @@ class Controller {
 
 	function create_socio($nombre, $categoria, $email, $rfc, $status){
 		return $this->bd->create_socio($nombre, $categoria, $email, $rfc, $status);
+	}
+
+	function update_socio($id, $nombre, $categoria, $email, $rfc, $status){
+		return $this->bd->update_socio($id, $nombre, $categoria, $email, $rfc, $status);
 	}
 
 	function delete_socio($id){
@@ -447,7 +517,22 @@ class Controller {
 	function update_image($id, $titulo, $fecha_limite, $liga, $ruta_file){
 		return $this->bd->update_image($id, $titulo, $fecha_limite, $liga, $ruta_file);
 	}
+	function get_one_random_splash(){
+		return $this->bd->get_one_random_splash();
+	}
 	// fin de la gestion de las imagenes splash
+
+	// Inicio de la gestion de las votaciones
+
+	function get_votacion(){
+		return $this->bd->get_votacion();
+	}
+
+	function update_votacion($year, $date_ini, $date_fin){
+		return $this->bd->update_votacion($year, $date_ini, $date_fin);
+	}
+
+	// fin de las votaciones
 
 
 }
@@ -455,6 +540,14 @@ class Controller {
 $controller = new Controller();
 
 
+
+
+
+
+//update_socio($id, $nombre, $categoria, $email, $rfc, $status);
+//$r = $controller->update_socio("35", "Pepeonela", "0", "pepe@gmail.com", "rfc de prueba", "0");
+
+//echo "Resultado es ".$r;
 //$all_result = $controller->search_product_complete_word(utf8_decode("Módulo de comedor industrial"));
 //var_dump($all_result);
 

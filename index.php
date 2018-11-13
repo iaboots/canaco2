@@ -31,7 +31,6 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!-- Font -->
 		
-		
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -98,24 +97,102 @@
 			.fb-page span,
 			.fb-page span iframe[style] {
 			    max-width: 100% !important;
-			}
+			}		
+		
+		#splashscreen {	
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width:100%;
+			/*background-color:#707070;*/
+			background-color: rgba(1,1,1,0.5);
+
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: flex;
+			
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			-moz-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			-moz-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			
+			position: fixed;
+			
+			z-index: 999999999;
+				
+			vertical-align: baseline;
+		
+			overflow: auto;
+
+		}
+		
+		.splash-border {
+			padding: 2em, 3em, 2em, 3em !important;
+			background: white;
+			padding-top: 1em;
+			padding-bottom: 2em;
+		
+			width: 60%;
+		}
+		.close {
+			margin-right: 20px;
+			font-size: 40px;
+		}
 
 		</style>
-		
-		
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div id="fb-root"></div>
-		<script>(function(d, s, id) {
+	<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12';
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
+
+	<?php
+		include 'admin/core/control.php';
+		$ran = $controller->get_one_random_splash();
+		if ($ran != null){
+	?>
+	<div id="splashscreen" class="flex-container" style="display: none;" >
+		<div class="splash-border text-center">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div class="col-sm-12">
+				<h3><?php echo $ran["titulo"] ?></h3>
+				<!-- Esta semana estaremos en el centro -->
+				<br>
+			</div>
+			<div class=col-sm-12>
+				<img src="<?php echo $ran['ruta']; ?>" />
+				<!-- <img src="http://i.telegraph.co.uk/multimedia/archive/02182/kitten_2182000b.jpg" /> -->
+			</div>
+			<div class=col-sm-12 style="padding-top: 2em;">
+				<a href="<?php echo $ran['liga']; ?>" target="_blank" class="enter_link"><h4>Ir al sitio</h4></a><!--  -->
+			</div>
+		</div>
+	</div>
+	<?php
+		} // fin del if ran != null
+	?>
+
+
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="fb-root"></div>
+		
 		
 		<!-- Header Start -->
 		<header id="home">
@@ -132,7 +209,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a href="index.html" class="navbar-brand">
+								<a href="index.php" class="navbar-brand">
 								   <img  class="img-responsive" src="img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
@@ -162,7 +239,7 @@
 						<li data-target="#fawesome-carousel" data-slide-to="2"></li>
 						<li data-target="#fawesome-carousel" data-slide-to="3"></li>
 						<?php
-							include 'admin/core/control.php';
+							
 							$all_images = $controller->get_image_for_splash();
 							$cant = count($all_images);
 
@@ -187,6 +264,8 @@
 						<div class="item" id="item3">
 							<img src="img/slide3bbb.jpg" alt="Sider Big Image"  class="img-rounded">
 						</div>
+
+						
 						<?php
 							$cont = 4;
 						
@@ -287,7 +366,7 @@
 									<div class="feature-text">
 										<h4>Tr&aacute;mites Municipales</h4>
 										<p>Es un servicio que proporciona CANACO Torreón, donde se brinda una gran cantidad de apoyos a los socios para facilitarles...</p>
-										<a href="servicios/01.tramitesmunicipales.html">Leer m&aacute;s>></a>
+										<a href="servicios/01.tramitesmunicipales.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -308,7 +387,7 @@
 									<div class="feature-text">
 										<h4>Trámites Estatales</h4>
 										<p>Proporcionar a los socios representación, apoyo y defensa administrativa en asuntos estatales y federales...</p>
-										<a href="servicios/02.tramitesestatales.html">Leer m&aacute;s>></a>
+										<a href="servicios/02.tramitesestatales.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -329,20 +408,16 @@
 									<div class="feature-text">
 										<h4>Trámites Federales</h4>
 										<p>Proporcionar a los socios representación, apoyo y defensa administrativa en asuntos estatales y federales...</p>
-										<a href="servicios/03.tramitesfederales.html">Leer m&aacute;s>></a>
+										<a href="servicios/03.tramitesfederales.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- Single Feature-->
-					
-					
+				<!-- Single Feature-->
 				</div>
 				
-				
 				<div class="row">
-				
 					<!-- Single Feature-->
 					<div class="col-sm-4">
 						<div class="single-feature wow fadeInLeft">
@@ -356,7 +431,7 @@
 									<div class="feature-text">
 										<h4>Nuevos Negocios</h4>
 										<p>Asesoría y gestión en la tramitación y oportunidades de nuevos negocios. Brindar al público en general la asesoría referente a ...</p>
-										<a href="servicios/04.nuevosnegocios.html">Leer m&aacute;s>></a>
+										<a href="servicios/04.nuevosnegocios.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -377,7 +452,7 @@
 									<div class="feature-text">
 										<h4>Capacitación</h4>
 										<p>Un servicio que proporciona la CANACO Torreón, en materia de capacitación para la planta laboral de las empresas de la región...</p>
-										<a href="servicios/05.capacitacion.html">Leer m&aacute;s>></a>
+										<a href="servicios/05.capacitacion.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -398,7 +473,7 @@
 									<div class="feature-text">
 										<h4>Afiliación a Canaco Torreón</h4>
 										<p>Asesoría y gestión en la tramitación de su inscripción y registro como socio a la Cámara Nacional de Comercio de Torreón...</p>
-										<a href="servicios/07.afiliacion.html">Leer m&aacute;s>></a>
+										<a href="servicios/07.afiliacion.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -419,7 +494,7 @@
 									<div class="feature-text">
 										<h4>Bolsa de Trabajo</h4>
 										<p>Es un servicio muy útil para las empresas que se encuentren requiriendo personal calificado, y para las personas en general que buscan...</p>
-										<a href="servicios/06.bolsadetrabajo.html">Leer m&aacute;s>></a>
+										<a href="servicios/06.bolsadetrabajo.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -441,7 +516,7 @@
 										<h4>Salas</h4>
 										<p>Tenemos la sala ideal, para integrar a su equipo de trabajo...</p>
 										<p></p>
-										<a href="servicios/10.salas.html">Leer m&aacute;s>></a>
+										<a href="servicios/10.salas.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -463,7 +538,7 @@
 									<div class="feature-text">
 										<h4>Registro al SIEM</h4>
 										<p>SIEM, Sistema de Información Empresarial México, es un sistema de información para promover los contactos de negocios entre...</p>
-										<a href="servicios/08.siem.html">Leer m&aacute;s>></a>
+										<a href="servicios/08.siem.php">Leer m&aacute;s>></a>
 										
 									</div>
 								</div>
@@ -502,7 +577,7 @@
 									<div class="feature-text">
 										<h4>Asesoría Legal</h4>
 										<p>Asesoria y diagnóstico legal en las áreas mercantil,laboral y fiscal, para los socios que lo requieran.</p>
-										<a href="servicios/09.asesorialegal.html">Leer m&aacute;s>></a>
+										<a href="servicios/09.asesorialegal.php">Leer m&aacute;s>></a>
 									</div>
 								</div>
 							</div>
@@ -523,11 +598,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div><!-- fin del col sm 4-->
 					<!-- Single Feature-->
-
-
-				</div>
+				</div><!-- fin del row -->
 				
 				
 			</div>
@@ -554,9 +627,9 @@
 						<div class="single-blog">
 							<img src="img/miniaturas/eventos/coahuila-1000-001bbb.jpg" 
 							     alt="Blog Image" />
-							<h4><a href="eventos/01.rallycoahuila.html">Rally Coahuila 1000</a></h4>
+							<h4><a href="eventos/01.rallycoahuila.php">Rally Coahuila 1000</a></h4>
 							<p>Evento creado por la CANACO TORREÓN y apoyado por el Gobierno del Estado de Coahuila, con la finalidad de promover el turismo de aventura, en una travesía...</p>
-							<a href="eventos/01.rallycoahuila.html"><strong>Leer m&aacute;s>></strong></a>
+							<a href="eventos/01.rallycoahuila.php"><strong>Leer m&aacute;s>></strong></a>
 						</div>
 					</div>
 					<!-- Single Blog -->
@@ -565,9 +638,9 @@
 					<div class="col-sm-4 wow fadeIn">
 						<div class="single-blog">
 							<img src="img/miniaturas/eventos/Comida_1bbb.jpg" alt="Blog Image" />
-							<h4><a href="eventos/02.comidadeamistad.html">Comida de la Amistad</a></h4>
+							<h4><a href="eventos/02.comidadeamistad.php">Comida de la Amistad</a></h4>
 							<p>Evento que se realiza para estrechar los lazos de amistad y camaradería que existe entre los empresarios y los servidores públicos, buscando las buenas relaciones...</p>
-							<a href="eventos/02.comidadeamistad.html"><strong>Leer m&aacute;s>></strong></a>
+							<a href="eventos/02.comidadeamistad.php"><strong>Leer m&aacute;s>></strong></a>
 						</div>
 					</div>
 					<!-- Single Blog -->
@@ -576,9 +649,9 @@
 					<div class="col-sm-4 wow fadeInRight">
 						<div class="single-blog">
 							<img src="img/miniaturas/eventos/expo-regreso-clases-001bbb.jpg" alt="Blog Image" />
-							<h4><a href="eventos/03.exporegresoaclases.html">Expo Regreso a Clases</a></h4>
+							<h4><a href="eventos/03.exporegresoaclases.php">Expo Regreso a Clases</a></h4>
 							<p>Aprovecha para adquirir articulos escolares a los mejores precios. Evento que reúne a los proveedores más importantes de la región en el giro de útiles escolares...</p>
-							<a href="eventos/03.exporegresoaclases.html"><strong>Leer m&aacute;s>></strong></a>
+							<a href="eventos/03.exporegresoaclases.php"><strong>Leer m&aacute;s>></strong></a>
 						</div>
 					</div>
 					<!-- Single Blog -->
@@ -598,9 +671,9 @@
 					<div class="col-sm-4 wow fadeIn">
 						<div class="single-blog">
 							<img src="img/miniaturas/eventos/rodadabbb.jpg" alt="Blog Image" />
-							<h4><a href="eventos/04.rodada.html">Rodada Viesca</a></h4>
+							<h4><a href="eventos/04.rodada.php">Rodada Viesca</a></h4>
 							<p>La Cámara Nacional de Comercio (Canaco) de Torreón en coordinación con el colectivo ciclista “Laguna Bikes” y el Instituto Municipal del Deporte de Torreón...</p>
-							<a href="eventos/04.rodada.html"><strong>Leer m&aacute;s>></strong></a>
+							<a href="eventos/04.rodada.php"><strong>Leer m&aacute;s>></strong></a>
 						</div>
 					</div>
 					<!-- Single Blog -->
@@ -613,8 +686,7 @@
 						</div>
 					</div>
 					<!-- Single Blog -->
-					
-					
+						
 				</div>
 				<!-- fin del row -->
 				
@@ -640,7 +712,7 @@
 							<p>La CANACOTO, es un organismo intermedio, orientado a lograr la máxima eficiencia del sector comercial para que en consecuencia la sociedad cuente con un sector comercial dedicado a satisfacer plenamente las necesidades de bienes y servicios.</p>
 							<p>Para lograrlo la CANACOTO debe:</p>
 							<p>Promover que las empresas comerciales tengan seguridad jurídica y ventajas competitivas para que a su vez alcance altos niveles de rentabilidad. Orientar las acciones del gobierno para que se establezca la infraestructura legal y material, creando condiciones de cooperación entre el sector público y privado, necesarias para que las empresas se puedan desempeñar con efectividad.</p>
-							<a href="historia.html" class="btn btn-read-more">Leer m&aacute;s</a>
+							<a href="historia.php" class="btn btn-read-more">Leer m&aacute;s</a>
 						</div>
 					</div>
 				</div>
@@ -701,18 +773,19 @@
 							</form>
 						</div>
 					</div>
-						 <div id="exito" style="display:none">
-				            <strong>Su mensaje han sido enviado con éxito.</strong>
-				        </div>
-				        <div id="fracaso" style="display:none">
-				            <strong>Se ha producido un error durante el envío de los datos.</strong>
-				        </div>
+					<div id="exito" style="display:none">
+						<strong>Su mensaje han sido enviado con éxito.</strong>
+					</div>
+					<div id="fracaso" style="display:none">
+						<strong>Se ha producido un error durante el envío de los datos.</strong>
+					</div>
 				</div>
 			</div>
 		</section>		
 		<!-- Contact -->
 
-		<!-- About Section -->
+		<!-- About Section  redes sociales -->
+<!--
 		<section id="informa" class="site-padding" style="background-color:#f7f7f7;">
 			<div class="container">
 				<div class="row">
@@ -723,21 +796,21 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="about-image wow fadeIn">
-							<!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcanacoservyturtorreon%2F%3Ffref%3Dts&tabs=timeline&width=540&height=610&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="540" height="610" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
-							<div class="fb-page" data-href="https://www.facebook.com/canacoservyturtorreon" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" height="610" data-width="585"><blockquote cite="https://www.facebook.com/canacoservyturtorreon" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/canacoservyturtorreon">Canaco Servytur De Torreon</a></blockquote></div>
-
+							<div class="fb-page" data-href="https://www.facebook.com/canacoservyturtorreon" 
+								 data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" 
+								 data-hide-cover="false" data-show-facepile="true" height="610" data-width="585"><blockquote cite="https://www.facebook.com/canacoservyturtorreon" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/canacoservyturtorreon">Canaco Servytur De Torreon</a></blockquote></div>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="about-image wow fadeIn">
-							 <a class="twitter-timeline" data-chrome="nofooter" height="610" href="https://twitter.com/canacotorreon">Tweets por canacotorreon</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+							 <a class="twitter-timeline" data-chrome="nofooter" height="610" 
+							 href="https://twitter.com/canacotorreon">Tweets por canacotorreon</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</section>
+				-->
 		<!-- About Section -->
 		
 		
@@ -769,7 +842,6 @@
 					</div>
 					<!-- Single Footer -->
 					
-					
 					<!-- Single Footer -->
 					<div class="col-sm-3">
 						<div class="single-footer">
@@ -777,17 +849,18 @@
 							<p><span>
 								<i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
 								    Teléfonos: 716.8822 - 716.2404 <br />
-							<span>
-							   <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-							</span>
-						    	<a target="_top" href="mailto:info@canacotorreon.com.mx">
-								     Email: info@canacotorreon.com.mx</a>
-							<br />
-							<span>
-								<i class="fa fa-internet-explorer fa-lg" aria-hidden="true"></i>
-							</span>
-							<a href="http://www.canacotorreon.com.mx" target="_blank" >
-							Web: www.canacotorreon.com.mx</a></p>
+								<span>
+								<i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+								</span>
+									<a target="_top" href="mailto:info@canacotorreon.com.mx">
+										Email: info@canacotorreon.com.mx</a>
+								<br />
+								<span>
+									<i class="fa fa-internet-explorer fa-lg" aria-hidden="true"></i>
+								</span>
+								<a href="http://www.canacotorreon.com.mx" target="_blank">
+								Web: www.canacotorreon.com.mx</a>
+							</p>
 						</div>
 					</div>
 					<!-- Single Footer -->
@@ -795,14 +868,11 @@
 					<!-- Single Footer -->
 					<div class="col-sm-3">
 						<div class="single-footer">
-							
 						</div>
 					</div>
 					<!-- Single Footer -->
-					
 				</div>
 			</div>
-			
 		</footer>
 		
 		<!-- Copyright -->
@@ -829,20 +899,24 @@
 						<div class="col-sm-3">
 							<div class="social">
 							<ul>
-									<li>
-										<a href="https://www.facebook.com/canacoservyturtorreon/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a></li>
-									<li>
-										<a href="https://twitter.com/canacotorreon" target="_blank"><i class="fa fa-twitter"></i></a></li>
-								</ul>
-							</div>
+								<li>
+									<a href="https://www.facebook.com/canacoservyturtorreon/?fref=ts" target="_blank">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://twitter.com/canacotorreon" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+							</ul>
 						</div>
+						</div><!-- creo que sobra -->
 					</div>
 				</div>
 			</div> <!-- fin del copyright -->
 		
 		<!-- footer -->
-		
-		
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
@@ -854,30 +928,31 @@
         <script src="js/jquery.sticky.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/main.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/js.cookie.js"></script>
 		
 		<script type="text/javascript">
-			
 			$(document).ready(function(){
 
-				$('a[href^="#"]').on('click',function (e) {
-					e.preventDefault();
+				<?php 
+				if ($ran != null){ ?>
 
-					var target = this.hash;
-					var $target = $(target);
+				// Inicialización de splash
+				let show_splash = Cookies.get('splashscreen');
+				console.log(show_splash);
+				if (show_splash == null || show_splash != "yes"){
+					Cookies.set('splashscreen', 'yes', { expires: 1 });
+					$("#splashscreen").css("display", "flex");
+					
+				}   Cookies.remove('splashscreen');
 
-					$('html, body').stop().animate({
-						 'scrollTop': $target.offset().top
-					}, 900, 'swing');
-				});
-
-				$('#btn_enviar_comentario').on('click', function(e){
-					e.preventDefault();
-					postAjax();
-
-				});
+				<?php  
+					} // fin del if
+					?> 
+				
+				
 				function postAjax() {
 				  if (!validaForm()) { return; }
-
 
 				  var url = 'sendbyemail.php';
 
@@ -893,45 +968,61 @@
 				  });
 				}
 
-			  function validaForm(){
-			    // Campos de texto
-			    if($("#name").val() == ""){
-			        alert("El campo Nombre no puede estar vacío.");
-			        $("#name").focus();       // Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
-			        return false;
-			    }
-			    if($("#email").val() == ""){
-			        alert("El campo Correo no puede estar vacío.");
-			        $("#email").focus();
-			        return false;
-			    }
-			    if($("#subject").val() == ""){
-			        alert("El campo Asunto no puede estar vacío.");
-			        $("#subject").focus();
-			        return false;
-			    }
-			    if($("#message").val() == ""){
-			        alert("El campo Mensaje no puede estar vacío.");
-			        $("#message").focus();
-			        return false;
-			    }
+				
+				$('a[href^="#"]').on('click',function (e) {
+					e.preventDefault();
 
-			    return true; // Si todo está correcto
-			}
+					var target = this.hash;
+					var $target = $(target);
+
+					$('html, body').stop().animate({
+						 'scrollTop': $target.offset().top
+					}, 900, 'swing');
+				});
+
+			
+
+				$('#btn_enviar_comentario').on('click', function(e){
+					e.preventDefault();
+					postAjax();
+
+				});
+
+				function validaForm(){
+					// Campos de texto
+					if($("#name").val() == ""){
+						alert("El campo Nombre no puede estar vacío.");
+						$("#name").focus();       // Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+						return false;
+					}
+					if($("#email").val() == ""){
+						alert("El campo Correo no puede estar vacío.");
+						$("#email").focus();
+						return false;
+					}
+					if($("#subject").val() == ""){
+						alert("El campo Asunto no puede estar vacío.");
+						$("#subject").focus();
+						return false;
+					}
+					if($("#message").val() == ""){
+						alert("El campo Mensaje no puede estar vacío.");
+						$("#message").focus();
+						return false;
+					}
+
+					return true; // Si todo está correcto
+				}
+
+				$("button.close").on("click", function(e){
+					e.preventDefault();
+					$("#splashscreen").fadeOut(500); 
+				})
+
+				
 
 
 			});
 		</script>
-		
-		<script src="js/custom.js"></script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
     </body>
 </html>

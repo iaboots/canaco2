@@ -8,9 +8,9 @@
 
           <div class="box">
             <div class="box-header">
-              <h2>
+              <h3>
                 Escribir una nueva noticia
-              </h2>
+              </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
@@ -40,6 +40,33 @@
     </section>
     <!-- /.content -->
   </div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminar contenido</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro que desea eliminar la noticia que estabas escribiendo?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        <button type="button" id="btnEliminarContenido" class="btn btn-warning">Eliminar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -74,10 +101,16 @@ $(document).ready(function(){
     enviar_noticia();
   });
 
-  $("#btnCancelar").on("click", function(){
-    CKEDITOR.instances.editor1.setData("");
+  $("#btnCancelar").on("click", function(e){
+    e.preventDefault();
+    $("#myModal").modal('show');
   });
 
+  $("#btnEliminarContenido").on("click", function (e) {
+    $("#myModal").modal('hide');
+    CKEDITOR.instances.editor1.setData("");
+    $("#formNoticia").trigger("reset");
+  });
 
 });
 

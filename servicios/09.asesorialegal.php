@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Registro al SIEM</title>
+        <title>Asesoría Legal</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,17 +67,16 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
-							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -98,47 +97,25 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="single-blog wow slideInLeft">
-							<a href="#"><h3>Registro al SIEM</h3></a>
+							<a href="#"><h3>Asesoría Legal</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/registro-siembbb.jpg" 
+							     src="../img/servicios/image-legal-001bbb.jpg" 
 							     alt="Blog Image" />
 							<h4>¿Qué es?</h4>
-						    <p>SIEM, Sistema de Información Empresarial México, es un sistema de información para promover los contactos de negocios entre las empresas ubicadas dentro del país, con alcances a nivel internacional.</p>
+						    <p>Asesoria y diagnóstico legal en las áreas mercantil,laboral y fiscal, para los socios que lo requieran.</p>
 						    <br>
 						    
 						    <h4>Objetivo:</h4>
-						    <p>Promocionar comercialmente a las empresas registradas, mediante un Directorio Empresarial Electrónico que podrá ser accesado vía Internet a nivel nacional e internacional, lo cual permitirá mejorar sus posibilidades de contactar nuevos clientes y proveedores.</p>
-						    <p>Así como también, canalizar las necesidades de información y vinculación de las empresas con el sector empresarial mediante programas organizados por la Secretaría de Economía.</p>
+						    <p>Proporcionar a los socios un diagnóstico previo de la situación legal que guarda la empresa en caso de controversias presentadas, y darle una asesoria, de cuál es el proceso que se debe seguir para cada caso expuesto, y obtener una rápida y segura solución.</p>
 						    <br>
-
-						    <h4>Procedimiento:</h4>
-						    <p>Para registrarse en el SIEM deberá llenar el cuestionario diseñado por la SECRETARIA DE ECONOMIA, con la información requerida y cubrir el pago de su cuota anual, correspondiente al registro o actualización.</p>
-						    <p>El pago será anual y de acuerdo a la tarifa establecida por la S.E., para todos y cada uno de los establecimientos (sucursales) que correspondan a una razón social.</p>
 						    
-						    <p>Las empresas que se afilien obtendrán beneficios adicionales al SIEM contribuyendo al fortalecimiento de la representatividad de CANACO Torreón como organismo empresarial.</p>
-						    <br>
-
-						    <h4>Ventajas:</h4>
-						    <p></p>
+						    <h4>Empresarios:</h4>
+						    <p>Para las empresas interesadas en recibir este servicio, se puede prestar de dos formas.</p>
+						    
 						    <ul class="list-group">
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Mejorar las oportunidades de negocios con sus clientes y proveedores.</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Acceso a información de productos y servicios que sus Empresa necesita para su operación.</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Vincular su empresa con otras empresas a través de los programas de promoción empresarial del SIEM.</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Cumplir con el registro al SIEM conforme a la Ley de Cámaras Empresariales y sus Confederaciones.</li>
+							  <li class="list-group-item">1.- Los empresarios pueden acudir a la cámara a nuestra Dirección General y personalmente consultar el expediente de su caso, para que de ésta manera se les asesore de cual debe ser el proceso a seguir, una vez que éste se determine, la cámara sugerirá al empresario las opciones de especialistas independientes que pueden llevar su situación legal tanto en las áreas Mercantil, Laboral y Fiscal.</li>
+							  <li class="list-group-item">2.- En un principio se puede contactar a traves de correo electrónico: direcciongeneral@canacotorreon.com.mx; para concertar una cita y exponer su situación legal.</li>
 							</ul>
-							<br>
-
-							<h4>Objetivo de la Representación:</h4>
-						    <p>Representar a los socios de la cámara al participar directamente en los Consejos Directivos de los organismos públicos y privados, que puedan afectar en servicio o a la economía asociados, del sector y a la comunidad.</p>
-
 							
 						</div>
 						
@@ -155,44 +132,45 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
+
 
 								</ul>
 							</div>
@@ -200,12 +178,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -216,7 +194,7 @@
 		</section>
 		
 		
-		<!-- footer -->
+	<!-- footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -286,17 +264,17 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="copy-text">
-								<p>All Rights Reserved | Copyright 2018 ©</p>
+								<p>All Rights Reserved | Copyright 2018 © </p>
 							</div>
 						</div>
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>

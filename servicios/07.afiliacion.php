@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Trámites Municipales</title>
+        <title>Afiliación a Canaco Torreón</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,6 +26,7 @@
 		<meta name="msapplication-TileImage" content="../img/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		
+		
 		<!-- Font -->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -40,8 +41,10 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/responsive.css">
         <link rel="stylesheet" href="../css/estilotramite.css">
+
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-      
+        <script src="../js/csi.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -64,17 +67,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -88,59 +91,48 @@
 		</header>
 		<!-- Header End -->
 		
+		
+		
 		<section class="blog-single">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
-						<div class="single-blog wow fadeInLeft">
-							<a href="#"><h3>Tr&aacute;mites Municipales</h3></a>
+						<div class="single-blog wow slideInLeft">
+							<a href="#"><h3>Afiliación a Canaco Torreón</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/tramite_municipalbbb.jpg" 
-							     alt="Blog Image" />
-							<h4>¿Qué es?</h4>
-						    <p>Es un servicio que proporciona CANACO Torreón, donde se brinda una gran cantidad de apoyos a los socios para facilitarles los trámites municipales.</p>
-						    <br>
-						    
+							     src="../img/servicios/afiliacioncanacobbb.jpg" 
+							     alt="Blog Image" />						    
 						    <h4>Objetivo:</h4>
-						    <p>Apoyar con asesoría y protección a nuestros socios ante cualquier problema que tengan frente a alguna autoridad municipal.</p>
+						    <p>Asesoría y gestión en la tramitación de su inscripción y registro como socio a la Cámara Nacional de Comercio de Torreón.</p>
 						    <br>
 						    
 						    <h4>¿Qué Ofrece?</h4>
-						    <p>Apoyo en cuestiones municipales, brindando asesoría y representación en asuntos ante departamentos municipales, tales como:</p>
-						    
-						    <ul class="list-group">
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-									Tesorería Municipal</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Desarrollo Urbano y Ecología</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Obras Públicas</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Ayuntamiento</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Servicios Públicos, etc.</li>
-							</ul>
-							<br>
-							
-							<h4>Algunos ejemplos de estos servicios son:</h4>
-							<p>Registro de anuncios, trámites para uso de suelo, clausuras, cobro indebido de derecho municipal, inscripción y refrendo para los giros con expendio y consumo de alcohol, requerimientos por pago de servicios de recolección de basura, etc.</p>
+						    <p>Brindar al comerciante establecido la asesoría referente a los trámites indispensables para poder registrarse como socio en la CANACO ya sea de un negocio ya establecido o de nueva apertura , abarcando los sectores de servicio y turismo.</p>
 							<br>
 
 						    <h4>Procedimiento:</h4>
-						    <p>En los casos de asesoría se puede brindar este servicio por medio correo electrónico o de una llamada telefónica. En cambio, cuando se solicite una representación que implique acudir ante una autoridad se le pide al socio que se presente en forma personal a la Cámara para tratar el asunto y entregue la documentación correspondiente.</p>
-						    
-						    <p>Cuando requieran un servicio de defensa que implique la interposición de algún recurso legal, el socio debe acudir personalmente a tratar el problema, para que posteriormente se le elabore el recurso y lo presente por su cuenta. La Cámara da seguimiento al asunto hasta obtener la resolución favorable por parte de la autoridad.</p>
+						    <p>Las empresas pueden llenar la solicitud de inscripción y enviarla a través de este medio al correo electrónico: afiliacion@canacotorreon.com.mx; o al fax: 01-871-7168822; ésta información se proporciona también personalmente a quienes acuden directamente a CANACO; esto con el fin de que los interesados conozcan las instalaciones de nuestra Cámara.</p>
 						    <br>
 
 						    <h4>Ventajas:</h4>
-						    <p>Servicio rápido, profesional y a costos preferenciales a los socios CANACO, y la confianza que proporciona ser representado por la Cámara Nacional de Comercio.</p>
-
+						    <br>
+						     <ul class="list-group">
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Disfrutar de todos los servicios a socios CANACO.</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Utilizar las Instalaciones como renta de salas para sus eventos sociales y empresariales a precios de inversión muy accesibles.</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Ahorro de tiempo y dinero al tramitar algún servicio.</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Información actual y confiable.</li>
+							</ul>
+							
 						</div>
+						
 						
 					</div>
 					
@@ -154,43 +146,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -199,24 +191,23 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
 					</div>
 					<!-- end rigth side bar -->
-
 				</div>
 			</div>
 		</section>
 		
 		
-<!-- footer -->
+		<!-- footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -267,6 +258,14 @@
 					</div>
 					<!-- Single Footer -->
 					
+					<!-- Single Footer -->
+					<div class="col-sm-3">
+						<div class="single-footer">
+							
+						</div>
+					</div>
+					<!-- Single Footer -->
+					
 				</div>
 			</div>
 			
@@ -284,11 +283,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -311,7 +310,7 @@
 		
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -320,8 +319,7 @@
         <script src="../js/jquery.sticky.js"></script>
         <script src="../js/wow.min.js"></script>
         <script src="../js/main.js"></script>
-
-        <script type="text/javascript">
+       <script type="text/javascript">
 			$(document).ready(function(){
 				$('a[href^="#"]').on('click',function (e) {
 					e.preventDefault();
@@ -335,8 +333,7 @@
 					});
 			});
 		</script>
-
-        <script src="../js/custom.js"></script>
+		<script src="../js/custom.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -349,3 +346,5 @@
         </script>
     </body>
 </html>
+
+

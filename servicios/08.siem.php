@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Capacitaci&oacute;n</title>
+        <title>Registro al SIEM</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,18 +67,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand">
-									<img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -99,81 +98,48 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="single-blog wow slideInLeft">
-							<a href="#"><h3>Capacitaci&oacute;n</h3></a>
+							<a href="#"><h3>Registro al SIEM</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/salas-de-capacitacionbbb.jpg" 
+							     src="../img/servicios/registro-siembbb.jpg" 
 							     alt="Blog Image" />
 							<h4>¿Qué es?</h4>
-						    <p>Un servicio que proporciona la CANACO Torreón, en materia de capacitación para la planta laboral de las empresas de la región.</p>
+						    <p>SIEM, Sistema de Información Empresarial México, es un sistema de información para promover los contactos de negocios entre las empresas ubicadas dentro del país, con alcances a nivel internacional.</p>
 						    <br>
 						    
 						    <h4>Objetivo:</h4>
-						    <p>Proporcionar las herramientas y elementos necesarios al capital humano de las empresas de la región a través de distintas actividades y eventos de capacitación, necesarios y suficientes para garantizar su desarrollo y crecimiento, en beneficio de las empresas y de la planta laboral en general.</p>
+						    <p>Promocionar comercialmente a las empresas registradas, mediante un Directorio Empresarial Electrónico que podrá ser accesado vía Internet a nivel nacional e internacional, lo cual permitirá mejorar sus posibilidades de contactar nuevos clientes y proveedores.</p>
+						    <p>Así como también, canalizar las necesidades de información y vinculación de las empresas con el sector empresarial mediante programas organizados por la Secretaría de Economía.</p>
 						    <br>
-						    
-						    <h4>¿Qué Ofrece?</h4>
-						    <p>A través de nuestras distintas salas de capacitación se ofrecen un programa completo de cursos que abarcan desde los alta dirección, mandos medios y planta laboral y se imparten desde:</p>
-						    
-						    <ul class="list-group">
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Talleres</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Diplomados</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Seminarios</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Congresos</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Cursos</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Simposium</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Conferencias</li>
-							</ul>
-							
-							<p>Contamos con servicio de alimentos y coffe break ejecutivo. Solicita tu presupuesto para que tu próxima reunión o junta de trabajo sea más amena y participativa entre tus asistentes, recuerda: Mente sana en cuerpo sano.</p>
-							<br>
-
-							<h4>Algunos ejemplos de estos servicios son:</h4>
-						    <p>Diplomado "Dirección Estratégica de Negocios" impartido por la Universidad Anáhuac de la ciudad de México, en las instalaciones de la Cámara de Comercio de Torreón.</p>
-							<br>
 
 						    <h4>Procedimiento:</h4>
-						    <p>Se manejan dos tipos de cursos, abiertos al público en general, o los "IN- COMPANY", únicamente para la planta laboral de la empresa solicitante, se cuenta con instructores, salas con equipo audiovisual, sala de cómputo, servicio de coffe break, y servicio de alimentos en nuestra área de cafetería.</p>
+						    <p>Para registrarse en el SIEM deberá llenar el cuestionario diseñado por la SECRETARIA DE ECONOMIA, con la información requerida y cubrir el pago de su cuota anual, correspondiente al registro o actualización.</p>
+						    <p>El pago será anual y de acuerdo a la tarifa establecida por la S.E., para todos y cada uno de los establecimientos (sucursales) que correspondan a una razón social.</p>
+						    
+						    <p>Las empresas que se afilien obtendrán beneficios adicionales al SIEM contribuyendo al fortalecimiento de la representatividad de CANACO Torreón como organismo empresarial.</p>
 						    <br>
 
 						    <h4>Ventajas:</h4>
-						    <br>
+						    <p></p>
 						    <ul class="list-group">
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Capacitación, impartida por profesionales en la materia, apoyados con equipo audiovisual con una inversión preferencial a los socios CANACO</li>
+							  		Mejorar las oportunidades de negocios con sus clientes y proveedores.</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Salas de capacitación totalmente remodeladas para grupos desde 10 hasta 300 personas</li>
+							  		Acceso a información de productos y servicios que sus Empresa necesita para su operación.</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Área de estacionamiento sin costo después de las 15:00 hrs</li>
+							  		Vincular su empresa con otras empresas a través de los programas de promoción empresarial del SIEM.</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Servicio de Alimentos y Coffe Break, en nuestra área de cafetería</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Facturación 100% deducible de impuestos</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Céntrica ubicación de nuestras instalaciones</li>
+							  		Cumplir con el registro al SIEM conforme a la Ley de Cámaras Empresariales y sus Confederaciones.</li>
 							</ul>
-							 <p>Para mayor información contacte a Ernesto Barranco en la Dirección de Capacitación y Eventos Especiales.</p>
+							<br>
 
+							<h4>Objetivo de la Representación:</h4>
+						    <p>Representar a los socios de la cámara al participar directamente en los Consejos Directivos de los organismos públicos y privados, que puedan afectar en servicio o a la economía asociados, del sector y a la comunidad.</p>
 
+							
 						</div>
 						
 						
@@ -189,43 +155,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -234,12 +200,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -326,11 +292,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -352,7 +318,7 @@
 		
 		
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
         <script src="../js/bootstrap.min.js"></script>

@@ -8,19 +8,19 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><strong>Imagen inicial</strong></h3>
+              <h3 class="box-title">Imagen inicial</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
             <!-- form start -->
                 
                 <!-- lista -->
-                  <div class="col-md-4 col-sm-12 pull-right">
+                  <div class="col-sm-12 text-right" style="padding-bottom: 20px;">
                     <button class="btn btn-success" id="btnNuevoImagen" data-toggle="modal" data-target="#crearImagenModal">Nuevo</button> 
                     <button class="btn btn-warning" disabled id="btnEditarImagen">Editar</button> 
                     <button id="btnEliminarImagen" class="btn btn-danger" disabled>Eliminar</button> 
                   </div>
-                <h3>Listado de Imagenes</h3>
+                
                 <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -115,6 +115,10 @@
             <div class="box-header with-border">
               <h3 class="box-title">+ El MEJOR de MI CIUDAD</h3>
             </div>
+            <?php
+              $votacion_data = $controller->get_votacion();
+              
+            ?>
             <div class="box-body">
               <div class="form-group">
                   <div class="row">
@@ -132,7 +136,7 @@
                       <span>Año</span>
                     </div>
                     <div class="col-xs-6">
-                      <input class="form-control" type="number" id="exampleInputFile">
+                      <input class="form-control" type="number" id="exampleInputFile" value="<?php echo $votacion_data['year']; ?>">
                     </div>
                   </div>
                 </div>
@@ -142,7 +146,14 @@
                       <span>Fecha Inicio de Votaciones</span>
                     </div>
                     <div class="col-xs-4">
-                      <input class="form-control" type="text" id="inputDateIni" name="inputDateIni" placeholder="dd/mm/yyyy">
+                      <input class="form-control" type="text" id="inputDateIni" 
+                              value="<?php
+                                        $fecha_ini = $votacion_data['date_ini'];
+                                        $iniDate = DateTime::createFromFormat('Y-m-d', $fecha_ini);
+                                        $iniDateString = $iniDate->format('d/m/Y');	
+                                        echo $iniDateString;
+                                      ?>"
+                              name="inputDateIni" placeholder="dd/mm/yyyy">
                     </div>
                     <div class="col-xs-2">
                     </div>
@@ -154,7 +165,14 @@
                       <span>Fecha Fin de las Votaciones</span>
                     </div>
                     <div class="col-xs-4">
-                      <input class="form-control" type="text" id="inputDateFin" name="inputDateFin" placeholder="dd/mm/yyyy">
+                      <input class="form-control" type="text" id="inputDateFin" 
+                              value="<?php
+                                           $fecha_fin = $votacion_data['date_fin'];
+                                           $finDate = DateTime::createFromFormat('Y-m-d', $fecha_fin);
+                                           $finDateString = $finDate->format('d/m/Y');	
+                                           echo $finDateString;
+                                     ?>"
+                              name="inputDateFin" placeholder="dd/mm/yyyy">
                     </div>
                     <div class="col-xs-2">
                     </div>
@@ -176,7 +194,15 @@
                       <span>Activar Página Nominados</span>
                     </div>
                     <div class="col-xs-6">
-                      <input type="checkbox">
+                      <input type="checkbox"
+                      <?php
+                      
+                          if ($votacion_data["ver_page_nomin"] == 1){
+                            echo "checked"; 
+                          };
+                      ?>
+                      ><!-- fin del input checkbox -->
+                   
                     </div>
                   </div>
                 </div>
@@ -186,7 +212,14 @@
                       <span>Activar Página de Resultados</span>
                     </div>
                     <div class="col-xs-6">
-                      <input type="checkbox">
+                      <input type="checkbox"
+                      <?php
+                      
+                          if ($votacion_data["ver_page_result"] == 1){
+                            echo "checked"; 
+                          };
+                      ?>
+                      >
                     </div>
                   </div>
                 </div>
@@ -220,10 +253,10 @@
               <div class="form-group">
                   <div class="row">
                     <div class="col-xs-6 text-right">
-                      <button class="btn btn-success">Guardar</button>
+                      <button class="btn btn-warning">Cancelar</button>
                     </div>
                     <div class="col-xs-6">
-                      <button class="btn btn-warning">Cancelar</button>
+                      <button class="btn btn-success" id="btnGuardarMejor" >Guardar</button>
                     </div>
                   </div>
                 </div>
@@ -344,6 +377,10 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
+      // Iniciación de variables globales y recursos
+      var animationName = 'animated shake';
+      var animationEnd = 'MSAnimationEnd animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+      
       let date_config = {
         closeText: 'Cerrar',
         prevText: '<Ant',
@@ -368,22 +405,60 @@
       $( "#inputDateFin" ).datepicker( date_config );
 
       var table = $( '#example2' ).DataTable({
-      "columnDefs": [
-          {
+        "columnDefs": [
+            {
               "targets": [ 0, 5 ],
               "visible": false,
               "searchable": false
-          },
-        ]
+            },
+          ],
+        language: {
+            url: 'localisation/Spanish.json'
+        }
       });
+
+
+      // funciones generales
+
+      function comprobar_formulario_nuevo(modal){
+        let liga = modal.find('.modal-body #recipientLiga').val();
+        let titulo = modal.find('.modal-body #recipientTitulo').val();
+        let fecha_limite= modal.find('.modal-body #recipientFecha').val();
+        let file = $('#recipientImage')[0].files[0];
+        
+        if ( liga != '' && titulo != '' && fecha_limite != '' && file != null ) {
+          return true;
+        }
+        return false;
+      }
+
+      function comprobar_formulario_editar(modal){
+        let liga = modal.find('.modal-body #editableLiga').val();
+        let titulo = modal.find('.modal-body #editableTitulo').val();
+        let fecha_limite= modal.find('.modal-body #editableFecha').val();
+        //let file = $('#editableImage')[0].files[0];  && file != null
+        
+        if ( liga != '' && titulo != '' && fecha_limite != ''  ) {
+          return true;
+        }
+        return false;
+      }
+
+
+      // eventos de los elementos
+
       // desactivar datos de los dos modal
       $( '#crearImagenModal' ).on( 'hide.bs.modal', function ( event ) {
         document.getElementById("formNuevaImagen").reset();
+        // asigno nueva ruta
         $("#newImagenShow").data("src", "../img/loading.gif");
+
         recargar_imagen_nueva();
         $("#contenedorNewImage").css("display", "none");
       });
+
       $( '#editarImagenModal' ).on( 'hide.bs.modal', function ( event ) {
+        // dejar en blanco el form
         document.getElementById("formEditarImagen").reset();
         $("#editImagenShow").attr("src", "../img/loading.gif");
       });
@@ -505,17 +580,35 @@
     // btn en el modal para iniciar el crear imagen
     $("#btnGuardarImagen").on("click", function( e ) {
       e.preventDefault();
-      crear_imagen();
       let modal = $('#crearImagenModal');
-      modal.modal('hide');
+      // comprobar que el modal este completo
+      if ( comprobar_formulario_nuevo(modal) ) {
+        crear_imagen();
+        modal.modal('hide');
+      } else {
+        // mostrar mensaje de error
+        toastr.warning("<strong>Cuidado: </strong> Debe llenar todos los datos");
+        modal.addClass(animationName).one(animationEnd, function () {
+          $(this).removeClass(animationName);
+        });
+      }
+      
+      
     })
     
     // btn en el modal para update la imagen
     $('button#btnUpdateImagen').on('click', function(e) {
       e.preventDefault();
       let modal = $('#editarImagenModal');
-      update_imagen(modal);
-      modal.modal('hide');
+      if (comprobar_formulario_editar(modal)){
+        update_imagen(modal);
+        modal.modal('hide');
+      } else {
+        toastr.warning("<strong>Cuidado: </strong> Debe llenar todos los datos");
+        modal.addClass(animationName).one(animationEnd, function () {
+          $(this).removeClass(animationName);
+        });
+      }
     })
     
     // boton sobre el listado de imagenes
@@ -594,6 +687,7 @@
       recargar_imagen();
 
       $("#editImagenShow").data("src", window.URL.createObjectURL(image));
+      
       setTimeout(() => {
         recargar_imagen();
       }, 500);
@@ -622,6 +716,8 @@
       }
       
     })
+
+    //$("#")
 
 
   })

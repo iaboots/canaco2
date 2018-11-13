@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Tr&aacute;mites Estatales</title>
+        <title>Bolsa de Trabajo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico in the root directory -->
+       <!-- Place favicon.ico in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="../img/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="../img/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="../img/favicon/apple-icon-72x72.png">
@@ -41,10 +41,9 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/responsive.css">
         <link rel="stylesheet" href="../css/estilotramite.css">
-
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="../js/csi.min.js"></script>
-       
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -67,17 +66,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -97,56 +96,32 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
-						<div class="single-blog wow fadeInLeft">
-							<a href="#"><h3>Tr&aacute;mites Estatales</h3></a>
+						<div class="single-blog wow slideInLeft">
+							<a href="#"><h3>Bolsa de Trabajo</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/tramite_estatalbbb.jpg" 
+							     src="../img/servicios/bolsa-de-trabajobbb.jpg" 
 							     alt="Blog Image" />
-							<h4>Objetivo</h4>
-						    <p>Proporcionar a los socios representación, apoyo y defensa administrativa en asuntos estatales y federales.</p>
+							<h4>¿Qué es?</h4>
+						    <p>Es un servicio muy útil para las empresas que se encuentren requiriendo personal calificado, y para la s personas en general que buscan empleo, ya que a través de este departamento CANACO promueve candidatos específicos para cada una de las vacantes que se van presentando.</p>
 						    <br>
 						    
-						    <h4>¿Qué Ofrece?</h4>
-						    <p>Respaldo en aspectos que requieran asesoría y defensa ante las siguientes dependencias.</p>
+						    <h4>Objetivo:</h4>
+						    <p>Ser promotores de empleo, colocando el mayor número posible de personas semanalmente en las distintas empresas de la región y a la vez facilitar toda la información indispensable sobre mejores candidatos disponibles para las vacantes que deseen cubrir nuestros socios.</p>
+						    <br>
+
+						     <h4>Solicitantes:</h4>
+						    <p>Las personas que requieran estar dentro de nuestra Bolsa de Trabajo, y promover sus servicios deben acudir a las oficinas de CANACO Torreón, CON SOLICITUD DEBIDAMENTE REQUISITADA Y/O CURRÍCULA CON FOTOGRAFÍA RECIENTE INDISPENSABLE. Si lo desean también nos pueden hacer llegar su información a través de correo electrónico, también pueden consultar las vacantes diarias, para una más rápida y mejor atención.</p>
+						    <br>
 						    
+						    <h4>Empresarios:</h4>
+						    <p></p>
 						    <ul class="list-group">
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Servicio de Administración Tributaria</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Economía</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Tesorería Municipal</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Finazas y Tesorería General del Estado</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de obras Públicas</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Desarrollo Urbano y Ecología</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría del Trabajo</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Educación Pública y del Medio Ambiente</li>
+							  <li class="list-group-item">1.- Los empresarios pueden acudir a la Cámara en nuestro departamento de Bolsa de Trabajo y personalmente consultar los expedientes y escoger los candidatos que mejor cubran el perfil del puesto.</li>
+							  <li class="list-group-item">2.- Mediante un escrito indicar al personal de Bolsa de Trabajo el perfil que están requiriendo y nuestro personal se encargará de buscar los candidatos adecuados y posteriormente remitir a la empresa una lista de posibles prospectos.</li>
+							  <li class="list-group-item">3.- A través de correo electrónico, enviar la requisición con el perfil del puesto, y éste será enviado lo más pronto posible a la empresa.</li>
 							</ul>
-							<p><b>Entre los servicios más solicitados se encuentran:</b></p>
-							<p>Auditorias, requerimientos y altas de hacienda, normas oficiales mexicanas, multas, visitas en materia de salud, sorteos, rifas, derecho de autor, etc.</p>
-							<br>
-
-						    <h4>Procedimiento:</h4>
-						    <p>Cuando se trata de asesoría, por medio de correo electrónico o una llamada telefónica, el socio consigue la información necesaria.</p>
-						    
-						    <p>En el caso de representación y defensa el socio deberá acudir a nuestras oficinas a presentar el problema y entregar la documentación correspondiente. Y la Cámara se encarga de realizar las gestiones.</p>
-						    <br>
-
-						    <h4>Ventajas:</h4>
-						    <p>Servicio rápido, profesional y a costos preferenciales a los socios CANACO, y la confianza que proporciona ser representado por la Cámara Nacional de Comercio.</p>
+							
+							
 							
 						</div>
 						
@@ -163,43 +138,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -208,12 +183,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -300,11 +275,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -325,7 +300,6 @@
 		<!-- footer -->
 		
 		
-
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
@@ -363,4 +337,5 @@
         </script>
     </body>
 </html>
+
 

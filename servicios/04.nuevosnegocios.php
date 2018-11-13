@@ -67,17 +67,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -133,43 +133,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -178,12 +178,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -270,11 +270,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>

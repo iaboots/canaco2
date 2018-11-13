@@ -11,7 +11,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <div class="col-md-4 col-sm-12 pull-right">
+                <div class="col-sm-12 text-right">
                   <button class="btn btn-success" id="btnNuevoSocio" data-toggle="modal" data-target="#exampleModal">Nuevo</button> 
                   <button class="btn btn-info" disabled id="btnEditarSocio">Editar</button> 
                   <button id="btnEliminarSocio" class="btn btn-danger" disabled>Eliminar</button> 
@@ -59,16 +59,29 @@
                       <td><?php echo $nom['email']; ?></td>
                       <td><?php echo $nom['rfc']; ?></td>
                       <td class="text-center fila-status">
-                        <?php 
-                            if ($nom['status'] == 1){
+                        <?php
+                            if ($nom['status'] == "1"){
                               echo 'Activado';
                             } else {
                               echo 'Desactivado';
                             }
                         ?>
                       </td>
-                      <td><?php echo $nom['creado']; ?></td>
-                      <td><?php echo $nom['modificado']; ?></td>
+                      <td>
+                        <?php 
+                          $fecha = $nom['creado'];
+                          $newDate = DateTime::createFromFormat('Y-m-d H:i:s', $fecha);
+                          $newDateString = $newDate->format('d/m/Y');	
+                          echo $newDateString; 
+                        ?>
+                      <td>
+                        <?php 
+                          $fecha = $nom['modificado'];
+                          $newDate = DateTime::createFromFormat('Y-m-d H:i:s', $fecha);
+                          $newDateString = $newDate->format('d/m/Y');	
+                          echo $newDateString; 
+                        ?>
+                      </td>
                     </tr>
                  <?php }
                   # code...
@@ -99,6 +112,7 @@
       </div>
       <div class="modal-body">
         <form id="formNuevoSocio">
+          <input type="hidden" value="HOLAHOLA" id="inputHiddenId" name="inputHiddenId">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Nombre:</label>
             <input type="text" class="form-control" id="recipient-name" name="recipient-name">
@@ -115,9 +129,13 @@
             <label for="recipient-rfc" class="control-label">Rfc:</label>
             <input type="text" class="form-control" id="recipient-rfc" name="recipient-rfc">
           </div>
-          <div class="form-group">
+          <div class="form-group" id="group-status">
             <label for="recipient-status" class="control-label">Estatus:</label>
-            <input type="text" class="form-control" id="recipient-status" name="recipient-status"></input>
+           <!-- <input type="text" class="form-control" >   -->
+            <select class="form-control" id="recipient-status" name="recipient-status">
+              <option value="Activado" selected="selected">Activado</option>
+              <option value="Desactivado">Desactivado</option>
+            </select>
           </div>
         </form>
       </div>
@@ -152,7 +170,10 @@
                 "visible": false,
                 "searchable": false
             },
-        ]
+        ],
+      language: {
+          url: 'localisation/Spanish.json'
+      }
     });
 
     function desactivar_botones_edicion(){
@@ -178,6 +199,26 @@
       });
     }
 
+    function editar_nominado(){
+      let form = $('#formNuevoSocio');
+      let url = 'core/editar_socio.php';
+      let data = form.serialize();
+
+      $.post(url, data, function(response){
+        if (response == "ok"){
+          toastr.success('<strong>Cambiado:</strong> Has editado a un nominado.');
+          $('#liCargarNominados').click();
+        } else if (response == "sincambios"){
+          toastr.info('<strong>Sin cambios:</strong> No hiciste cambios en el nominado.');
+        } 
+        else {
+          toastr.warning('<strong>Error:</strong> Un error ha impedido editar al nominado.');
+        }
+      }).fail(function(){
+        toastr.error('<strong>Error:</strong> Un error ha impedido editar al nominado.' + response);
+      });
+    }
+
     function cambiar_estado_btn_activar(cell_status){
       if (cell_status == 'Desactivado'){
           $( '#btnCambiarStatusSocio' ).html("Activar");
@@ -193,9 +234,13 @@
       modal.find('.modal-body #recipient-rfc').val('');
       modal.find('.modal-body #recipient-name').val('');
       modal.find('.modal-body #recipient-email').val('');
-      modal.find('.modal-body #recipient-status').val('');
+      modal.find('.modal-body #recipient-status').prop('selectedIndex',0);
+      
       modal.find('.modal-body #recipient-categoria').val('');
       modal.find('.modal-footer .text-left').css('display', 'none')
+      
+      // muestro el div status 
+      modal.find('.modal-body #group-status').css('display', 'inline');
     });
 
     $('#example2 tbody').on( 'click', 'tr', function () {
@@ -265,11 +310,17 @@
     });
 
     $('button#btnEditarSocio').on('click', function(e){
+      // Clic en boton superior antes de abrir la modal para hacer los cambios
       let modal = $('#exampleModal');
       modal.data('role', role_edit_nominado); 
 
-      modal.find('.modal-footer .text-left').css('display', 'inline')
+      modal.find('.modal-footer .text-left').css('display', 'inline');
+      
+      // oculto el div status 
+      modal.find('.modal-body #group-status').css('display', 'none');
 
+      
+      let socio_id = table.row('.selected').data()[0];
       let editable_nombre = table.row('.selected').data()[2];
       let editable_categoria = table.row('.selected').data()[3];
       let editable_email = table.row('.selected').data()[4];
@@ -277,7 +328,8 @@
       let editable_estatus = table.row('.selected').data()[6];
       let date_created = table.row('.selected').data()[7];
       let date_modified = table.row('.selected').data()[8];
-
+      
+      $("#inputHiddenId").val(socio_id);
       modal.find('.modal-body #recipient-name').val(editable_nombre);
       modal.find('.modal-body #recipient-categoria').val(editable_categoria);
       modal.find('.modal-body #recipient-email').val(editable_email);
@@ -324,7 +376,7 @@
       if (modal_role == role_new_nominado){
         crear_nominado();
       } else if (modal_role == role_edit_nominado){
-        alert('rol editar ' + modal_role)
+        editar_nominado();
       } else {
         alert('el rol no se encuentra ' + modal_role);
       }

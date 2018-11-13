@@ -11,18 +11,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            
               <div class="form-group">
-                <div class="col-md-3 col-sm-12" style="margin-bottom: 20px;">
-                  <label for="inputNombre">Fecha:</label>
-                  <div class="input-group">  
-                    <input class="form-control" type="text" id="inputNombre">
-                    <span class="input-group-btn">
-                      <button class="btn btn-warning" disabled id="btnBuscarNoticiar" type="button">Buscar</button>
-                    </span>
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12 pull-right">
+                <div class="col-sm-12 text-right">
                   <button class="btn btn-success" id="liCargarNoticiasNew">Nueva Noticia</button> 
                   <button class="btn btn-warning" disabled id="btnEditarNoticia">Editar</button> 
                   <button class="btn btn-danger" id="btnEliminarNoticia">Eliminar</button> 
@@ -59,8 +49,22 @@
                       <td><?php echo $nom['id']; ?></td>
                       <td><?php echo $cont++; ?></td>
                       <td><?php echo $nom['titulo']; ?></td>
-                      <td><?php echo $nom['creado']; ?></td>
-                      <td><?php echo $nom['modificado']; ?></td>
+                      <td>
+                        <?php 
+                          $fecha = $nom['creado'];
+                          $newDate = DateTime::createFromFormat('Y-m-d H:i:s', $fecha);
+                          $newDateString = $newDate->format('d/m/Y');	
+                          echo $newDateString; 
+                        ?>
+                      </td>
+                      <td>
+                        <?php 
+                          $fecha = $nom['modificado'];
+                          $newDate = DateTime::createFromFormat('Y-m-d H:i:s', $fecha);
+                          $newDateString = $newDate->format('d/m/Y');	
+                          echo $newDateString; 
+                        ?>
+                      </td>
                     </tr>
                  <?php }
                   # code...
@@ -93,7 +97,10 @@
                 "visible": false,
                 "searchable": false
             },
-        ]
+        ],
+      language: {
+          url: 'localisation/Spanish.json'
+      }
     });
 
     function desactivar_botones_edicion(){

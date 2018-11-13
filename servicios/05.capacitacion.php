@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Tr&aacute;mites Federales</title>
+        <title>Capacitaci&oacute;n</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,7 +43,8 @@
         <link rel="stylesheet" href="../css/estilotramite.css">
 
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-      
+        <script src="../js/csi.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -66,18 +67,18 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand">
+								<a href="../index.php" class="navbar-brand">
 									<img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -98,61 +99,81 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="single-blog wow slideInLeft">
-							<a href="#"><h3>Trámites Federales</h3></a>
+							<a href="#"><h3>Capacitaci&oacute;n</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/tramite_federalbbb.jpg" 
+							     src="../img/servicios/salas-de-capacitacionbbb.jpg" 
 							     alt="Blog Image" />
-							<h4>Objetivo</h4>
-						    <p>Proporcionar a los socios representación, apoyo y defensa administrativa en asuntos estatales y federales.</p>
+							<h4>¿Qué es?</h4>
+						    <p>Un servicio que proporciona la CANACO Torreón, en materia de capacitación para la planta laboral de las empresas de la región.</p>
+						    <br>
+						    
+						    <h4>Objetivo:</h4>
+						    <p>Proporcionar las herramientas y elementos necesarios al capital humano de las empresas de la región a través de distintas actividades y eventos de capacitación, necesarios y suficientes para garantizar su desarrollo y crecimiento, en beneficio de las empresas y de la planta laboral en general.</p>
 						    <br>
 						    
 						    <h4>¿Qué Ofrece?</h4>
-						    <p>Respaldo en aspectos que requieran asesoría y defensa ante las siguientes dependencias:</p>
+						    <p>A través de nuestras distintas salas de capacitación se ofrecen un programa completo de cursos que abarcan desde los alta dirección, mandos medios y planta laboral y se imparten desde:</p>
 						    
 						    <ul class="list-group">
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Servicio de Administración Tributaria</li>
+							  		Talleres</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Economía</li>
+							  		Diplomados</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Tesorería Municipal</li>
+							  		Seminarios</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Finazas y Tesorería General del Estado</li>
+							  		Congresos</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de obras Públicas</li>
+							  		Cursos</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Desarrollo Urbano y Ecología</li>
+							  		Simposium</li>
 							  <li class="list-group-item">
 							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría del Trabajo</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Gobernación</li>
-							  <li class="list-group-item">
-							  	<i class="fa fa-check" aria-hidden="true"></i>
-							  		Secretaría de Educación Pública y del Medio Ambiente</li>
+							  		Conferencias</li>
 							</ul>
+							
+							<p>Contamos con servicio de alimentos y coffe break ejecutivo. Solicita tu presupuesto para que tu próxima reunión o junta de trabajo sea más amena y participativa entre tus asistentes, recuerda: Mente sana en cuerpo sano.</p>
 							<br>
 
-							<h4>Entre los servicios más solicitados se encuentran:</h4>
-							<p>Auditorias, requerimientos y altas de hacienda, normas oficiales mexicanas, multas, visitas en materia de salud, sorteos, rifas, derecho de autor, etc.</p>
+							<h4>Algunos ejemplos de estos servicios son:</h4>
+						    <p>Diplomado "Dirección Estratégica de Negocios" impartido por la Universidad Anáhuac de la ciudad de México, en las instalaciones de la Cámara de Comercio de Torreón.</p>
 							<br>
 
 						    <h4>Procedimiento:</h4>
-						    <p>Cuando se trata de asesoría, por medio de correo electrónico o una llamada telefónica, el socio consigue la información necesaria.</p>
-						    
-						    <p>En el caso de representación y defensa el socio deberá acudir a nuestras oficinas a presentar el problema y entregar la documentación correspondiente. Y la Cámara se encarga de realizar las gestiones.</p>
+						    <p>Se manejan dos tipos de cursos, abiertos al público en general, o los "IN- COMPANY", únicamente para la planta laboral de la empresa solicitante, se cuenta con instructores, salas con equipo audiovisual, sala de cómputo, servicio de coffe break, y servicio de alimentos en nuestra área de cafetería.</p>
 						    <br>
 
 						    <h4>Ventajas:</h4>
-						    <p>Servicio rápido, profesional y a costos preferenciales a los socios CANACO, y la confianza que proporciona ser representado por la Cámara Nacional de Comercio.</p>
-							
+						    <br>
+						    <ul class="list-group">
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Capacitación, impartida por profesionales en la materia, apoyados con equipo audiovisual con una inversión preferencial a los socios CANACO</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Salas de capacitación totalmente remodeladas para grupos desde 10 hasta 300 personas</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Área de estacionamiento sin costo después de las 15:00 hrs</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Servicio de Alimentos y Coffe Break, en nuestra área de cafetería</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Facturación 100% deducible de impuestos</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Céntrica ubicación de nuestras instalaciones</li>
+							</ul>
+							 <p>Para mayor información contacte a Ernesto Barranco en la Dirección de Capacitación y Eventos Especiales.</p>
+
+
 						</div>
 						
 						
@@ -168,43 +189,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -213,12 +234,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -229,7 +250,7 @@
 		</section>
 		
 		
-	<!-- footer -->
+		<!-- footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -305,11 +326,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="#home">Inicio</a></li>
-									<li><a href="#features">Servicios</a></li>
-									<li><a href="#blog">Eventos</a></li>
-									<li><a href="#about">Historia</a></li>
-									<li><a href="#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -331,7 +352,7 @@
 		
 		
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
         <script src="../js/bootstrap.min.js"></script>
@@ -368,4 +389,5 @@
         </script>
     </body>
 </html>
+
 

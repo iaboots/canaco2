@@ -7,11 +7,19 @@
 	$rfc       = $_POST['recipient-rfc'];
 	$status    = $_POST['recipient-status'];
 
-	if ($nombre && $categoria && $email && $rfc && $status){
+	if ($status == "Activado"){
+		$status = 1;
+	} else {
+		$status = 0;
+	}
+
+	if ($nombre && $categoria && $email && $rfc){
 		// hacer algo
 		include_once('control.php');
 
-		if ($controller->create_socio($nombre, $categoria, $email, $rfc, $status)){
+		$response = $controller->create_socio($nombre, $categoria, $email, $rfc, $status);
+
+		if ($response){
 			echo "ok";
 		} else {
 			echo "error";

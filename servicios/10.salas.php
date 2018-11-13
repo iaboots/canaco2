@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bolsa de Trabajo</title>
+        <title>Salas</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       <!-- Place favicon.ico in the root directory -->
+        <!-- Place favicon.ico in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="../img/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="../img/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="../img/favicon/apple-icon-72x72.png">
@@ -41,8 +41,15 @@
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/responsive.css">
         <link rel="stylesheet" href="../css/estilotramite.css">
+
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="../js/csi.min.js"></script>
+
+        <style type="text/css">
+        	#centro {
+        		vertical-align: bottom !important;
+        	}
+        </style>
 
     </head>
     <body>
@@ -66,17 +73,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -97,31 +104,142 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="single-blog wow slideInLeft">
-							<a href="#"><h3>Bolsa de Trabajo</h3></a>
+							<a href="#"><h3>Salones para Eventos Sociales y Empresariales</h3></a>
 							<img class="img-responsive img-rounded" 
-							     src="../img/servicios/bolsa-de-trabajobbb.jpg" 
+							     src="../img/servicios/salasbbb.jpg" 
 							     alt="Blog Image" />
-							<h4>¿Qué es?</h4>
-						    <p>Es un servicio muy útil para las empresas que se encuentren requiriendo personal calificado, y para la s personas en general que buscan empleo, ya que a través de este departamento CANACO promueve candidatos específicos para cada una de las vacantes que se van presentando.</p>
-						    <br>
+							<h4>Tenemos la sala ideal, para integrar a su equipo de trabajo</h4>
+							<br>
+							<h4>Casino Canaco</h4>
+						    <p>Te ofrecemos nuestro moderno sal&oacute;n para todo tipo de evento social:</p>
+						     <ul class="list-group">
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Bodas</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		XV Años</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Graduaciones</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Aniversarios</li>
+							</ul>
+							<p>CAPACIDAD: Desde 100 hasta 250 personas.</p>
+							<br>
 						    
-						    <h4>Objetivo:</h4>
-						    <p>Ser promotores de empleo, colocando el mayor número posible de personas semanalmente en las distintas empresas de la región y a la vez facilitar toda la información indispensable sobre mejores candidatos disponibles para las vacantes que deseen cubrir nuestros socios.</p>
+						    <h4>Sala de Consejo</h4>
+						    <p>Equipada con clima, pantalla de proyección, montaje tipo mesa rusa en óvalo, dos niveles, sillones ejecutivos. Ideal para cursos de capacitación, juntas de trabajo, ruedas de prensa.</p>
+						    <p>Capacidad: Hasta 50 personas</p>
 						    <br>
 
-						     <h4>Solicitantes:</h4>
-						    <p>Las personas que requieran estar dentro de nuestra Bolsa de Trabajo, y promover sus servicios deben acudir a las oficinas de CANACO Torreón, CON SOLICITUD DEBIDAMENTE REQUISITADA Y/O CURRÍCULA CON FOTOGRAFÍA RECIENTE INDISPENSABLE. Si lo desean también nos pueden hacer llegar su información a través de correo electrónico, también pueden consultar las vacantes diarias, para una más rápida y mejor atención.</p>
+						    <h4>Sala Mover a México</h4>
+						    <p>Equipada con clima, pantalla, sillones ejecutivos, ideal paa cursos de capacitación.</p>
+						    <p>CAPACIDAD: Hasta 25 personas</p>
 						    <br>
-						    
-						    <h4>Empresarios:</h4>
-						    <p></p>
-						    <ul class="list-group">
-							  <li class="list-group-item">1.- Los empresarios pueden acudir a la Cámara en nuestro departamento de Bolsa de Trabajo y personalmente consultar los expedientes y escoger los candidatos que mejor cubran el perfil del puesto.</li>
-							  <li class="list-group-item">2.- Mediante un escrito indicar al personal de Bolsa de Trabajo el perfil que están requiriendo y nuestro personal se encargará de buscar los candidatos adecuados y posteriormente remitir a la empresa una lista de posibles prospectos.</li>
-							  <li class="list-group-item">3.- A través de correo electrónico, enviar la requisición con el perfil del puesto, y éste será enviado lo más pronto posible a la empresa.</li>
+
+						    <h4>Sala Emprendedor</h4>
+						    <p>Equipada con clima, pantalla de proyección, montaje a su elección, (ruso, escuela, herradura, auditorio) sillones ejecutivos. Ideal para cursos de capacitación, juntas de trabajo, ruedas de prensa. </p>
+						    <p>CAPACIDAD: De 10 hasta 20 personas</p>
+						    <br>
+
+						    <h4>Auditorio Canaco</h4>
+						    <p>Equipado con refrigeración, pantalla de proyección, montaje a su elección, ideal para:</p>
+						     <ul class="list-group">
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Conferencias</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Congresos</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Exposiciones</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Networking</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Presentación de Productos</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Capacitaciones</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Cursos</li>
+							  <li class="list-group-item">
+							  	<i class="fa fa-check" aria-hidden="true"></i>
+							  		Talleres</li>
 							</ul>
-							
-							
+						    <p>CAPACIDAD: De 50 hasta 250 personas</p>
+						    <br>
+							<div >
+							  <h3>Montajes</h3>
+							  <table class="table table-bordered">
+							    <tbody>
+							      <tr>
+							      	<td id="centro" class="text-center" rowspan="2"><strong>Salón</strong></td>
+							        <td colspan="5" class="text-center">Tipo de Montaje</td>
+							      </tr>
+							       <tr>
+								        <td class="text-center">
+								        	<img src="../img/salas/img_salau_aaa.png" width="60%" height="40%">
+								        	<p><strong>Herradura</strong></p>
+								        </td>
+							        <td class="text-center">
+							        	<img src="../img/salas/img_aula_aaa.png" width="60%" height="40%">
+							        	<p><strong>Escuela</strong></p>
+							        </td>
+							        <td class="text-center">
+							        	<img src="../img/salas/img_teatro_aaa.png" width="60%" height="40%">
+							        	<p><strong>Auditorio</strong></p>
+							        </td>
+							        <td class="text-center">
+							        	<img src="../img/salas/img_banquete_aaa.png" width="60%" height="40%">
+							        	<p><strong>Banquete</strong></p>
+							        </td>
+							        <td class="text-center">
+							        	<img src="../img/salas/img_conference_aaa.png" width="60%" height="40%">
+							        	<p><strong>Mesa Rusa</strong></p>
+							        </td>
+							      </tr>
+							      <tr>
+							        <td>De Consejo</td>
+							        <td class="text-center">35</td>
+							        <td class="text-center">-</td>
+							        <td class="text-center">-</td>
+							        <td class="text-center">-</td>
+							        <td class="text-center">40</td>
+							      </tr>
+							      <tr>
+							        <td>Emprendedor</td>
+							        <td class="text-center">14</td>
+							        <td class="text-center">20</td>
+							        <td class="text-center">30</td>
+							        <td class="text-center">-</td>
+							        <td class="text-center">20</td>
+							      </tr>
+							      <tr>
+							        <td>Mover México</td>
+							        <td class="text-center">20</td>
+							        <td class="text-center">30</td>
+							        <td class="text-center">40</td>
+							        <td class="text-center">-</td>
+							        <td class="text-center">30</td>
+							      </tr>
+							      <tr>
+							        <td>Auditorio</td>
+							        <td class="text-center">45</td>
+							        <td class="text-center">130</td>
+							        <td class="text-center">250</td>
+							        <td class="text-center">250</td>
+							        <td class="text-center">60</td>
+							      </tr>
+							    </tbody>
+							  </table>
+							</div>
+
 							
 						</div>
 						
@@ -138,43 +256,43 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a>
+										<a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a>
+										<a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a>
+										<a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.nuevosnegocios.html">Nuevos Negocios</a>
+										<a href="04.nuevosnegocios.php">Nuevos Negocios</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="05.capacitacion.html">Capacitaci&oacute;n</a>
+										<a href="05.capacitacion.php">Capacitaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a>
+										<a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="07.afiliacion.html">Afiliaci&oacute;n</a>
+										<a href="07.afiliacion.php">Afiliaci&oacute;n</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="08.siem.html">SIEM</a>
+										<a href="08.siem.php">SIEM</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="09.asesorialegal.html">Asesor&iacute;a Legal</a>
+										<a href="09.asesorialegal.php">Asesor&iacute;a Legal</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="10.salas.html">Salas</a>
+										<a href="10.salas.php">Salas</a>
 									</li>
 
 								</ul>
@@ -183,12 +301,12 @@
 							<div class="widget">
 								<h5 class="widgetheading">Servicios m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.tramitesmunicipales.html">Tr&aacute;mites Municipales</a></li>
-									<li><a href="07.afiliacion.html">Afiliaci&oacute;n</a></li>
-									<li><a href="02.tramitesestatales.html">Tr&aacute;mites Estatales</a></li>
-									<li><a href="03.tramitesfederales.html">Tr&aacute;mites Federales</a></li>
-									<li><a href="06.bolsadetrabajo.html">Bolsa de Trabajo</a></li>
-									<li><a href="09.asesorialegal.html">Asesor&iacute;a Legal</a></li>
+									<li><a href="01.tramitesmunicipales.php">Tr&aacute;mites Municipales</a></li>
+									<li><a href="07.afiliacion.php">Afiliaci&oacute;n</a></li>
+									<li><a href="02.tramitesestatales.php">Tr&aacute;mites Estatales</a></li>
+									<li><a href="03.tramitesfederales.php">Tr&aacute;mites Federales</a></li>
+									<li><a href="06.bolsadetrabajo.php">Bolsa de Trabajo</a></li>
+									<li><a href="09.asesorialegal.php">Asesor&iacute;a Legal</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -275,11 +393,11 @@
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -300,6 +418,7 @@
 		<!-- footer -->
 		
 		
+
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
