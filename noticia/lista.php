@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Expo Regreso a Clases</title>
+        <title>Rally Coahuila 1000</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,7 +26,6 @@
 		<meta name="msapplication-TileImage" content="../img/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		
-		
 		<!-- Font -->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -43,7 +42,18 @@
         <link rel="stylesheet" href="../css/estilotramite.css">
 
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="../js/csi.min.js"></script>
+		<script src="../js/csi.min.js"></script>
+		
+		<style>
+			 img.img-responsive{
+				 padding-top: 1.5em;
+				 width: 30%;
+			 }
+			 a.ver-mas {
+				 color: #0664B8;
+				 font-weight: bold;
+			 }
+		</style>
 
     </head>
     <body>
@@ -67,16 +77,17 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="../index.html" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../votacion.php">Votación</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -95,65 +106,41 @@
 		<section class="blog-single">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8">
-						<div class="single-blog wow slideInLeft">
-							<h3>Expo Regreso a Clases</h3>
-							<img class="img-responsive img-rounded" 
-							     src="../img/eventos/expo-regreso-clases-001bbb.jpg" 
-							     alt="Blog Image" />
-							<h4>Aprovecha para adquirir articulos escolares a los mejores precios</h4>
-						    <p>Evento que reúne a los proveedores más importantes de la región en el giro de útiles escolares y demás consumibles, para ofrecer a los padres de familia, la mejor opción de surtir sus listas de artículos escolares a precios accesibles y todo en un mismo lugar.</p>
-						    
+					<div class="col-md-12">
+						<div class="single-blog text-center wow slideInLeft">
+							<h3 style="text-decoration: underline;" >Noticias</h3>
 						</div>
-						
-						
 					</div>
-					
-					<!-- Right Sidebar -->
-					<div class="col-md-4">
-						<aside class="right-sidebar wow slideInRight">
-							<div class="widget">
-							</div>
-							<div class="widget">
-								<h5 class="widgetheading">Todos los Eventos</h5>
-								<ul class="cat">
-									<li>
-										<i class="icon-angle-right"></i>
-										<a href="01.rallycoahuila.html">Rally Coahuila 1000</a>
-									</li>
-									<li>
-										<i class="icon-angle-right"></i>
-										<a href="02.comidadeamistad.html">Comida de la Amistad</a>
-									</li>
-									<li>
-										<i class="icon-angle-right"></i>
-										<a href="03.exporegresoaclases.html">Expo Regreso a Clases</a>
-									</li>
-									<li>
-										<i class="icon-angle-right"></i>
-										<a href="04.rodada.html">Rodada Viesca</a>
-									</li>
-									
-								</ul>
-							</div>
-						
-							<div class="widget">
-								<h5 class="widgetheading">Eventos m&aacute;s solicitados</h5>
-								<ul class="tags">
-									<li><a href="01.rallycoahuila.html">Rally Coahuila 1000</a></li>
-									<li><a href="02.comidadeamistad.html">Comida de la Amistad</a></li>
-									<li><a href="03.exporegresoaclases.html">Expo Regreso a Clases</a></li>
-								</ul>
-							</div>
-							</aside>
-					</div>
-					<!-- end rigth side bar -->
 				</div>
+				<!-- listado de noticias -->
+				 
+				 <?php
+					 include("../admin/core/control.php");
+					 $all_noticias = $controller->get_all_list();
+					 foreach($all_noticias as $key => $nom){ ?>					 
+						<div class="row">
+							<div class="col-md-12">
+								<div class="single-blog wow slideInLeft">
+									<h4><?php echo $nom['titulo'] ?></h4>
+									<!--<img class="img-responsive img-rounded" 
+										src="../img/historiabbb.jpg" 
+										alt="Blog Image" /> -->
+									<p><?php echo $nom['noticia'] ?>...
+										<a href="detalle.php?noti=<?php echo $nom['id']; ?>" class="ver-mas">Ver más</a>
+
+									</p>
+									
+								</div>
+							</div>
+						</div>
+
+					<?php }
+				 ?>
+
 			</div>
 		</section>
 		
-		
-	<!-- footer -->
+		<!-- footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -223,17 +210,18 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="copy-text">
-								<p>All Rights Reserved | Copyright 2018 ©</p>
+								<p>All Rights Reserved | Copyright 2018 © </p>
 							</div>
 						</div>
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>
@@ -280,16 +268,6 @@
 			});
 		</script>
 		<script src="../js/custom.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
     </body>
 </html>
 

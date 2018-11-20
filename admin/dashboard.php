@@ -297,7 +297,6 @@
             'autoWidth'   : false
           });
         }
-        
           
         if (pagina == "<?php echo $page_noti;  ?>") {
            // CKEDITOR.replace('editor1');
@@ -325,8 +324,8 @@
               break;
         }
         
-        $('#titulo_header').html(page_name);
-        $('#titulo_li').html(page_name);
+        $('#titulo_header').html( page_name );
+        $('#titulo_li').html( page_name );
 
         show_window();
 
@@ -355,10 +354,10 @@
     });
 
     function show_window(){
-        setTimeout(() => {
+        //setTimeout(() => {
         $('#loader').fadeOut("fast");
         $(".body-cargador").css('visibility', 'visible');
-      }, 50);
+      //}, 50);
     }
 
     function hide_windows(){

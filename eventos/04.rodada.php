@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Rally Coahuila 1000</title>
+        <title>Rodada Viesca</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,6 +25,7 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="../img/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
+		
 		
 		<!-- Font -->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -66,16 +67,16 @@
 									<span class="icon-bar"></span>
 								</button>
 								
-								<a href="" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
+								<a href="../index.php" class="navbar-brand"><img src="../img/logobbb.png" alt="Logo" /></a>							
 							</div>
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../index.html">Inicio</a></li>
-									<li><a href="../index.html#bienvenidos">Bienvenida</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php">Inicio</a></li>
+									<li><a href="../index.php#bienvenidos">Bienvenida</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 							
@@ -96,13 +97,16 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="single-blog wow slideInLeft">
-							<h3>Rally Coahuila 1000</h3>
+							<h3>Rodada Viesca</h3>
 							<img class="img-responsive img-rounded" 
-							     src="../img/eventos/coahuila-1000-001bbb.jpg" 
+							     src="../img/eventos/rodadabbb.jpg" 
 							     alt="Blog Image" />
-							<h4>Rally Coahuila 1000</h4>
-						    <p>Evento creado por la CANACO TORREÓN y apoyado por el Gobierno del Estado de Coahuila, con la finalidad de promover el turismo de aventura, en una travesía en vehículos todo terreno a través del desierto de Coahuila. Evento de talla internacional</p>
-						    
+							<h4>Rodada Viesca</h4>
+						    <p>La Cámara Nacional de Comercio (Canaco) de Torreón en coordinación con el colectivo ciclista "Laguna Bikes" y el Instituto Municipal del Deporte de Torreón organizan este evento familiar en el que pueden participar bicicletas de todas las líneas y ciclistas de todas las edades.</p>
+						    <p>Fecha: septiembre</p>
+						    <p>Kilómetros: 80 Km.</p>
+						    <p>Origen: Torreón Coah</p>
+						    <p>Destino: Viesca Coah.</p>
 						</div>
 						
 						
@@ -118,30 +122,30 @@
 								<ul class="cat">
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="01.rallycoahuila.html">Rally Coahuila 1000</a>
+										<a href="01.rallycoahuila.php">Rally Coahuila 1000</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="02.comidadeamistad.html">Comida de la Amistad</a>
+										<a href="02.comidadeamistad.php">Comida de la Amistad</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="03.exporegresoaclases.html">Expo Regreso a Clases</a>
+										<a href="03.exporegresoaclases.php">Expo Regreso a Clases</a>
 									</li>
 									<li>
 										<i class="icon-angle-right"></i>
-										<a href="04.rodada.html">Rodada Viesca</a>
+										<a href="04.rodada.php">Rodada Viesca</a>
 									</li>
 									
 								</ul>
 							</div>
 						
 							<div class="widget">
-								<h5 class="widgetheading">Eventos  más solicitados</h5>
+								<h5 class="widgetheading">Eventos m&aacute;s solicitados</h5>
 								<ul class="tags">
-									<li><a href="01.rallycoahuila.html">Rally Coahuila 1000</a></li>
-									<li><a href="02.comidadeamistad.html">Comida de la Amistad</a></li>
-									<li><a href="03.exporegresoaclases.html">Expo Regreso a Clases</a></li>
+									<li><a href="01.rallycoahuila.php">Rally Coahuila 1000</a></li>
+									<li><a href="02.comidadeamistad.php">Comida de la Amistad</a></li>
+									<li><a href="03.exporegresoaclases.php">Expo Regreso a Clases</a></li>
 								</ul>
 							</div>
 							</aside>
@@ -152,7 +156,7 @@
 		</section>
 		
 		
-		<!-- footer -->
+	<!-- footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -222,17 +226,17 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="copy-text">
-								<p>All Rights Reserved | Copyright 2018 © </p>
+								<p>All Rights Reserved | Copyright 2018 ©</p>
 							</div>
 						</div>
 						<div class="col-sm-5">
 							<div class="footer-menu pull-right">
 								<ul>
-									<li><a href="../index.html#home">Inicio</a></li>
-									<li><a href="../index.html#features">Servicios</a></li>
-									<li><a href="../index.html#blog">Eventos</a></li>
-									<li><a href="../index.html#about">Historia</a></li>
-									<li><a href="../index.html#contact-us">Contacto</a></li>
+									<li><a href="../index.php#home">Inicio</a></li>
+									<li><a href="../index.php#features">Servicios</a></li>
+									<li><a href="../index.php#blog">Eventos</a></li>
+									<li><a href="../index.php#about">Historia</a></li>
+									<li><a href="../index.php#contact-us">Contacto</a></li>
 								</ul>
 							</div>
 						</div>

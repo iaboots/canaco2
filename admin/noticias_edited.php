@@ -37,7 +37,7 @@
                 <div class="form-group">
                   <input id="btnCancelar" type="reset"  class="btn btn-danger" value="Cancelar"/>
                   <input id="btnEnviarNoticia" class="btn btn-success pull-right" type="submit" value="Guardar" />
-                </div
+               </div>
               </form>
             </div>
           </div>

@@ -8,7 +8,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Imagen inicial</h3>
+              <h3 class="box-title">+ Imagen inicial</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -126,7 +126,14 @@
                       <span>Evento activo</span>
                     </div>
                     <div class="col-xs-6">
-                      <input type="checkbox">
+                      <input type="checkbox" 
+                             id="checkboxActivo"
+                        <?php
+                          if ($votacion_data["activo"] == 1){
+                            echo "checked"; 
+                          };
+                        ?>
+                      >
                     </div>
                   </div>
                 </div>
@@ -136,7 +143,7 @@
                       <span>Año</span>
                     </div>
                     <div class="col-xs-6">
-                      <input class="form-control" type="number" id="exampleInputFile" value="<?php echo $votacion_data['year']; ?>">
+                      <input class="form-control" type="number" id="inputYear" value="<?php echo $votacion_data['year']; ?>">
                     </div>
                   </div>
                 </div>
@@ -172,7 +179,8 @@
                                            $finDateString = $finDate->format('d/m/Y');	
                                            echo $finDateString;
                                      ?>"
-                              name="inputDateFin" placeholder="dd/mm/yyyy">
+                              name="inputDateFin" 
+                              placeholder="dd/mm/yyyy">
                     </div>
                     <div class="col-xs-2">
                     </div>
@@ -195,6 +203,7 @@
                     </div>
                     <div class="col-xs-6">
                       <input type="checkbox"
+                              id="checkboxPageNominados"
                       <?php
                       
                           if ($votacion_data["ver_page_nomin"] == 1){
@@ -213,6 +222,7 @@
                     </div>
                     <div class="col-xs-6">
                       <input type="checkbox"
+                             id="checkboxResultados"
                       <?php
                       
                           if ($votacion_data["ver_page_result"] == 1){
@@ -239,32 +249,28 @@
                       <span>Mensaje:</span>
                     </div>
                     <div class="col-xs-6">
-                      <textarea class="form-control" id="exampleInputFile" style="resize:none" rows="4"></textarea>
+                      <textarea class="form-control" id="inputMensaje" style="resize:none" rows="4"><?php echo $votacion_data["mensaje"]; ?></textarea>
                     </div>
                   </div>
                 </div>   
             </div>
             <!-- /.box-body -->
-            
-          </div>
-          <!-- /.box -->
-          <div class="box box-warning">
-            <div class="box-body">
-              <div class="form-group">
+            <div class="box-footer">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-xs-6 text-right">
-                      <button class="btn btn-warning">Cancelar</button>
+                      <button class="btn btn-danger">Cancelar</button>
                     </div>
                     <div class="col-xs-6">
-                      <button class="btn btn-success" id="btnGuardarMejor" >Guardar</button>
+                      <button class="btn btn-info" id="btnGuardarMejor" >Guardar</button>
                     </div>
                   </div>
                 </div>
-              </form>
             </div>
-            <!-- /.box-body -->
+            
           </div>
           <!-- /.box -->
+         
         </div>
         <!--/.col (right) -->
       </div>
@@ -444,7 +450,6 @@
         return false;
       }
 
-
       // eventos de los elementos
 
       // desactivar datos de los dos modal
@@ -567,9 +572,9 @@
     }
 
     function recargar_imagen_nueva(){
-      $(".post-carga-nueva").each(function(){
-          $(this).attr('src', $(this).data('src')).on("load", function(){
-              $(this).fadeIn();
+      $( ".post-carga-nueva" ).each( function(){
+          $( this ).attr( 'src', $( this ).data( 'src' )).on( "load", function(){
+              $( this ).fadeIn();
           });
         }) 
     }
@@ -582,14 +587,14 @@
       e.preventDefault();
       let modal = $('#crearImagenModal');
       // comprobar que el modal este completo
-      if ( comprobar_formulario_nuevo(modal) ) {
+      if ( comprobar_formulario_nuevo( modal ) ) {
         crear_imagen();
         modal.modal('hide');
       } else {
         // mostrar mensaje de error
-        toastr.warning("<strong>Cuidado: </strong> Debe llenar todos los datos");
-        modal.addClass(animationName).one(animationEnd, function () {
-          $(this).removeClass(animationName);
+        toastr.warning( "<strong>Cuidado: </strong> Debe llenar todos los datos");
+        modal.addClass( animationName ).one( animationEnd, function () {
+          $( this ).removeClass( animationName );
         });
       }
       
@@ -597,7 +602,7 @@
     })
     
     // btn en el modal para update la imagen
-    $('button#btnUpdateImagen').on('click', function(e) {
+    $( 'button#btnUpdateImagen' ).on( 'click', function( e ) {
       e.preventDefault();
       let modal = $('#editarImagenModal');
       if (comprobar_formulario_editar(modal)){
@@ -717,7 +722,96 @@
       
     })
 
-    //$("#")
+    function btn_loading(btn){
+      btn.removeClass("btn-info");
+      btn.addClass("btn-warning");
+      btn.html("<i class='fa fa-spin fa-spinner'></i> Guardando");
+      btn.prop( "disabled", true );
+    }
+
+    function btn_normal_guardar(btn){
+      btn.removeClass();
+      btn.addClass("btn btn-info");
+      btn.html("Guardar");
+      btn.prop( "disabled", false );
+    }
+
+    function btn_error(btn){
+      btn.removeClass();
+      btn.addClass( "btn btn-danger" );
+      btn.html( "<i class='fa fa-warning'></i> Error" );
+      btn.prop( "disabled", true );
+    }
+
+    function update_info_votaciones( btn ){
+      let url = "core/editar_votacion.php";
+      let activo = $("#checkboxActivo").is(":checked");
+      let mensaje = $("#inputMensaje").val();
+
+      let dateIni = $( "#inputDateIni" ).val();
+      let dateFin = $( "#inputDateFin" ).val();
+
+      let year = $( "#inputYear" ).val();
+
+      let send_activo;
+      let see_page_nominados;
+      let see_page_resultados;
+
+      if (activo){
+        send_activo = 1;
+      } else {
+        send_activo = 0;
+      }
+
+      if ($("#checkboxPageNominados").is(":checked")){
+        see_page_nominados = 1;
+      } else {
+        see_page_nominados = 0;
+      }
+
+      if ($("#checkboxResultados").is(":checked")){
+        see_page_resultados = 1;
+      } else {
+        see_page_resultados = 0;
+      }
+
+      let data = {
+        "activo": send_activo,
+        "year": year,
+        "dateIni": dateIni,
+        "dateFin": dateFin,
+        "seePageNom": see_page_nominados,
+        "seePageRes": see_page_resultados,
+        "mensaje": mensaje
+      }
+      
+      $.post(url, data, function(r){
+        
+          if (r == "ok"){
+            btn_normal_guardar( btn );
+            toastr.success("Se ha guardado la configuración de las votaciones");
+          } else if (r == "sincambios"){
+            btn_normal_guardar( btn );
+            toastr.info("La configuración se ha guardado sin cambios");
+          } else {
+            // error
+            btn_error( btn );
+            toastr.info("<strong>Error:</strong> Un error impidió guardar la información. Inténtelo más tarde");
+          }
+          
+      }).fail(function(){
+        console.log("fallo el envio");
+         btn_error( btn );
+      })
+
+    }
+
+    $("#btnGuardarMejor").on("click", function(){
+      let this_btn = $( this );
+      btn_loading( this_btn );  
+      update_info_votaciones( this_btn );    
+
+    })
 
 
   })

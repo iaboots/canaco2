@@ -165,7 +165,7 @@
 		if ($ran != null){
 	?>
 	<div id="splashscreen" class="flex-container" style="display: none;" >
-		<div class="splash-border text-center">
+		<div class="splash-border text-center animated rubberBand">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
@@ -176,7 +176,6 @@
 			</div>
 			<div class=col-sm-12>
 				<img src="<?php echo $ran['ruta']; ?>" />
-				<!-- <img src="http://i.telegraph.co.uk/multimedia/archive/02182/kitten_2182000b.jpg" /> -->
 			</div>
 			<div class=col-sm-12 style="padding-top: 2em;">
 				<a href="<?php echo $ran['liga']; ?>" target="_blank" class="enter_link"><h4>Ir al sitio</h4></a><!--  -->
@@ -187,12 +186,10 @@
 		} // fin del if ran != null
 	?>
 
-
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="fb-root"></div>
-		
 		
 		<!-- Header Start -->
 		<header id="home">
@@ -217,7 +214,14 @@
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="#home">Inicio</a></li>
 									<li><a href="#bienvenidos">Bienvenida</a></li>
+									<?php
+										$is_activo = $controller->votacion_is_activo(); 
+										if ($is_activo){ ?>
+											<li><a href="votacion.php">Votación</a></li>
+										<?php }
+									?>
 									<li><a href="#features">Servicios</a></li>
+									<li><a href="noticia/lista.php">Noticias</a></li>
 									<li><a href="#blog">Eventos</a></li>
 									<li><a href="#about">Historia</a></li>
 									<li><a href="#contact-us">Contacto</a></li>
@@ -302,7 +306,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="about-text text-center wow fadeInUp">
-						
 							<h3>Bienvenidos a Canaco Torreón</h3>
 							<p>La Cámara Nacional de Comercio, Servicios y Turismo de Torreón, tiene como misión principal representar, defender y ofrecer a sus socios el apoyo que requiere para resolver los problemas y fomentar la unión y el crecimiento de las empresas de nuestro sector; y para cumplir con nuestra misión, hemos creado una gran variedad de servicios diseñados especialmente para usted.</p>
 					</div>
@@ -944,7 +947,7 @@
 					Cookies.set('splashscreen', 'yes', { expires: 1 });
 					$("#splashscreen").css("display", "flex");
 					
-				}   Cookies.remove('splashscreen');
+				}   //Cookies.remove('splashscreen');
 
 				<?php  
 					} // fin del if

@@ -70,6 +70,13 @@ final class Nominados extends OTabla {
 		return "SELECT $id, $nombre, $categoria, $email, $rfc, $status, $creado, $modificado FROM $this->table_name";
 	}
 
+	function get_only_concursantes(){
+		$id = "$this->id as id";
+		$nombre = "$this->nombre as nombre";
+		$categoria = "$this->categoria as categoria";
+		return "SELECT $id, $nombre, $categoria FROM $this->table_name WHERE $this->status=1";
+	}
+
 	function create($nombre="Name", $categoria="Cat", $email="Sample Mail", $rfc="rfc mail", $status="Status"){
 		$intro =  "INSERT INTO $this->table_name ( $this->nombre, $this->categoria, $this->email, $this->rfc, $this->status, $this->creado, $this->modificado)";
 		$value = " VALUES ('$nombre', '$categoria', '$email', '$rfc', '$status', NOW(), NOW());";
@@ -117,9 +124,19 @@ final class Noticias extends OTabla {
 	function get_all(){
 		$id = "$this->id as id";
 		$titulo = "$this->titulo as titulo";
+		$noticia = "$this->noticia as noticia";
 		$creado = "$this->creado as creado";
 		$modificado = "$this->modificado as modificado";
-		return "SELECT $id, $titulo, $creado, $modificado FROM $this->table_name";
+		return "SELECT $id, $titulo, $noticia, $creado, $modificado FROM $this->table_name";
+	}
+
+	function get_all_list(){
+		$id = "$this->id as id";
+		$titulo = "$this->titulo as titulo";
+		$noticia = "SUBSTRING($this->noticia, 1, 200) as noticia";
+		$creado = "$this->creado as creado";
+		$modificado = "$this->modificado as modificado";
+		return "SELECT $id, $titulo, $noticia, $creado, $modificado FROM $this->table_name";
 	}
 
 	function get_one($id){
@@ -196,24 +213,33 @@ final class SplashImagenes extends OTabla {
 
 final class Votacion extends OTabla {
 	protected $id = "vot_num_ctrl";
+	protected $activo = "vot_activo";
 	protected $year = "vot_anio";
 	protected $date_ini = "vot_fecha_inicio";
 	protected $date_fin = "vot_fecha_fin";
 	protected $ver_page_nomin = "actv_nominados";
 	protected $ver_page_result = "actv_resultados";
+	protected $mensaje = "vot_mensaje";
 	protected $table_name = "votacion";
 
 	function get(){
 		$year = "$this->year as year";
+		$activo = "$this->activo as activo";
 		$date_ini = "$this->date_ini as date_ini";
 		$date_fin = "$this->date_fin as date_fin";
 		$ver_page_nomin = "$this->ver_page_nomin as ver_page_nomin";
 		$ver_page_result = "$this->ver_page_result as ver_page_result";
-		return "SELECT $year, $date_ini, $date_fin, $ver_page_nomin, $ver_page_result FROM $this->table_name";
+		$mensaje = "$this->mensaje as mensaje";
+		return "SELECT $year, $activo, $date_ini, $date_fin, $ver_page_nomin, $ver_page_result, $mensaje FROM $this->table_name";
 	}
 
-	function update($year, $date_ini, $date_fin){
-		return "UPDATE $this->table_name SET $this->year='$year', $this->date_ini='$date_ini', $this->date_fin='$date_fin';";
+	function is_activo(){
+		$activo = "$this->activo as activo";
+		return "SELECT $activo FROM $this->table_name";
+	}
+
+	function update($activo, $year, $date_ini, $date_fin, $seePageNom, $seePageResu, $mensaje){ 
+		return "UPDATE $this->table_name SET $this->activo='$activo', $this->year='$year', $this->date_ini='$date_ini', $this->date_fin='$date_fin', $this->ver_page_nomin='$seePageNom', $this->ver_page_result='$seePageResu', $this->mensaje='$mensaje';";
 	}
 
 }
@@ -316,6 +342,12 @@ class Bd {
 		return $result;
 	}
 
+	function get_nominados_concursantes(){
+		$query = $this->table_nominados->get_only_concursantes();
+		$result = $this->procesar_query($query);
+		return $result;
+	}
+
 	function create_socio($nombre, $categoria, $email, $rfc, $status){
 		$query = $this->table_nominados->create($nombre, $categoria, $email, $rfc, $status);
 		return $this->insertar_datos($query);
@@ -356,6 +388,12 @@ class Bd {
 
 	function all_noticias(){
 		$query = $this->table_noticias->get_all();
+		$result = $this->procesar_query($query);
+		return $result;
+	}
+
+	function get_all_list(){
+		$query = $this->table_noticias->get_all_list();
 		$result = $this->procesar_query($query);
 		return $result;
 	}
@@ -427,8 +465,14 @@ class Bd {
 		return $result;
 	}
 
-	function update_votacion($year, $date_ini, $date_fin){
-		$query = $this->table_votacion->update($year, $date_ini, $date_fin);
+	function votacion_is_activo(){
+		$query = $this->table_votacion->is_activo();
+		$result = $this->procesar_query($query, $conv_array=false);
+		return $result;
+	}
+
+	function update_votacion($activo, $year, $date_ini, $date_fin, $seePageNom, $seePageResu, $mensaje){
+		$query = $this->table_votacion->update($activo, $year, $date_ini, $date_fin, $seePageNom, $seePageResu, $mensaje);
 		$result = $this->query_execute_affected_rows($query);
 		return $result;
 	}
@@ -449,9 +493,15 @@ class Controller {
 		return $this->bd->all_usuarios();
 	}
 
+	function get_nominados_concursantes(){
+		return $this->bd->get_nominados_concursantes();
+	}
+
 	function comprobar_login($user, $pass){
 		return $this->bd->comprobar_login($user, $pass);
 	}
+
+	// Socios
 
 	function get_all_nominados(){
 		return $this->bd->all_nominados();
@@ -477,12 +527,18 @@ class Controller {
 		return $this->bd->deactivate_socio($id);
 	}
 
+	// Noticias 
+
 	function create_noticia($titulo, $noticia, $fuente){
 		return $this->bd->create_noticia($titulo, $noticia, $fuente);
 	}
 
 	function get_all_noticias(){
 		return $this->bd->all_noticias();
+	}
+
+	function get_all_list(){
+		return $this->bd->get_all_list();
 	}
 
 	function get_one_noticia($id){
@@ -528,8 +584,17 @@ class Controller {
 		return $this->bd->get_votacion();
 	}
 
-	function update_votacion($year, $date_ini, $date_fin){
-		return $this->bd->update_votacion($year, $date_ini, $date_fin);
+	function votacion_is_activo(){
+		$result = $this->bd->votacion_is_activo();
+		if ($result["activo"] == 1){
+			return True;
+		} else {
+			return False;
+		}
+	}
+
+	function update_votacion($activo, $year, $date_ini, $date_fin, $seePageNom, $seePageResu, $mensaje){
+		return $this->bd->update_votacion($activo, $year, $date_ini, $date_fin, $seePageNom, $seePageResu, $mensaje);
 	}
 
 	// fin de las votaciones
