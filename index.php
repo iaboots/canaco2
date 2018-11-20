@@ -1022,8 +1022,6 @@
 					$("#splashscreen").fadeOut(500); 
 				})
 
-				
-
 
 			});
 		</script>

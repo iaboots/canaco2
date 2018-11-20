@@ -39,14 +39,18 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/estilotramite.css">
+		<link rel="stylesheet" href="css/estilotramite.css">
+		
+		<link rel="stylesheet" href="css/toastr.min.css">
+
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<style>
 			.single-vota{
 				background: url("img/fondovotaciones.png") no-repeat scroll right center #e8e8e8;
 				background-size: cover;
-				height: 260px; 
+				height: 280px; 
+			
 				/*margin: 20, 20, 20, 20;*/
 			
 				background-origin: content-box;
@@ -56,11 +60,11 @@
 			.single-blog h4 {
 				color: white;
 				text-align: right;
-				padding-top: 10%;
+				padding-top: 8%;
 				margin-right: 5%;
 			}
 			.single-blog p {
-				padding-top:5%;
+				padding-top:2%;
 				text-align: center;
 				color: white;
 			}
@@ -73,12 +77,21 @@
 				text-align: center;
 			}
 			.h5-categoria-titulo {
-				padding-top: 7%;
+				padding-top: 4%;
 			}
 			.h2-categoria {
 				color: white;
 				text-align: center;
 				margin-padding: 10%;
+			}
+			.btn-votar {
+				text-align: right;
+				padding-right: 25px;
+			}
+			.btn-votar-item {
+				color: white !important;
+				
+				
 			}
 
 		</style>
@@ -161,7 +174,15 @@
 								<h5>en</h5>
 								<h5 class="h5-categoria-titulo">CATEGORÍA</h5>
 								<h2 class="h2-categoria"><?php echo $nom['categoria']; ?></h2>
-								<br>
+								<div class="btn-votar">
+									<a class="btn btn-primary btn-votar-item"
+										data-vota-id="<?php echo $nom['id'] ?>">
+										<i class="fa fa-star"></i>
+										Votar
+									</a>
+							    </div>
+								<br><br>
+										
 								</div>
 							</div>
 						
@@ -285,9 +306,51 @@
         <script src="js/jquery.smooth-scroll.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/wow.min.js"></script>
-        <script src="js/main.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/toastr.min.js"></script>
+		<script src="js/js.cookie.js"></script>
+
        <script type="text/javascript">
 			$(document).ready(function(){
+				
+				let cook_votacion = Cookies.get('votacion');
+				var listado_votacion;
+				
+				if (cook_votacion == null){
+					Cookies.set('votacion', JSON.stringify([]), { expires: 30 });
+					listado_votacion = [];
+				} else {
+					listado_votacion = JSON.parse(cook_votacion);
+				}
+
+				function agregar_cookie_votacion( newId ){
+					listado_votacion.push( newId  );
+					Cookies.set('votacion', JSON.stringify( listado_votacion ), { expires: 30 });
+				}
+
+				function ya_existe_votacion( id ){
+					return listado_votacion.includes( id );
+				}
+
+				toastr.options = {
+					"closeButton": true,
+					"debug": false,
+					"newestOnTop": false,
+					"progressBar": true,
+					"positionClass": "toast-bottom-left",
+					"preventDuplicates": false,
+					"onclick": null,
+					"showDuration": "300",
+					"hideDuration": "1000",
+					"timeOut": "5000",
+					"extendedTimeOut": "1000",
+					"showEasing": "swing",
+					"hideEasing": "linear",
+					"showMethod": "fadeIn",
+					"hideMethod": "fadeOut"
+				}
+
+
 				$('a[href^="#"]').on('click',function (e) {
 					e.preventDefault();
 
@@ -297,19 +360,75 @@
 					$('html, body').stop().animate({
 						 'scrollTop': $target.offset().top
 					}, 900, 'swing');
-					});
+				});
+
+				
+
+				function btn_cargando(btn){
+					btn.removeClass();
+					btn.addClass("btn btn-warning btn-votar-item disabled");
+					btn.html("<i class='fa fa-spinner fa-spin'></i> Votando");
+				}
+
+				function btn_votaste(btn){
+					btn.removeClass();
+					btn.addClass("btn btn-votar-item btn-success disabled");
+					btn.html("<i class='fa fa-check'></i> Votaste");
+				}
+
+				function btn_error(btn){
+					btn.removeClass();
+					btn.addClass("btn btn-danger btn-votar-item disabled");
+					btn.html("<i class='fa fa-times'></i> Error");
+				}
+
+				function btn_ya_votaste( btn ){
+					btn.removeClass();
+					btn.addClass("btn btn-info btn-votar-item disabled");
+					btn.html("<i class='fa fa-exclamation-triangle'></i> Ya votaste");
+				}
+
+				function ir_a_votar(id, btn){
+					let url = "ir_votar.php";
+					let data = {
+						"votaId": id
+					}
+					$.post(url, data, function(r){
+						console.log(r);
+						if ( r == "ok" ){
+							toastr.success("Has votado correctamente");
+							setTimeout(() => {
+								btn_votaste( btn );
+							}, 500);
+						} else {
+							toastr.error("Hay un error a la hora de votar");
+							setTimeout(() => {
+								btn_error( btn );
+							}, 500);
+							
+						}
+
+					}).fail(function(){
+						alert("fallo");
+					})
+				}
+
+				$( ".btn-votar-item" ).on( "click", function(e){
+					e.preventDefault();
+					let $btn = $( this );
+					btn_cargando( $btn );
+					let vota_id = $btn.data( "vota-id" );
+					if (ya_existe_votacion( vota_id )){
+						toastr.info( "Ya votaste en este periodo por este nominado", "Ya votaste" );
+						btn_ya_votaste( $btn );
+					} else {
+						ir_a_votar( vota_id, $btn );
+						agregar_cookie_votacion( vota_id );
+					}
+				} )
 			});
 		</script>
 		<script src="js/custom.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
     </body>
 </html>

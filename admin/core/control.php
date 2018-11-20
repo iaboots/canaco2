@@ -52,6 +52,7 @@ final class Nominados extends OTabla {
 	protected $email = "soc_email";
 	protected $rfc = "soc_rfc";
 	protected $status = "soc_estatus";
+	protected $votos = "soc_votos";
 	protected $creado_usuario = "soc_usuariocreacion";
 	protected $creado = "soc_fechacreacion";
 	protected $modificado_usuario = "soc_usuariomodif";
@@ -65,16 +66,18 @@ final class Nominados extends OTabla {
 		$email = "$this->email as email";
 		$rfc = "$this->rfc as rfc";
 		$status = "$this->status as status";
+		$votos = "$this->votos as votos";
 		$creado = "$this->creado as creado";
 		$modificado = "$this->modificado as modificado";
-		return "SELECT $id, $nombre, $categoria, $email, $rfc, $status, $creado, $modificado FROM $this->table_name";
+		return "SELECT $id, $nombre, $categoria, $email, $rfc, $status, $creado, $votos, $modificado FROM $this->table_name";
 	}
 
 	function get_only_concursantes(){
 		$id = "$this->id as id";
 		$nombre = "$this->nombre as nombre";
 		$categoria = "$this->categoria as categoria";
-		return "SELECT $id, $nombre, $categoria FROM $this->table_name WHERE $this->status=1";
+		$votos = "$this->votos as votos";
+		return "SELECT $id, $nombre, $categoria, $votos FROM $this->table_name WHERE $this->status=1";
 	}
 
 	function create($nombre="Name", $categoria="Cat", $email="Sample Mail", $rfc="rfc mail", $status="Status"){
@@ -100,6 +103,11 @@ final class Nominados extends OTabla {
 
 	function deactivate($id){
 		$query = "UPDATE $this->table_name SET $this->status='0' WHERE $this->id=$id;";
+		return $query;
+	}
+
+	function aumentar_voto($id){
+		$query = "UPDATE $this->table_name SET $this->votos=$this->votos+1 WHERE $this->id=$id";
 		return $query;
 	}
 
@@ -376,6 +384,12 @@ class Bd {
 		return $result;
 	}
 
+	function socio_aumentar_voto( $id ){
+		$query = $this->table_nominados->aumentar_voto($id);
+		$result = $this->query_execute_affected_rows($query);
+		return $result;
+	}
+
 	// fin de los socios
 
 	// Inicio de las noticias
@@ -527,6 +541,10 @@ class Controller {
 		return $this->bd->deactivate_socio($id);
 	}
 
+	function socio_aumentar_voto( $id ){
+		return $this->bd->socio_aumentar_voto( $id );
+	}
+
 	// Noticias 
 
 	function create_noticia($titulo, $noticia, $fuente){
@@ -603,7 +621,6 @@ class Controller {
 }
 
 $controller = new Controller();
-
 
 
 

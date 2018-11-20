@@ -61,7 +61,7 @@
                       <td><?php echo $cont++; ?></td>
                       <td><?php echo $nom['nombre']; ?></td>
                       <td><?php echo $nom['categoria']; ?></td>
-                      <td>0</td>
+                      <td><?php echo $nom['votos']; ?></td>
                       <td class="text-center fila-status">
                         <?php 
                             if ($nom['status'] == 1){
